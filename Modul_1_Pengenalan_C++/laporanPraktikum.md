@@ -378,7 +378,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](Laporan-Praktikum-Struktur-Data/Modul_1_Pengenalan_C++/output/Screenshot_Soal_3_Renisa_Assyifa_Putri_103112400123.png)
+> ![Screenshot bagian x](output/Screenshot_Soal_3_Renisa_Assyifa_Putri_103112400123.png)
 
 Program ini dirancang untuk menghasilkan sebuah pola piramida angka terbalik yang simetris berdasarkan input n dari pengguna. Program menggunakan perulangan bersarang (nested loop). Loop terluar mengontrol baris, sedangkan loop di dalamnya mengatur pencetakan spasi untuk indentasi, urutan angka menurun di sisi kiri, karakter * di tengah, dan urutan angka menaik di sisi kanan. Setelah pola utama selesai, sebuah baris tambahan yang hanya berisi karakter * di tengah dicetak sebagai penutup.
 
