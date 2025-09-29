@@ -1,6 +1,6 @@
 # <h1 align="center">Laporan Praktikum Modul 1 <br> Pengenalan C++</h1>
 
-<p align="center">Bagas Alfanto - 103112430025</p>
+<p align="center">Renisa Assyifa Putri - 103112400123</p>
 
 ## Dasar Teori
 
