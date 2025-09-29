@@ -285,7 +285,7 @@ int main(){
 ```
 
 > Output
-> ![Screenshot bagian x](output\Screenshot_Soal_1_Renisa_Assyifa_Putri_103112400123.png)
+> ![Screenshot bagian x](Modul_1_Pengenalan_C++/output/Screenshot_Soal_1_Renisa_Assyifa_Putri_103112400123.png)
 
 Program C++ di atas berfungsi sebagai kalkulator sederhana yang melakukan empat operasi aritmatika dasar. Program ini meminta pengguna untuk memasukkan dua bilangan desimal (n1 dan n2). Kemudian, program secara berurutan menampilkan hasil dari penjumlahan, pengurangan, perkalian, dan pembagian kedua bilangan tersebut. Terdapat sebuah kondisi khusus untuk operasi pembagian untuk mencegah terjadinya error akibat pembagian dengan nol.
 
@@ -332,7 +332,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](output\Screenshot_Soal_2_Renisa_Assyifa_Putri_103112400123.png)
+> ![Screenshot bagian x](Modul_1_Pengenalan_C++/output/Screenshot_Soal_2_Renisa_Assyifa_Putri_103112400123.png)
 
 Program ini berfungsi sebagai konverter angka menjadi teks dalam Bahasa Indonesia untuk rentang 1 hingga 100. Program ini menggunakan logika percabangan untuk menangani beberapa kasus. Untuk angka 1-10, program mengambil string dari array yang telah didefinisikan. Untuk angka belasan (11-19), program menggabungkan nama satuan dengan akhiran "belas". Untuk angka puluhan (20-99), angka dipecah menjadi puluhan dan satuan untuk dirangkai. Terdapat kasus khusus untuk angka 100, dan sebuah pesan error akan muncul jika angka yang diinput berada di luar jangkauan yang ditentukan.
 
@@ -378,8 +378,7 @@ int main() {
 ```
 
 > Output
-> ![Screenshot bagian x](output\Screenshot_Soal_3_Renisa_Assyifa_Putri_103112400123.png)
-
+> ![Screenshot bagian x](Modul_1_Pengenalan_C++/output/Screenshot_Soal_3_Renisa_Assyifa_Putri_103112400123.png)
 Program ini dirancang untuk menghasilkan sebuah pola piramida angka terbalik yang simetris berdasarkan input n dari pengguna. Program menggunakan perulangan bersarang (nested loop). Loop terluar mengontrol baris, sedangkan loop di dalamnya mengatur pencetakan spasi untuk indentasi, urutan angka menurun di sisi kiri, karakter * di tengah, dan urutan angka menaik di sisi kanan. Setelah pola utama selesai, sebuah baris tambahan yang hanya berisi karakter * di tengah dicetak sebagai penutup.
 
 ## Referensi
