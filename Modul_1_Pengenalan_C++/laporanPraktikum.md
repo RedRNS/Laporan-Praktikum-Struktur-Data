@@ -32,6 +32,9 @@ int main()
 }
 ```
 
+> Output
+> ![Screenshot bagian x](output/Screenshot_aritmatika_Renisa_Assyifa_Putri_103112400123.png)
+
 Program di atas bertujuan untuk melakukan perhitungan matematis sederhana. Nilai Z didapatkan dari hasil pembagian antara (X + Y) dengan (Y + W). Nilai variabel X, Y, dan W telah ditentukan secara hardcode di dalam program. Hasil akhir dari operasi tersebut, yang disimpan dalam variabel Z bertipe float, kemudian dicetak ke layar.
 
 ### Soal 2 Fungsi
@@ -86,6 +89,9 @@ int main()
 }
 
 ```
+
+> Output
+> ![Screenshot bagian x](output/Screenshot_fungsi_Renisa_Assyifa_Putri_103112400123.png)
 
 Program ini mendemonstrasikan cara menghitung luas serta keliling dari sebuah persegi panjang. Input berupa nilai panjang dan lebar diterima dari pengguna. Program ini mengimplementasikan dua buah fungsi (hitungLuas dan hitungKeliling) yang masing-masing mengembalikan nilai hasil perhitungan, dan satu prosedur (tampilkanHasil) yang bertugas untuk menampilkan keseluruhan hasil secara langsung tanpa mengembalikan nilai.
 
@@ -156,6 +162,9 @@ int main()
 
 ```
 
+> Output
+> ![Screenshot bagian x](output/Screenshot_kondisi_Renisa_Assyifa_Putri_103112400123.png)
+
 Kode ini menampilkan implementasi struktur kontrol percabangan. Dua blok kode pertama (yang berada dalam komentar) adalah contoh penggunaan if dan if-else untuk memberikan diskon sebesar 5% jika total belanja mencapai Rp100.000 atau lebih. Blok kode yang aktif adalah program yang meminta pengguna memasukkan kode hari dalam bentuk angka (1-7). Berdasarkan input tersebut, program menggunakan struktur switch-case untuk menentukan dan menampilkan output apakah hari itu tergolong "Hari Kerja" atau "Hari Libur". Jika input di luar rentang 1-7, sebuah pesan kesalahan akan ditampilkan.
 
 ### Soal 4 Perulangan
@@ -189,6 +198,9 @@ int main()
     return 0;
 }
 ```
+
+> Output
+> ![Screenshot bagian x](output/Screenshot_perulangan_Renisa_Assyifa_Putri_103112400123.png)
 
 Program ini menunjukkan dua contoh implementasi perulangan. Pada bagian yang dikomentari, sebuah for loop digunakan untuk mencetak teks secara berulang sebanyak jumlah yang diinput oleh pengguna. Sementara itu, pada bagian kode yang aktif, sebuah do-while loop digunakan. Program ini akan mencetak teks "bahlil ke-" diikuti dengan nomor urut yang dimulai dari 2, dan perulangan akan terus berjalan hingga nilai i mencapai jumlah yang ditentukan oleh input pengguna.
 
@@ -227,6 +239,9 @@ int main() {
 }
 
 ```
+
+> Output
+> ![Screenshot bagian x](output/Screenshot_struct_Renisa_Assyifa_Putri_103112400123.png)
 
 Program ini mengilustrasikan penggunaan struct untuk mengelompokkan data yang saling terkait. Sebuah struct dengan nama Mahasiswa didefinisikan untuk menampung tiga data: nama, nim, dan ipk. Program kemudian meminta pengguna untuk memasukkan ketiga data tersebut. Setelah data berhasil diinput, program akan menampilkannya kembali dalam format yang terstruktur.
 
