@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul 2 <br> Pengenalan C++ (Bagian Kedua)</h1>
+# <h1 align="center">Laporan Praktikum Modul 3 & 4 <br> Abstract Data Type (ADT) & Singly Linked List</h1>
 
 <p align="center">Renisa Assyifa Putri - 103112400123</p>
 
