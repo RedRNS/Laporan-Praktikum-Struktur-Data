@@ -196,9 +196,10 @@ int main() {
 }
 ```
 ### Output Code
-![Output](Output/Output-Guided1.1-Modul4.png)
+![Output](output/Output-Guided1.1-Modul4.png)
 
-![Output](Output/Output-Guided1.2-Modul4.png)
+![Output](output/Output-Guided1.2-Modul4.png)
+
 Program ini adalah implementasi lengkap untuk mengelola singly linked list.
 
 Struktur Dasar: Dimulai dengan struct Node yang punya dua komponen: data (untuk menyimpan nilai) dan next (pointer ke node selanjutnya). Ada juga pointer global head yang selalu menunjuk ke node pertama.
@@ -326,7 +327,7 @@ int main() {
 }
 ```
 ### Output Code
-![Output](Output/Output-Unguided1-Modul4.png)
+![Output](output/Output-Unguided1-Modul4.png)
 
 Program ini adalah simulasi sistem antrian yang menerapkan prinsip First-In, First-Out (FIFO) menggunakan singly linked list.
 - Struktur Data: Setiap Node menyimpan data nama dan pesanan pembeli. Program menggunakan dua pointer utama: head (untuk menunjuk antrian terdepan) dan tail (untuk menunjuk antrian terakhir).
@@ -412,7 +413,7 @@ int main() {
 }
 ```
 ### Output Code
-![Output](Output/Output-Unguided2-Modul4.png)
+![Output](output/Output-Unguided2-Modul4.png)
 Program ini berfungsi untuk membalik urutan sebuah singly linked list. Proses pembalikan dilakukan dalam fungsi reverseList() dengan sebuah algoritma iteratif yang cerdas menggunakan tiga pointer: prev, current, dan next.
 Logikanya seperti ini:
 1. prev awalnya NULL, akan menjadi node baru yang ditunjuk.
