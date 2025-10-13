@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul 3\ <br> Abstract Data Type (ADT)</h1>
+# <h1 align="center">Laporan Praktikum Modul 3 <br> Abstract Data Type (ADT)</h1>
 
 <p align="center">Renisa Assyifa Putri - 103112400123</p>
 
@@ -76,11 +76,11 @@ int main()
 
 File main.cpp ini adalah program utama yang bertindak sebagai "pengguna" dari ADT mahasiswa. Di sini, kita membuat sebuah variabel bernama mhs dengan tipe mahasiswa. Selanjutnya, fungsi inputMhs(mhs) dipanggil untuk mengisi data ke variabel mhs. Terakhir, cout menampilkan hasil perhitungan dari fungsi rata2(mhs) ke layar.
 ### Output Code
-![Output](Output/Output_Guided_Modul3.png)
+![Output](output/Output_Guided_Modul3.png)
 
 ## Unguided
 
-> 1. **Buat program yang dapat menyimpan data mahasiswa (max. 10) ke dalam sebuah array** dengan field nama, NIM, UTS, UAS, tugas, dan nilai akhir. Nilai akhir diperoleh dari **fungsi** dengan rumus:
+1. **Buat program yang dapat menyimpan data mahasiswa (max. 10) ke dalam sebuah array** dengan field nama, NIM, UTS, UAS, tugas, dan nilai akhir. Nilai akhir diperoleh dari **fungsi** dengan rumus:
 
 $$
 \text{Nilai Akhir} = (0.3 \times \text{UTS}) + (0.4 \times \text{UAS}) + (0.3 \times \text{Tugas})
@@ -137,10 +137,10 @@ int main() {
 }
 ```
 ### Output Code
-![Output](Output/Output_Unguided1_Modul3.png)
+![Output](output/Output_Unguided1_Modul3.png)
 Program ini dirancang untuk mengelola data nilai mahasiswa. Pertama, sebuah struct bernama Mahasiswa didefinisikan untuk membungkus semua data terkait (nama, NIM, dan nilai-nilai) agar lebih terstruktur. Terdapat juga fungsi hitungNilaiAkhir() yang terpisah, khusus untuk menghitung nilai akhir berdasarkan bobot yang ditentukan. Di dalam fungsi main(), program akan menanyakan berapa jumlah mahasiswa yang akan diinput. Kemudian, program melakukan perulangan untuk meminta data setiap mahasiswa. Setelah semua data terisi, nilai akhir untuk setiap mahasiswa dihitung menggunakan fungsi yang telah dibuat. Terakhir, program akan menampilkan kembali seluruh data mahasiswa beserta nilai akhir yang sudah dihitung.
 
->  2. Buatlah ADT pelajaran sebagai berikut di dalam file “pelajaran.h”:
+2. Buatlah ADT pelajaran sebagai berikut di dalam file “pelajaran.h”:
 
 ```
 Type pelajaran <
@@ -152,7 +152,7 @@ Type pelajaran <
     procedure tampil_pelajaran( input pel : pelajaran )
 ```
 
-> Buatlah implementasi ADT pelajaran pada file “pelajaran.cpp” Cobalah hasil implementasi ADT pada file “main.cpp”
+Buatlah implementasi ADT pelajaran pada file “pelajaran.cpp” Cobalah hasil implementasi ADT pada file “main.cpp”
 
 ```cpp
 using namespace std;
@@ -232,7 +232,7 @@ PProgram ini mendemonstrasikan penerapan Abstract Data Type (ADT) dengan memisah
 3. main.cpp (Driver File): Program utama yang menggunakan ADT pelajaran. Di sini, kita mendefinisikan nama dan kode pelajaran, lalu memanggil create_pelajaran() untuk membuat objeknya, dan terakhir memanggil tampil_pelajaran() untuk menampilkannya.
 
 
-> 3. Buatlah program dengan ketentuan :
+3. Buatlah program dengan ketentuan :
 
 ```
 - 2 buah array 2D integer berukuran 3x3 dan 2 buah pointer integer
