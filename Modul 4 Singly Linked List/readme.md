@@ -222,7 +222,7 @@ Program Utama: Fungsi main() menyediakan menu interaktif agar pengguna bisa memi
 ---
 ### Soal 1
 
-> 1. Buatlah single linked list untuk Antrian yang menyimpan data pembeli( nama dan pesanan). program memiliki beberapa menu seperti tambah antrian,  layani antrian(hapus), dan tampilkan antrian. \*antrian pertama harus yang pertama dilayani
+1. Buatlah single linked list untuk Antrian yang menyimpan data pembeli( nama dan pesanan). program memiliki beberapa menu seperti tambah antrian,  layani antrian(hapus), dan tampilkan antrian. \*antrian pertama harus yang pertama dilayani
 
 ```cpp
 #include <iostream>
@@ -337,7 +337,7 @@ Program ini adalah simulasi sistem antrian yang menerapkan prinsip First-In, Fir
 ---
 ### Soal 2
 
->  2. buatlah program kode untuk membalik (reverse) singly linked list (1-2-3 menjadi 3-2-1)
+2. buatlah program kode untuk membalik (reverse) singly linked list (1-2-3 menjadi 3-2-1)
 
 ```cpp
 #include <iostream>
