@@ -137,7 +137,7 @@ int main() {
 }
 ```
 ### Output Code
-![Output](output/output_Unguided1_Modul3.png)
+![Output](output/Output_Unguided1_Modul3.png)
 Program ini dirancang untuk mengelola data nilai mahasiswa. Pertama, sebuah struct bernama Mahasiswa didefinisikan untuk membungkus semua data terkait (nama, NIM, dan nilai-nilai) agar lebih terstruktur. Terdapat juga fungsi hitungNilaiAkhir() yang terpisah, khusus untuk menghitung nilai akhir berdasarkan bobot yang ditentukan. Di dalam fungsi main(), program akan menanyakan berapa jumlah mahasiswa yang akan diinput. Kemudian, program melakukan perulangan untuk meminta data setiap mahasiswa. Setelah semua data terisi, nilai akhir untuk setiap mahasiswa dihitung menggunakan fungsi yang telah dibuat. Terakhir, program akan menampilkan kembali seluruh data mahasiswa beserta nilai akhir yang sudah dihitung.
 
 2. Buatlah ADT pelajaran sebagai berikut di dalam file “pelajaran.h”:
@@ -226,7 +226,7 @@ int main() {
 ```
 ### Output Code
 ![Output](output/Output_Unguided2_Modul3.png)
-PProgram ini mendemonstrasikan penerapan Abstract Data Type (ADT) dengan memisahkan kode ke dalam tiga file:
+Program ini mendemonstrasikan penerapan Abstract Data Type (ADT) dengan memisahkan kode ke dalam tiga file:
 1. pelajaran.h (Header File): Berisi definisi struct pelajaran (yang menyimpan nama dan kode mapel) serta deklarasi fungsi create_pelajaran() dan prosedur tampil_pelajaran(). File ini berfungsi sebagai "kontrak" atau interface dari ADT.
 2. pelajaran.cpp (Implementation File): Berisi kode implementasi dari fungsi dan prosedur yang dideklarasikan di file header. Fungsi create_pelajaran() digunakan untuk membuat objek pelajaran baru, sementara tampil_pelajaran() digunakan untuk mencetak datanya ke layar.
 3. main.cpp (Driver File): Program utama yang menggunakan ADT pelajaran. Di sini, kita mendefinisikan nama dan kode pelajaran, lalu memanggil create_pelajaran() untuk membuat objeknya, dan terakhir memanggil tampil_pelajaran() untuk menampilkannya.
@@ -311,6 +311,3 @@ Di dalam main(), program menginisialisasi dua matriks (M1 dan M2) dan dua variab
 2. Muliono, R. (n.d.). DT(Abstract Data Type) (Makalah). Dokumen ajar PDF. https://rizkimuliono.blog.uma.ac.id/wp-content/uploads/sites/365/2017/05/ADT-Abstract-Data-Type.pdf
 
 3. Universitas Bina Darma. (2021). RPS Struktur Data. Dokumen RPS. https://in.binadarma.ac.id/document/1690340116_RPS%20Struktur%20data%20Terbaru.pdf
-
-
-
