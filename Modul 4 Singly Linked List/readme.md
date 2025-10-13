@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul 4\ <br> ASingly Linked List</h1>
+# <h1 align="center">Laporan Praktikum Modul 4 <br> ASingly Linked List</h1>
 
 <p align="center">Renisa Assyifa Putri - 103112400123</p>
 
@@ -326,9 +326,7 @@ int main() {
 }
 ```
 ### Output Code
-![Output](Output/Output-Unguided1.1-Modul4.png)
-
-![Output](Output/Output-Unguided1.2-Modul4.png)
+![Output](Output/Output-Unguided1-Modul4.png)
 
 Program ini adalah simulasi sistem antrian yang menerapkan prinsip First-In, First-Out (FIFO) menggunakan singly linked list.
 - Struktur Data: Setiap Node menyimpan data nama dan pesanan pembeli. Program menggunakan dua pointer utama: head (untuk menunjuk antrian terdepan) dan tail (untuk menunjuk antrian terakhir).
@@ -424,11 +422,6 @@ Dalam setiap iterasi, pointer next dari current dibalik arahnya untuk menunjuk k
 
 ## Referensi
 
-1. Wahyudi, J. (2013). Instruksi Bahasa Pemrograman ADT (Abstract Data Type) pada Virus dan Loop Batch. Media Infotama, 9(2). https://www.neliti.com/publications/153187/instruksi-bahasa-pemrograman-adt-abstract-data-type-pada-virus-dan-loop-batch
-
-2. Muliono, R. (n.d.). DT(Abstract Data Type) (Makalah). Dokumen ajar PDF. https://rizkimuliono.blog.uma.ac.id/wp-content/uploads/sites/365/2017/05/ADT-Abstract-Data-Type.pdf
-
-3. Universitas Bina Darma. (2021). RPS Struktur Data. Dokumen RPS. https://in.binadarma.ac.id/document/1690340116_RPS%20Struktur%20data%20Terbaru.pdf
-
-
-
+1. Universitas Negeri Malang. (n.d.). Modul 6 Single & Double Linked List. Modul Struktur Data (PDF). https://elektro.um.ac.id/wp-content/uploads/2016/04/ASD-Modul-6-Linked-List.pdf
+2. Universitas Esa Unggul. (n.d.). Linked List. Modul Kuliah Struktur Data. https://lms-paralel.esaunggul.ac.id/pluginfile.php?file=%2F86227%2Fmod_resource%2Fcontent%2F1%2FModul+Struktur+Data-Linked+List.pdf
+3. Rumah Coding. (n.d.). "Struktur Data: Pengertian dan Implementasi Dasar Linked List". https://rumahcoding.co.id/linked-list-pengertian-dan-implementasi-dasar/
