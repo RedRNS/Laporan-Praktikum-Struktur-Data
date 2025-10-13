@@ -2,7 +2,7 @@
 #include "pelajaran.h"
 using namespace std;
 
-int main(){
+int main() {
     string namapel = "Struktur Data";
     string kodepel = "STD";
 
