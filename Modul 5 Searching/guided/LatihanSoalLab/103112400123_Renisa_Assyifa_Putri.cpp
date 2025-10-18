@@ -3,7 +3,6 @@
 
 using namespace std;
 
-// Definisi Tipe Data dan Struktur
 struct infotype {
     string isbn;
     string judul;
@@ -21,14 +20,15 @@ struct List {
     address first;
 };
 
-// Implementasi Fungsi-Fungsi
 void createList(List &L) {
     L.first = NULL;
 }
 
 address alokasi(infotype data) {
     address P = new elmlist;
-    P->info = data;
+    P->info.isbn = data.isbn;
+    P->info.judul = data.judul;
+    P->info.penulis = data.penulis;
     P->next = NULL;
     return P;
 }
@@ -123,7 +123,6 @@ void lihatBuku(List L) {
     cout << "===========================================" << endl;
 }
 
-// Program Utama
 int main() {
     List daftar_buku;
     createList(daftar_buku);
