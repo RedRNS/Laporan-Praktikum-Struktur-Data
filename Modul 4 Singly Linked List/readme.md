@@ -4,7 +4,6 @@
 
 ## Dasar Teori - Singly Linked List
 
----
 Modul ke-4 ini membahas Singly Linked List, sebuah struktur data di mana setiap elemen (disebut node) terhubung dalam satu rantai lurus. Bayangin aja ini kayak gerbong kereta, setiap gerbong (node) punya satu sambungan (pointer) yang menunjuk ke gerbong berikutnya.
 
 Dalam Singly Linked List, ada dua istilah penting: head (node pertama) dan tail (node terakhir). Head adalah pintu masuk kita untuk mengakses seluruh "kereta", sementara tail adalah gerbong paling ujung yang sambungannya menunjuk ke NULL (kosong), menandakan akhir dari rantai.
@@ -12,8 +11,8 @@ Dalam Singly Linked List, ada dua istilah penting: head (node pertama) dan tail 
 Kelebihan utama linked list dibandingkan array adalah fleksibilitasnya. Nambah atau hapus data di tengah-tengah itu gampang, kita cuma perlu atur ulang sambungannya tanpa harus menggeser semua data lain. Tapi, kekurangannya adalah kita nggak bisa lompat langsung ke data tertentu. Untuk mencari data ke-10, misalnya, kita harus jalan dulu dari head melewati 9 node sebelumnya.
 
 Ketika kita membuat struct Node yang berisi data dan pointer, lalu membuat fungsi-fungsi seperti insert, delete, dan traverse, pada dasarnya kita sedang membangun sebuah ADT (Abstract Data Type) Linked List. Kita mendefinisikan "apa saja" yang bisa dilakukan, sementara detail teknis tentang cara kerja pointer dan alokasi memori kita sembunyikan di dalam implementasi.
+
 ## Guided
----
 
 ```cpp
 #include <iostream>
@@ -196,8 +195,8 @@ int main() {
 }
 ```
 ### Output Code
-![Output](output/Output-Guided1.1-Modul4.png)
 
+![Output](output/Output-Guided1.1-Modul4.png)
 ![Output](output/Output-Guided1.2-Modul4.png)
 
 Program ini adalah implementasi lengkap untuk mengelola singly linked list.
@@ -216,10 +215,9 @@ Operasi Tampilan: tampilkanList() bekerja dengan cara berjalan dari head sampai 
 Program Utama: Fungsi main() menyediakan menu interaktif agar pengguna bisa memilih dan menjalankan semua operasi linked list yang sudah dibuat.
 
 ## Unguided
----
+
 ## Soal Latihan Modul 4
 
----
 ### Soal 1
 
 1. Buatlah single linked list untuk Antrian yang menyimpan data pembeli( nama dan pesanan). program memiliki beberapa menu seperti tambah antrian,  layani antrian(hapus), dan tampilkan antrian. \*antrian pertama harus yang pertama dilayani
@@ -334,7 +332,7 @@ Program ini adalah simulasi sistem antrian yang menerapkan prinsip First-In, Fir
 - tambahAntrian(): Fungsi ini menambahkan pembeli baru di ujung belakang antrian. Node baru disambungkan setelah tail, dan tail kemudian diperbarui untuk menunjuk ke node baru tersebut. Ini memastikan penambahan data selalu efisien.
 - layaniAntrian(): Fungsi ini melayani pembeli di urutan paling depan. Data pembeli di head ditampilkan, lalu node head dihapus dari list, dan head digeser ke node berikutnya. Ini adalah implementasi dari prinsip "yang pertama datang, yang pertama dilayani".
 - tampilkanAntrian(): Menampilkan seluruh pembeli yang sedang mengantri dari head hingga tail.
----
+
 ### Soal 2
 
 2. buatlah program kode untuk membalik (reverse) singly linked list (1-2-3 menjadi 3-2-1)
