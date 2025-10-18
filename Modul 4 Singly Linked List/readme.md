@@ -1,4 +1,4 @@
-# <h1 align="center">Laporan Praktikum Modul 4 <br> ASingly Linked List</h1>
+# <h1 align="center">Laporan Praktikum Modul 4 <br> Singly Linked List</h1>
 
 <p align="center">Renisa Assyifa Putri - 103112400123</p>
 
