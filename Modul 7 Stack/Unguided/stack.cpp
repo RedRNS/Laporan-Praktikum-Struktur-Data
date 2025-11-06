@@ -18,7 +18,7 @@ bool isFull(Stack S) {
 void push(Stack &S, infotype x) {
     if (!isFull(S)) {
         S.top++;
-        S.info[S.top] = x;
+        S.info[S.top] = x; 
     } else {
         cout << "Stack penuh!" << endl;
     }

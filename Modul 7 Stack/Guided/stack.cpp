@@ -33,7 +33,7 @@ int pop(Node *&top)
     return poppedData;
 }
 
-void show(Node *top) {
+void show(Node *top) { 
     if (isEmpty(top)) {
         cout << "Stack kosong.\n";
         return;
