@@ -2,13 +2,216 @@
 
 <p align="center">Renisa Assyifa Putri - 103112400123</p>
 
-## Dasar Teori - Abstract Data Type (ADT)
+## Dasar Teori
 
-Modul ketiga ini ngebahas tentang Abstract Data Type (ADT), sebuah konsep keren dalam pemrograman yang ngajarin kita untuk misahin antara "apa" yang bisa dilakuin sama data dan "bagaimana" cara ngelakuinnya. Simpelnya, dengan ADT, kita bisa langsung pakai fungsi-fungsi kayak tampil(), tukar(), atau input() tanpa harus pusing mikirin detail implementasi di dalemnya.
+### 1. Pengertian Abstract Data Type (ADT)
 
-Biasanya, ADT diwujudkan pakai struct, class, atau modul, di mana detail internalnya (kayak array atau pointer) disembunyiin dari pengguna. Jadi, pengguna cuma berinteraksi lewat interface (operasi) yang disediain, tanpa bisa ngacak-ngacak representasi datanya secara langsung. Konsep ini disebut encapsulation. Menurut materi ajar, ADT itu intinya adalah gabungan antara data dan operasi-operasi untuk memanipulasi data itu, dengan implementasi yang tersembunyi biar interfacenya tetep konsisten.
+**Abstract Data Type (ADT)** adalah konsep fundamental dalam pemrograman yang memisahkan antara **spesifikasi** (apa yang bisa dilakukan) dengan **implementasi** (bagaimana cara melakukannya). ADT mendefinisikan tipe data baru beserta operasi-operasi yang dapat dilakukan terhadap tipe data tersebut, tanpa mengekspos detail implementasinya kepada pengguna.
 
-Dalam kurikulum struktur data, ADT kayak Stack dan Queue itu penting banget buat dipahami, karena konsepnya gak terikat sama implementasi spesifik. Mau pakai array atau linked list, cara kerjanya bakal tetep sama dari sudut pandang pengguna.
+**Komponen ADT:**
+1. **Data** : Struktur penyimpanan data internal
+2. **Operasi** : Fungsi-fungsi untuk memanipulasi data
+3. **Enkapsulasi** : Penyembunyian detail implementasi
+
+**Contoh Konsep:**
+```
+ADT Stack:
+- Data: Array atau Linked List (tersembunyi)
+- Operasi: push(), pop(), top(), isEmpty() (publik)
+```
+
+### 2. Prinsip Encapsulation (Pengkapsulan)
+
+Encapsulation adalah prinsip dimana detail internal representasi data disembunyikan dari pengguna. Pengguna hanya berinteraksi melalui interface (operasi) yang disediakan, tidak dapat mengakses representasi data secara langsung.
+
+**Keuntungan Encapsulation:**
+- **Abstraksi**: Pengguna fokus pada "apa" bukan "bagaimana"
+- **Modularitas**: Kode lebih terorganisir dan mudah dipahami
+- **Maintainability**: Implementasi dapat diubah tanpa mempengaruhi kode pengguna
+- **Reusability**: ADT dapat digunakan kembali di berbagai program
+
+**Contoh tanpa Encapsulation:**
+```cpp
+// Pengguna harus tahu detail internal
+int stack[100];
+int top = -1;
+stack[++top] = 10;  // Pengguna akses langsung
+```
+
+**Contoh dengan Encapsulation:**
+```cpp
+// Pengguna tidak perlu tahu detail internal
+Stack s;
+s.push(10);  // Interface yang bersih
+```
+
+### 3. Implementasi ADT dengan Struct
+
+Dalam C++, ADT dapat diimplementasikan menggunakan **struct** (atau **class**). Struct mengelompokkan data dan fungsi-fungsi terkait menjadi satu unit.
+
+**Contoh ADT Mahasiswa:**
+```cpp
+// Definisi ADT dalam header file (mahasiswa.h)
+struct Mahasiswa {
+    char nim[10];
+    int nilai1, nilai2;
+};
+
+// Operasi-operasi ADT
+void inputMahasiswa(Mahasiswa &m);
+float hitungRata(Mahasiswa m);
+void tampilMahasiswa(Mahasiswa m);
+```
+
+**Implementasi Operasi:**
+```cpp
+// File implementasi (mahasiswa.cpp)
+void inputMahasiswa(Mahasiswa &m) {
+    cout << "NIM: ";
+    cin >> m.nim;
+    cout << "Nilai 1: ";
+    cin >> m.nilai1;
+    cout << "Nilai 2: ";
+    cin >> m.nilai2;
+}
+
+float hitungRata(Mahasiswa m) {
+    return (m.nilai1 + m.nilai2) / 2.0;
+}
+```
+
+**Penggunaan ADT:**
+```cpp
+// File utama (main.cpp)
+Mahasiswa mhs;
+inputMahasiswa(mhs);  // Operasi input
+float rata = hitungRata(mhs);  // Operasi hitung
+cout << "Rata-rata: " << rata;  // Output hasil
+```
+
+### 4. Struktur File ADT
+
+ADT biasanya diorganisir dalam 3 file terpisah:
+
+**a. Header File (.h)**
+- Berisi deklarasi struct dan fungsi
+- Berfungsi sebagai "kontrak" atau interface
+- Menggunakan header guard untuk mencegah multiple inclusion
+
+```cpp
+#ifndef NAMA_H_INCLUDED
+#define NAMA_H_INCLUDED
+
+// Deklarasi struct
+struct TipeData { ... };
+
+// Deklarasi fungsi
+void operasi1(TipeData &t);
+int operasi2(TipeData t);
+
+#endif
+```
+
+**b. Implementation File (.cpp)**
+- Berisi definisi (implementasi) dari fungsi-fungsi
+- Detail algoritma ada di sini
+- Include header file yang sesuai
+
+```cpp
+#include "nama.h"
+#include <iostream>
+
+void operasi1(TipeData &t) {
+    // Implementasi operasi 1
+}
+
+int operasi2(TipeData t) {
+    // Implementasi operasi 2
+    return hasil;
+}
+```
+
+**c. Main File (main.cpp)**
+- Program utama yang menggunakan ADT
+- Hanya include header file
+- Tidak perlu tahu detail implementasi
+
+```cpp
+#include "nama.h"
+
+int main() {
+    TipeData data;
+    operasi1(data);
+    int hasil = operasi2(data);
+    return 0;
+}
+```
+
+### 5. Pass by Reference vs Pass by Value
+
+Dalam ADT, pemilihan cara passing parameter sangat penting:
+
+**Pass by Value:**
+```cpp
+float hitungRata(Mahasiswa m) {  // Menerima salinan
+    return (m.nilai1 + m.nilai2) / 2.0;
+}  // Nilai asli tidak berubah
+```
+- Digunakan untuk operasi yang hanya membaca data
+- Tidak mengubah data asli
+- Overhead: membuat salinan data
+
+**Pass by Reference:**
+```cpp
+void inputMahasiswa(Mahasiswa &m) {  // Menerima referensi
+    cin >> m.nim >> m.nilai1 >> m.nilai2;
+}  // Mengubah nilai asli
+```
+- Digunakan untuk operasi yang memodifikasi data
+- Mengubah data asli secara langsung
+- Efisien: tidak ada overhead penyalinan
+
+### 6. Keuntungan Menggunakan ADT
+
+1. **Abstraksi**: Menyederhanakan kompleksitas dengan menyembunyikan detail
+2. **Modularitas**: Kode terorganisir dalam modul-modul terpisah
+3. **Reusability**: ADT dapat digunakan di berbagai program
+4. **Maintainability**: Mudah dimodifikasi tanpa mempengaruhi kode lain
+5. **Information Hiding**: Detail implementasi tersembunyi dari pengguna
+6. **Flexibility**: Implementasi dapat diubah tanpa mengubah interface
+
+### 7. Contoh ADT dalam Struktur Data
+
+ADT adalah fondasi dari banyak struktur data:
+
+**ADT Stack:**
+```
+Operasi:
+- push(item): Menambah elemen ke puncak
+- pop(): Menghapus elemen dari puncak
+- top(): Melihat elemen puncak
+- isEmpty(): Cek apakah kosong
+```
+
+**ADT Queue:**
+```
+Operasi:
+- enqueue(item): Menambah elemen ke belakang
+- dequeue(): Menghapus elemen dari depan
+- front(): Melihat elemen depan
+- isEmpty(): Cek apakah kosong
+```
+
+**ADT List:**
+```
+Operasi:
+- insert(item, pos): Sisipkan elemen
+- delete(pos): Hapus elemen
+- search(item): Cari elemen
+- get(pos): Ambil elemen
+```
+
+Semua ADT ini dapat diimplementasikan dengan array atau linked list, tetapi interfacenya tetap sama bagi pengguna.
 
 ## Guided
 
@@ -303,6 +506,52 @@ Program ini mendemonstrasikan operasi pada matriks 3x3 dan variabel pointer.
 - Fungsi tukarElemen() berfungsi untuk menukar nilai satu elemen spesifik (ditentukan oleh baris dan kolom) antara dua matriks.
 - Fungsi tukarNilaiPointer() berfungsi untuk menukar nilai dari dua variabel integer dengan mengaksesnya melalui alamat memori (pointer).
 Di dalam main(), program menginisialisasi dua matriks (M1 dan M2) dan dua variabel integer (nilaiA dan nilaiB) beserta pointernya. Kemudian, program menampilkan kondisi awal, melakukan penukaran elemen pada posisi [1][1] antar matriks, dan juga menukar nilai variabel melalui pointer, lalu menampilkan hasilnya untuk menunjukkan bahwa semua fungsi berjalan sesuai harapan.
+
+## Kesimpulan
+
+Praktikum Modul 3 tentang Abstract Data Type (ADT) telah memberikan pemahaman mendalam tentang konsep fundamental dalam pemrograman terstruktur dan berorientasi objek. Beberapa kesimpulan penting yang dapat diambil:
+
+1. **Konsep ADT**: Abstract Data Type adalah paradigma pemrograman yang memisahkan spesifikasi dari implementasi. ADT mendefinisikan "apa yang dapat dilakukan" (operasi) tanpa mengekspos "bagaimana cara melakukannya" (implementasi detail). Pemisahan ini menciptakan abstraksi yang kuat dan membuat kode lebih mudah dipahami dan dikelola.
+
+2. **Prinsip Encapsulation**: Enkapsulasi adalah inti dari ADT. Dengan menyembunyikan detail internal dan hanya mengekspos interface publik, ADT memberikan perlindungan terhadap akses langsung ke data internal. Ini mencegah penggunaan yang tidak sesuai dan memudahkan maintenance kode.
+
+3. **Struktur Organisasi File**: Praktikum ini mendemonstrasikan best practice dalam mengorganisir kode ADT menjadi tiga file terpisah:
+   - **Header file (.h)**: Deklarasi interface (kontrak)
+   - **Implementation file (.cpp)**: Definisi fungsi (detail implementasi)
+   - **Main file (main.cpp)**: Penggunaan ADT (aplikasi)
+   
+   Pemisahan ini meningkatkan modularitas dan memudahkan kolaborasi tim dalam pengembangan software.
+
+4. **Penggunaan Struct**: Struct dalam C++ adalah cara efektif untuk mengimplementasikan ADT sederhana. Struct mengelompokkan data yang saling terkait menjadi satu unit logis, membuat kode lebih terstruktur dan mudah dipahami. Contoh ADT Mahasiswa dan Pelajaran menunjukkan bagaimana data dan operasi dapat dikapsulasi dengan baik.
+
+5. **Pass by Reference**: Pemahaman tentang pass by reference (&) sangat penting dalam ADT. Parameter by reference memungkinkan fungsi untuk memodifikasi data asli tanpa overhead penyalinan data. Ini sangat berguna untuk operasi input dan modifikasi data dalam ADT.
+
+6. **Header Guards**: Penggunaan `#ifndef`, `#define`, dan `#endif` (header guards) adalah praktik penting untuk mencegah multiple inclusion yang dapat menyebabkan error kompilasi. Setiap header file harus memiliki header guard yang unik.
+
+7. **Modularitas dan Reusability**: ADT yang well-designed dapat digunakan kembali di berbagai program tanpa modifikasi. Contohnya, ADT Pelajaran dapat digunakan dalam sistem akademik, perpustakaan, atau aplikasi pendidikan lainnya dengan minimal atau tanpa perubahan.
+
+8. **Operasi pada Data Kompleks**: Unguided soal 3 mendemonstrasikan bagaimana ADT dapat digunakan untuk operasi pada data kompleks seperti matriks 2D. Dengan membungkus array 2D dalam struct Matriks, operasi seperti tampil dan tukar menjadi lebih terorganisir dan mudah dipanggil.
+
+9. **Separation of Concerns**: ADT menerapkan prinsip separation of concerns, dimana setiap komponen memiliki tanggung jawab yang jelas:
+   - Struct untuk mendefinisikan struktur data
+   - Fungsi untuk operasi-operasi spesifik
+   - Main untuk logika aplikasi
+   
+   Pemisahan ini membuat kode lebih maintainable dan testable.
+
+10. **Fondasi untuk Struktur Data Lanjutan**: Konsep ADT yang dipelajari di modul ini menjadi fondasi untuk memahami struktur data yang lebih kompleks seperti:
+    - **Stack** (tumpukan) dengan operasi push/pop
+    - **Queue** (antrian) dengan operasi enqueue/dequeue
+    - **Linked List** (daftar berantai) dengan operasi insert/delete
+    - **Tree** (pohon) dengan operasi traversal
+    
+    Semua struktur data ini dibangun dengan prinsip ADT yang sama.
+
+11. **Information Hiding**: Salah satu keuntungan terbesar ADT adalah information hiding. Pengguna ADT tidak perlu (dan tidak boleh) mengetahui bagaimana data disimpan di memori atau bagaimana algoritma diimplementasikan. Mereka hanya perlu tahu operasi apa yang tersedia dan bagaimana menggunakannya.
+
+12. **Flexibility dalam Implementasi**: Dengan ADT, implementasi internal dapat diubah (misalnya dari array ke linked list) tanpa mempengaruhi kode yang menggunakan ADT tersebut, selama interface tetap konsisten. Ini memberikan fleksibilitas besar dalam optimasi dan perbaikan kode.
+
+Penerapan konsep ADT secara konsisten akan menghasilkan kode yang lebih profesional, mudah dipelihara, dan scalable. Pemahaman ADT sangat penting tidak hanya untuk mata kuliah struktur data, tetapi juga untuk pengembangan software secara umum, terutama dalam paradigma Object-Oriented Programming (OOP).
 
 ## Referensi
 
