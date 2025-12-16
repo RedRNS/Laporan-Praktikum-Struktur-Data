@@ -15,6 +15,7 @@ Meskipun begitu, DLL punya trade-off. Karena tiap node harus nyimpen satu pointe
 
 ## Guided
 
+### Guided 1
 
 ```cpp
 #include <iostream>
@@ -262,24 +263,30 @@ int main() {
     return 0;
 }
 ```
-### Output Code
+
+### Output Guided 1
 ![Output](Output/Output-Guided1.1-Modul6.png)
 ![Output](Output/Output-Guided1.2-Modul6.png)
 ![Output](Output/Output-Guided1.3-Modul6.png)
-Program di atas itu adalah implementasi dasar dari Doubly Linked List yang dibikin interaktif pake menu. Program ini nunjukkin gimana cara ngelola data pake struktur DLL, yang ngizinin kita nambah, hapus, ubah, dan nampilin data.
-Setiap data disimpen di dalam Node yang punya koneksi dua arah (prev dan next). Alur programnya dikontrol pake loop do-while yang nampilin menu pilihan ke user.
-1. Insert (Depan, Belakang, Setelah): Kalo user milih nambah data, program bakal bikin Node baru. Pointer-pointer dari Node baru ini (dan node tetangganya) bakal diatur sedemikian rupa buat nyambungin Node baru itu ke list, entah di posisi head (depan), tail (belakang), atau di antara dua node lain.
-2. Hapus (Depan, Belakang, Tertentu): Kalo user milih hapus, program bakal nyari node-nya dulu. Setelah ketemu, program bakal "nyambungin ulang" pointer next dari node sebelumnya dan pointer prev dari node sesudahnya, intinya buat "ngelangkahin" node yang mau dihapus. Kalo udah, node itu bakal di-delete dari memori.
-3. Tampil (Depan, Belakang): Ini nunjukkin keunggulan DLL. tampilDepan bakal looping dari head pake current->next, sementara tampilBelakang bakal looping dari tail pake current->prev.
-4. Update: Fungsi ini bakal nyari data lama, terus kalo ketemu, nilainya langsung diganti sama data baru.
 
-Program ini bakal jalan terus-menerus sampe user milih opsi '0' buat keluar.
+### Penjelasan Guided 1
+
+Program di atas adalah implementasi dasar dari Doubly Linked List yang dibuat interaktif menggunakan menu. Program ini menunjukkan cara mengelola data menggunakan struktur DLL, yang memungkinkan kita menambah, hapus, ubah, dan menampilkan data.
+
+Setiap data disimpan di dalam `Node` yang memiliki koneksi dua arah (`prev` dan `next`). Alur programnya dikontrol menggunakan loop `do-while` yang menampilkan menu pilihan ke user.
+
+1. **Insert (Depan, Belakang, Setelah)**: Ketika user memilih menambah data, program akan membuat `Node` baru. Pointer-pointer dari `Node` baru ini (dan node tetangganya) akan diatur sedemikian rupa untuk menyambungkan `Node` baru tersebut ke list, baik di posisi `head` (depan), `tail` (belakang), atau di antara dua node lain.
+
+2. **Hapus (Depan, Belakang, Tertentu)**: Ketika user memilih hapus, program akan mencari node-nya terlebih dahulu. Setelah ketemu, program akan "menyambungkan ulang" pointer `next` dari node sebelumnya dan pointer `prev` dari node sesudahnya, intinya untuk "melewati" node yang akan dihapus. Setelah itu, node tersebut akan di-delete dari memori.
+
+3. **Tampil (Depan, Belakang)**: Ini menunjukkan keunggulan DLL. `tampilDepan()` akan melakukan looping dari `head` menggunakan `current->next`, sementara `tampilBelakang()` akan melakukan looping dari `tail` menggunakan `current->prev`.
+
+4. **Update**: Fungsi ini akan mencari data lama, kemudian jika ditemukan, nilainya langsung diganti dengan data baru.
+
+Program ini akan berjalan terus-menerus sampai user memilih opsi '0' untuk keluar.
 
 
 ## Unguided
-
-## Soal Latihan Modul 6
-
 
 ### Soal 1
 
@@ -343,7 +350,9 @@ No Polisi : D001
 Warna     : hitam  
 Tahun     : 90  
 ```
-### 1. Doublylist.h
+
+#### 1. Doublylist.h
+
 ```cpp
 #ifndef DOUBLYLIST_H
 #define DOUBLYLIST_H
@@ -385,7 +394,8 @@ void hapusKendaraanSetelah(Address sebelum, Address &node);
 #endif
 ```
 
-### 2. Doublylist.cpp
+#### 2. Doublylist.cpp
+
 ```cpp
 #include "Doublylist.h"
 
@@ -479,7 +489,9 @@ void hapusKendaraanSetelah(Address sebelum, Address &node) {
     }
 }
 ```
-### 3. main.cpp
+
+#### 3. main.cpp
+
 ```cpp
 #include "Doublylist.h"
 
@@ -557,17 +569,18 @@ int main() {
         cout << "Data tidak ditemukan.\n";
     }
     tampilkanKendaraan(daftarKendaraan);
-    return 0;
+    return 0;
 }
 ```
-### Output Code
+
+#### Output Soal 1
+
 ![Output](Output/Output-Unguided1-Modul6.png)
-
-
 ### Soal 2
 
 > 2. Carilah elemen dengan nomor polisi D001 dengan membuat fungsi baru. fungsi findElm( L : List, x : infotype ) : address
-### Contoh Output
+
+#### Contoh Output Soal 2
 
 ```
 Masukkan Nomor Polisi yang dicari : 111
@@ -580,7 +593,9 @@ Nomor Polisi : 222
 Warna        : ijo
 Tahun        : 2022
 ```
-### Output Code
+
+#### Output Soal 2
+
 ![Output](Output/Output-Unguided1-Modul6.png)
 
 
@@ -589,14 +604,15 @@ Tahun        : 2022
 > 3. Hapus elemen dengan nomor polisi D003 dengan procedure delete. 
 
 ```
-procedure deleteFirst( input/output L : List,  
+procedure deleteFirst( input/output L : List,  
 P : address ) - -
-procedure deleteLast( input/output L : List,  
+procedure deleteLast( input/output L : List,  
 P : address )
-procedure deleteAfter( input Prec : address,  
+procedure deleteAfter( input Prec : address,  
 input/output P : address )
 ```
-### Contoh Output
+
+#### Contoh Output Soal 3
 ```
 Masukkan Nomor Polisi yang akan dihapus : 222
 Data dengan nomor polisi D003 berhasil dihapus.
@@ -608,22 +624,25 @@ Warna        : merah
 Tahun        : 2023
 ```
 
+#### Output Soal 3
+
 ![Output](Output/Output-Unguided1-Modul6.png)
-### Penjelasan Soal No 1 - 3
 
-Program unguided ini adalah implementasi Abstract Data Type (ADT) dari Doubly Linked List buat studi kasus pendataan kendaraan. Program ini ngebagi kodenya jadi tiga file terpisah: Doublylist.h (deklarasi header), Doublylist.cpp (implementasi fungsi), dan main.cpp (driver program).
+### Penjelasan Soal 1 - 3
 
-Tujuannya adalah buat nyimpen data kendaraan (nomor polisi, warna, tahun) secara dinamis. Di main.cpp, program pertama-tama minta user buat masukin jumlah data yang mau diinput.
+Program unguided ini adalah implementasi Abstract Data Type (ADT) dari Doubly Linked List untuk studi kasus pendataan kendaraan. Program ini membagi kodenya menjadi tiga file terpisah: `Doublylist.h` (deklarasi header), `Doublylist.cpp` (implementasi fungsi), dan `main.cpp` (driver program).
 
-Untuk setiap data, program ngelakuin langkah-langkah ini:
+Tujuannya adalah untuk menyimpan data kendaraan (nomor polisi, warna, tahun) secara dinamis. Di `main.cpp`, program pertama-tama meminta user untuk memasukkan jumlah data yang akan diinput.
 
-1. Input & Validasi: User masukin data kendaraan. Ada fungsi cekDuplikat() yang penting banget buat mastiin nggak ada nomor polisi yang sama di dalam list. Kalo nopolnya udah kedaftar, program bakal nolak input itu dan minta user ngulang.
+Untuk setiap data, program melakukan langkah-langkah berikut:
 
-2. Alokasi & Insersi: Kalo data valid, fungsi buatNodeBaru() (alokasi) dipanggil buat nyiapin Node baru di memori. Abis itu, tambahKendaraanDiAkhir() (insertLast) dipake buat nambahin Node baru itu di ujung list (jadi tail yang baru).
+1. **Input & Validasi**: User memasukkan data kendaraan. Ada fungsi `cekDuplikat()` yang penting untuk memastikan tidak ada nomor polisi yang sama di dalam list. Jika nomor polisi sudah terdaftar, program akan menolak input tersebut dan meminta user mengulangi.
 
-3. Display & Search: Setelah semua data masuk, tampilkanKendaraan() (printInfo) dipanggil buat nampilin semua isi list dari awal sampe akhir. Program ini juga ngedemoin fungsi cariKendaraan() (findElm), di mana user bisa nyari data spesifik berdasarkan nomor polisi.
+2. **Alokasi & Insersi**: Jika data valid, fungsi `buatNodeBaru()` (alokasi) dipanggil untuk menyiapkan `Node` baru di memori. Setelah itu, `tambahKendaraanDiAkhir()` (insertLast) digunakan untuk menambahkan `Node` baru tersebut di ujung list (menjadi `tail` yang baru).
 
-4. Deletion: Terakhir, program nyimulasiin proses penghapusan. User masukin nopol yang mau dihapus. Program nyari node-nya. Kalo ketemu, program ngecek posisinya: kalo di depan, dia pake hapusKendaraanPertama(); kalo di belakang, dia pake hapusKendaraanTerakhir(); kalo di tengah, dia pake hapusKendaraanSetelah(). Abis pointer-nya diatur ulang, hapusNode() (dealokasi) dipanggil buat ngebebasin memori.
+3. **Display & Search**: Setelah semua data masuk, `tampilkanKendaraan()` (printInfo) dipanggil untuk menampilkan semua isi list dari awal sampai akhir. Program ini juga mendemonstrasikan fungsi `cariKendaraan()` (findElm), di mana user dapat mencari data spesifik berdasarkan nomor polisi.
+
+4. **Deletion**: Terakhir, program mensimulasikan proses penghapusan. User memasukkan nomor polisi yang akan dihapus. Program mencari node-nya. Jika ditemukan, program mengecek posisinya: jika di depan, menggunakan `hapusKendaraanPertama()`; jika di belakang, menggunakan `hapusKendaraanTerakhir()`; jika di tengah, menggunakan `hapusKendaraanSetelah()`. Setelah pointer-nya diatur ulang, `hapusNode()` (dealokasi) dipanggil untuk membebaskan memori.
 
 ### Referensi
 
@@ -632,9 +651,6 @@ Untuk setiap data, program ngelakuin langkah-langkah ini:
 [2] Wahyuni, R. S., Hatta, H. R., & Syafa'ah, L. (2022). "Implementation of Doubly Linked List for Music Player Application." TELKOMNIKA (Telecommunication Computing Electronics and Control), 20(1), 195-202. DOI: 10.12928/telkomnika.v20i1.21325.
 
 [3] Ginting, A. S. B., dkk. (2021). "Analysis of data structure implementation for e-commerce shopping cart feature." Journal of Physics: Conference Series, 1811, 012095. DOI: 10.1088/1742-6596/1811/1/012095.
-
-
-
 
 
 
