@@ -4,13 +4,155 @@
 
 ## Dasar Teori
 
-Pemrograman adalah sebuah proses untuk membuat serangkaian instruksi yang dapat dimengerti komputer untuk menyelesaikan tugas tertentu secara logis dan terstruktur. Pada C++, konsep fundamental pemrograman mencakup penggunaan variabel untuk penyimpanan data, tipe data yang spesifik (seperti int untuk bilangan bulat, float atau double untuk bilangan desimal, dan string untuk teks), operasi matematika dasar, struktur kontrol alur program, fungsi untuk modularitas, serta tipe data bentukan seperti struct.
+### 1. Pengenalan C++
 
-Untuk mengatur alur eksekusi program, C++ menyediakan struktur kontrol. Struktur percabangan (if-else, switch-case) berfungsi untuk mengeksekusi blok kode berdasarkan kondisi yang terpenuhi, sementara struktur perulangan (for, while, do-while) digunakan untuk menjalankan blok kode secara berulang. Selain itu, penggunaan fungsi dan prosedur memungkinkan pemrogram untuk memecah masalah kompleks menjadi sub-masalah yang lebih kecil, sehingga kode menjadi lebih rapi, mudah dikelola, dan dapat digunakan kembali (reusable).
+C++ adalah bahasa pemrograman tingkat menengah yang dikembangkan oleh Bjarne Stroustrup sebagai pengembangan dari bahasa C. C++ menggabungkan pemrograman prosedural dengan pemrograman berorientasi objek (OOP), menjadikannya bahasa yang powerful dan fleksibel.
 
-C++ juga menawarkan struct, sebuah fitur yang memungkinkan pengelompokan beberapa variabel dengan tipe data yang berbeda ke dalam satu unit. Contohnya adalah data seorang mahasiswa yang dapat terdiri dari nama, NIM, dan IPK yang disatukan dalam satu struct. Untuk berinteraksi dengan pengguna, C++ menggunakan cin sebagai standar input dan cout sebagai standar output, dengan fungsi pendukung seperti getline untuk membaca input berupa baris teks.
+### 2. Struktur Dasar Program C++
 
-Pemahaman konsep-konsep dasar ini menjadi fondasi bagi mahasiswa untuk merancang program-program sederhana, mulai dari kalkulator, konverter angka ke teks, penentu hari, hingga program untuk mencetak pola. Latihan semacam ini sangat penting untuk mengasah kemampuan berpikir komputasional dan logika pemrograman.
+Setiap program C++ memiliki struktur dasar sebagai berikut:
+
+```cpp
+#include <iostream>  // Preprocessor directive
+using namespace std; // Menggunakan namespace standard
+
+int main() {         // Fungsi utama
+    // Kode program
+    return 0;        // Mengembalikan nilai 0 (program berhasil)
+}
+```
+
+### 3. Tipe Data
+
+C++ menyediakan berbagai tipe data untuk menyimpan berbagai jenis informasi:
+
+- **int**: Bilangan bulat (contoh: 10, -5, 0)
+- **float**: Bilangan desimal presisi tunggal (contoh: 3.14f)
+- **double**: Bilangan desimal presisi ganda (contoh: 3.14159)
+- **char**: Karakter tunggal (contoh: 'A', '1')
+- **string**: Rangkaian karakter (contoh: "Hello World")
+- **bool**: Nilai boolean (true atau false)
+
+**Contoh penggunaan:**
+```cpp
+int umur = 20;
+float ipk = 3.75;
+string nama = "Renisa";
+bool lulus = true;
+```
+
+### 4. Operator Aritmatika
+
+Operator yang digunakan untuk operasi matematika:
+- `+` : Penjumlahan
+- `-` : Pengurangan
+- `*` : Perkalian
+- `/` : Pembagian
+- `%` : Modulus (sisa bagi)
+
+### 5. Struktur Kontrol Percabangan
+
+**a. IF-ELSE**
+
+Digunakan untuk membuat keputusan berdasarkan kondisi:
+```cpp
+if (kondisi) {
+    // Kode jika kondisi true
+} else {
+    // Kode jika kondisi false
+}
+```
+
+**b. SWITCH-CASE**
+
+Digunakan untuk memilih salah satu dari banyak alternatif:
+```cpp
+switch (variabel) {
+    case nilai1:
+        // Kode untuk nilai1
+        break;
+    case nilai2:
+        // Kode untuk nilai2
+        break;
+    default:
+        // Kode jika tidak ada yang cocok
+}
+```
+
+### 6. Struktur Kontrol Perulangan
+
+**a. FOR Loop**
+
+Digunakan ketika jumlah iterasi sudah diketahui:
+```cpp
+for (int i = 0; i < n; i++) {
+    // Kode yang diulang
+}
+```
+
+**b. WHILE Loop**
+
+Digunakan ketika perulangan bergantung pada kondisi:
+```cpp
+while (kondisi) {
+    // Kode yang diulang
+}
+```
+
+**c. DO-WHILE Loop**
+
+Mirip while, tetapi selalu dieksekusi minimal 1 kali:
+```cpp
+do {
+    // Kode yang diulang
+} while (kondisi);
+```
+
+### 7. Fungsi dan Prosedur
+
+**Fungsi** adalah blok kode yang mengembalikan nilai:
+```cpp
+int tambah(int a, int b) {
+    return a + b;
+}
+```
+
+**Prosedur** (void function) adalah fungsi yang tidak mengembalikan nilai:
+```cpp
+void tampilkanPesan() {
+    cout << "Hello!" << endl;
+}
+```
+
+### 8. Struct
+
+Struct memungkinkan pengelompokan data dengan tipe berbeda:
+```cpp
+struct Mahasiswa {
+    string nama;
+    string nim;
+    float ipk;
+};
+
+// Penggunaan:
+Mahasiswa mhs1;
+mhs1.nama = "Renisa";
+mhs1.nim = "103112400123";
+mhs1.ipk = 3.85;
+```
+
+### 9. Input dan Output
+
+- **cout**: Untuk menampilkan output ke layar
+- **cin**: Untuk menerima input dari keyboard
+- **getline()**: Untuk membaca input berupa baris teks lengkap
+
+```cpp
+string nama;
+cout << "Masukkan nama: ";
+getline(cin, nama);
+cout << "Halo, " << nama << endl;
+```
 
 ## Guided
 
@@ -100,63 +242,83 @@ Program ini mendemonstrasikan cara menghitung luas serta keliling dari sebuah pe
 ```cpp
 #include <iostream>
 using namespace std;
-// int main()
-// {
-//     double tot_pembelian, diskon;
-//     cout << "total pembelian: Rp";
-//     cin >> tot_pembelian;
-//     diskon = 0;
-//     if (tot_pembelian >= 100000)
-//         diskon = 0.05 * tot_pembelian;
-//     cout << "besar diskon = Rp" << diskon;
-// }
 
-// int main()
-// {
-//     double tot_pembelian, diskon;
-//     cout << "total pembelian: Rp";
-//     cin >> tot_pembelian;
-//     diskon = 0;
-//     if (tot_pembelian >= 100000)
-//         diskon = 0.05 * tot_pembelian;
-//     else
-//         diskon = 0;
-//     cout << "besar diskon = Rp" << diskon;
-// }
+// Contoh 1: Struktur IF sederhana
+void contohIF() {
+    double tot_pembelian, diskon;
+    cout << "\n=== Contoh IF Sederhana ===" << endl;
+    cout << "Total pembelian: Rp";
+    cin >> tot_pembelian;
+    diskon = 0;
+    if (tot_pembelian >= 100000)
+        diskon = 0.05 * tot_pembelian;
+    cout << "Besar diskon = Rp" << diskon << endl;
+}
 
-int main()
-{
+// Contoh 2: Struktur IF-ELSE
+void contohIFELSE() {
+    double tot_pembelian, diskon;
+    cout << "\n=== Contoh IF-ELSE ===" << endl;
+    cout << "Total pembelian: Rp";
+    cin >> tot_pembelian;
+    if (tot_pembelian >= 100000)
+        diskon = 0.05 * tot_pembelian;
+    else
+        diskon = 0;
+    cout << "Besar diskon = Rp" << diskon << endl;
+}
+
+// Contoh 3: Struktur SWITCH-CASE
+void contohSWITCH() {
     int kode_hari;
-    cout << "Menentukan hari kerja/libur\n"<<endl;
-    cout << "1=Senin 3=Rabu 5=Jumat 7=Minggu "<<endl;
-    cout << "2=Selasa 4=Kamis 6=Sabtu "<<endl;
+    cout << "\n=== Contoh SWITCH-CASE ===" << endl;
+    cout << "Menentukan hari kerja/libur\n" << endl;
+    cout << "1=Senin 3=Rabu 5=Jumat 7=Minggu" << endl;
+    cout << "2=Selasa 4=Kamis 6=Sabtu" << endl;
+    cout << "Masukkan kode hari: ";
     cin >> kode_hari;
     switch (kode_hari)
     {
     case 1:
-        cout<<"Hari Kerja";
-        break;
     case 2:
-        cout<<"Hari Kerja";
-        break;
     case 3:
-        cout<<"Hari Kerja";
-        break;
     case 4:
-        cout<<"Hari Kerja";
-        break;
     case 5:
-        cout<<"Hari Kerja";
+        cout << "Hari Kerja" << endl;
         break;
     case 6:
-        cout<<"Hari Libur";
-        break;
     case 7:
-        cout<<"Hari Libur";
+        cout << "Hari Libur" << endl;
         break;
     default:
-        cout<<"Kode masukan salah!!!";
+        cout << "Kode masukan salah!!!" << endl;
     }
+}
+
+int main()
+{
+    int pilihan;
+    cout << "=== Program Struktur Kontrol Percabangan ===" << endl;
+    cout << "1. Contoh IF" << endl;
+    cout << "2. Contoh IF-ELSE" << endl;
+    cout << "3. Contoh SWITCH-CASE" << endl;
+    cout << "Pilih contoh (1-3): ";
+    cin >> pilihan;
+
+    switch (pilihan) {
+        case 1:
+            contohIF();
+            break;
+        case 2:
+            contohIFELSE();
+            break;
+        case 3:
+            contohSWITCH();
+            break;
+        default:
+            cout << "Pilihan tidak valid!" << endl;
+    }
+
     return 0;
 }
 
@@ -165,36 +327,73 @@ int main()
 > Output
 > ![Screenshot bagian x](output/Screenshot_kondisi_Renisa_Assyifa_Putri_103112400123.png)
 
-Kode ini menampilkan implementasi struktur kontrol percabangan. Dua blok kode pertama (yang berada dalam komentar) adalah contoh penggunaan if dan if-else untuk memberikan diskon sebesar 5% jika total belanja mencapai Rp100.000 atau lebih. Blok kode yang aktif adalah program yang meminta pengguna memasukkan kode hari dalam bentuk angka (1-7). Berdasarkan input tersebut, program menggunakan struktur switch-case untuk menentukan dan menampilkan output apakah hari itu tergolong "Hari Kerja" atau "Hari Libur". Jika input di luar rentang 1-7, sebuah pesan kesalahan akan ditampilkan.
+Program ini mendemonstrasikan tiga jenis struktur kontrol percabangan dalam C++. Program didesain secara modular dengan tiga fungsi terpisah: `contohIF()` untuk percabangan IF sederhana yang menghitung diskon berdasarkan total pembelian, `contohIFELSE()` untuk percabangan IF-ELSE dengan kondisi alternatif, dan `contohSWITCH()` untuk percabangan SWITCH-CASE yang menentukan apakah suatu hari merupakan hari kerja atau libur. Fungsi main() berfungsi sebagai menu utama yang memungkinkan pengguna memilih contoh mana yang ingin dijalankan. Program ini lebih terstruktur dan memberikan pemahaman yang lebih baik tentang perbedaan setiap jenis percabangan.
 
 ### Soal 4 Perulangan
 
 ```cpp
 #include <iostream>
 using namespace std;
-// int main()
-// {
-//     int jum;
-//     cout << "jumlah perulangan: ";
-//     cin >> jum;
-//     for (int i = 0; i < jum; i++)
-//     {
-//         cout << "saya sahroni\n";
-//     }
-//     return 1;
-// }
 
-// while
-int main()
-{
-    int i = 1;
+// Contoh 1: Perulangan FOR
+void contohFOR() {
     int jum;
+    cout << "\n=== Contoh FOR Loop ===" << endl;
+    cout << "Jumlah perulangan: ";
     cin >> jum;
-    do
-    {
-        cout << "bahlil ke-" << (i + 1) << endl;
+    for (int i = 0; i < jum; i++) {
+        cout << "Perulangan ke-" << (i + 1) << endl;
+    }
+}
+
+// Contoh 2: Perulangan WHILE
+void contohWHILE() {
+    int jum, i = 0;
+    cout << "\n=== Contoh WHILE Loop ===" << endl;
+    cout << "Jumlah perulangan: ";
+    cin >> jum;
+    while (i < jum) {
+        cout << "Perulangan ke-" << (i + 1) << endl;
+        i++;
+    }
+}
+
+// Contoh 3: Perulangan DO-WHILE
+void contohDOWHILE() {
+    int jum, i = 0;
+    cout << "\n=== Contoh DO-WHILE Loop ===" << endl;
+    cout << "Jumlah perulangan: ";
+    cin >> jum;
+    do {
+        cout << "Perulangan ke-" << (i + 1) << endl;
         i++;
     } while (i < jum);
+}
+
+int main()
+{
+    int pilihan;
+    cout << "=== Program Struktur Perulangan ===" << endl;
+    cout << "1. Contoh FOR" << endl;
+    cout << "2. Contoh WHILE" << endl;
+    cout << "3. Contoh DO-WHILE" << endl;
+    cout << "Pilih contoh (1-3): ";
+    cin >> pilihan;
+
+    switch (pilihan) {
+        case 1:
+            contohFOR();
+            break;
+        case 2:
+            contohWHILE();
+            break;
+        case 3:
+            contohDOWHILE();
+            break;
+        default:
+            cout << "Pilihan tidak valid!" << endl;
+    }
+
     return 0;
 }
 ```
@@ -202,7 +401,7 @@ int main()
 > Output
 > ![Screenshot bagian x](output/Screenshot_perulangan_Renisa_Assyifa_Putri_103112400123.png)
 
-Program ini menunjukkan dua contoh implementasi perulangan. Pada bagian yang dikomentari, sebuah for loop digunakan untuk mencetak teks secara berulang sebanyak jumlah yang diinput oleh pengguna. Sementara itu, pada bagian kode yang aktif, sebuah do-while loop digunakan. Program ini akan mencetak teks "bahlil ke-" diikuti dengan nomor urut yang dimulai dari 2, dan perulangan akan terus berjalan hingga nilai i mencapai jumlah yang ditentukan oleh input pengguna.
+Program ini mendemonstrasikan tiga jenis struktur perulangan dalam C++ secara lengkap dan terstruktur. Program ini dibagi menjadi tiga fungsi: `contohFOR()` untuk perulangan FOR yang cocok digunakan ketika jumlah iterasi sudah diketahui, `contohWHILE()` untuk perulangan WHILE yang kondisinya dicek di awal sebelum eksekusi, dan `contohDOWHILE()` untuk perulangan DO-WHILE yang memastikan kode dieksekusi minimal satu kali karena kondisi dicek di akhir. Fungsi main() menyediakan menu interaktif yang memungkinkan pengguna memilih jenis perulangan mana yang ingin dipelajari. Setiap contoh menerima input jumlah perulangan dari pengguna dan menampilkan nomor iterasi secara berurutan, memberikan visualisasi yang jelas tentang cara kerja masing-masing jenis perulangan.
 
 ### Soal 5 Struct
 
@@ -379,7 +578,7 @@ int main() {
             cout << j;
             if (j != i) cout << " ";
         }
-        cout << endl;S
+        cout << endl;
     }
 
     for (int i = 0; i < n; i++) {
@@ -396,6 +595,28 @@ int main() {
 > ![Screenshot bagian x](output/Screenshot_Soal_3_Renisa_Assyifa_Putri_103112400123.png)
 
 Program ini dirancang untuk menghasilkan sebuah pola piramida angka terbalik yang simetris berdasarkan input n dari pengguna. Program menggunakan perulangan bersarang (nested loop). Loop terluar mengontrol baris, sedangkan loop di dalamnya mengatur pencetakan spasi untuk indentasi, urutan angka menurun di sisi kiri, karakter * di tengah, dan urutan angka menaik di sisi kanan. Setelah pola utama selesai, sebuah baris tambahan yang hanya berisi karakter * di tengah dicetak sebagai penutup.
+
+## Kesimpulan
+
+Praktikum Modul 1 tentang Pengenalan C++ ini telah memberikan pemahaman fundamental tentang konsep-konsep dasar pemrograman C++. Beberapa hal penting yang dapat disimpulkan:
+
+1. **Struktur Dasar Program**: Setiap program C++ memiliki struktur yang terdiri dari preprocessor directive, namespace, dan fungsi main() sebagai titik awal eksekusi program.
+
+2. **Tipe Data dan Variabel**: Pemahaman tentang berbagai tipe data (int, float, double, string, char) sangat penting untuk menyimpan dan memanipulasi data sesuai kebutuhan.
+
+3. **Operator Aritmatika**: Operator aritmatika dasar (+, -, *, /, %) merupakan fondasi untuk melakukan perhitungan matematis dalam program.
+
+4. **Struktur Kontrol Percabangan**: Penggunaan if-else dan switch-case memungkinkan program untuk membuat keputusan berdasarkan kondisi tertentu, membuat program lebih dinamis dan interaktif.
+
+5. **Struktur Perulangan**: For, while, dan do-while loop memberikan kemampuan untuk mengeksekusi blok kode secara berulang, yang sangat berguna untuk pemrosesan data berulang dan pembuatan pola.
+
+6. **Fungsi dan Prosedur**: Modularitas kode melalui fungsi dan prosedur membuat program lebih terstruktur, mudah dipahami, dan dapat digunakan kembali (reusable).
+
+7. **Struct**: Penggunaan struct memungkinkan pengelompokan data yang saling berkaitan menjadi satu kesatuan, memudahkan pengelolaan data yang kompleks.
+
+8. **Input/Output**: Penguasaan cin dan cout sebagai mekanisme dasar untuk interaksi dengan pengguna merupakan keterampilan esensial dalam pemrograman.
+
+Melalui praktikum ini, kemampuan berpikir logis dan komputasional dalam memecahkan masalah pemrograman telah diasah melalui berbagai latihan, mulai dari kalkulator sederhana, konverter angka ke teks, hingga pembuatan pola angka. Konsep-konsep ini akan menjadi fondasi yang kuat untuk mempelajari materi struktur data yang lebih kompleks di modul-modul selanjutnya.
 
 ## Referensi
 
