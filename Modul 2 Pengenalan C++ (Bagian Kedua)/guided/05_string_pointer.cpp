@@ -3,7 +3,7 @@ using namespace std;
 
 int main() {
     char pesan_array[] = "Nasi Padang";
-    char *pesan_pointer = "Ayam Bakar 23";
+    const char *pesan_pointer = "Ayam Bakar 23";
 
     cout << "String Array: " << pesan_array << endl;
     cout << "String Pointer: " << pesan_pointer << endl;

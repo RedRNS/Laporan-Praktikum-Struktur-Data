@@ -4,11 +4,196 @@
 
 ## Dasar Teori
 
-Pada modul kedua, pembahasan difokuskan pada konsep manajemen memori yang lebih mendalam di C++ melalui penggunaan Array dan Pointer. Array adalah sebuah struktur data yang digunakan untuk menyimpan kumpulan elemen dengan tipe data yang sama dalam satu nama variabel. Setiap elemen dalam array dapat diakses secara individual melalui sebuah indeks, yang dimulai dari 0 untuk elemen pertama. Array dapat berwujud satu dimensi (seperti daftar), dua dimensi (seperti tabel atau matriks), hingga multidimensi untuk data yang lebih kompleks.
+### 1. Array (Larik)
 
-Pointer adalah fitur fundamental dalam C++ yang merupakan variabel khusus untuk menyimpan alamat memori dari variabel lain. Setiap variabel yang dideklarasikan dalam program akan dialokasikan pada sebuah alamat unik di dalam memori (RAM). Dengan menggunakan operator address-of (&), kita bisa mendapatkan alamat memori dari sebuah variabel. Sebaliknya, dengan operator dereferensi (*), kita bisa mengakses atau memanipulasi nilai yang berada di alamat yang ditunjuk oleh sebuah pointer. Terdapat hubungan yang sangat erat antara array dan pointer; nama sebuah array pada dasarnya berfungsi sebagai pointer konstan yang menunjuk ke alamat elemen pertamanya.
+**Array** adalah struktur data yang digunakan untuk menyimpan kumpulan elemen dengan tipe data yang sama dalam satu nama variabel. Setiap elemen dapat diakses melalui indeks yang dimulai dari 0.
 
-Konsep pointer menjadi sangat penting ketika diimplementasikan dalam fungsi, terutama dalam mekanisme pelemparan parameter. Terdapat tiga cara utama: call by value, di mana fungsi hanya menerima salinan nilai; call by pointer, di mana fungsi menerima alamat memori variabel sehingga dapat mengubah nilai aslinya; dan call by reference, yang secara sintaksis lebih sederhana namun memiliki kapabilitas yang sama dengan call by pointer untuk memodifikasi variabel asli di luar fungsi. Pemahaman ini krusial untuk membuat program yang efisien dan modular.
+**a. Array Satu Dimensi**
+
+Deklarasi dan inisialisasi:
+```cpp
+// Deklarasi dengan ukuran
+int nilai[5];
+
+// Deklarasi dengan inisialisasi
+int angka[5] = {10, 20, 30, 40, 50};
+
+// Ukuran otomatis dari compiler
+int data[] = {1, 2, 3, 4}; // ukuran 4
+```
+
+Cara akses elemen:
+```cpp
+int nilai[3] = {10, 20, 30};
+cout << nilai[0];  // Output: 10 (elemen pertama)
+cout << nilai[2];  // Output: 30 (elemen ketiga)
+nilai[1] = 25;     // Mengubah elemen kedua
+```
+
+**b. Array Dua Dimensi**
+
+Digunakan untuk merepresentasikan struktur seperti matriks atau tabel:
+```cpp
+// Deklarasi matriks 3x3
+int matriks[3][3] = {
+    {1, 2, 3},
+    {4, 5, 6},
+    {7, 8, 9}
+};
+
+// Akses elemen
+cout << matriks[0][0];  // Output: 1 (baris 0, kolom 0)
+cout << matriks[1][2];  // Output: 6 (baris 1, kolom 2)
+```
+
+### 2. Pointer (Penunjuk)
+
+**Pointer** adalah variabel khusus yang menyimpan alamat memori dari variabel lain. Pointer sangat powerful untuk manipulasi memori dinamis dan efisiensi program.
+
+**Operator Pointer:**
+- `&` (address-of): Mendapatkan alamat memori variabel
+- `*` (dereference): Mengakses nilai di alamat yang ditunjuk pointer
+
+**Contoh penggunaan:**
+```cpp
+int umur = 25;
+int *ptr;           // Deklarasi pointer
+ptr = &umur;        // ptr menyimpan alamat umur
+
+cout << umur;       // Output: 25 (nilai umur)
+cout << &umur;      // Output: 0x... (alamat memori umur)
+cout << ptr;        // Output: 0x... (alamat yang disimpan ptr)
+cout << *ptr;       // Output: 25 (nilai di alamat ptr)
+
+*ptr = 30;          // Mengubah nilai umur melalui pointer
+cout << umur;       // Output: 30
+```
+
+**Ilustrasi Memori:**
+```
+Memori:  [Alamat]    [Nilai]
+         0x1000      25        <- variabel umur
+         0x2000      0x1000    <- pointer ptr
+```
+
+### 3. Hubungan Array dan Pointer
+
+Nama array adalah pointer konstan yang menunjuk ke elemen pertama:
+```cpp
+int data[5] = {10, 20, 30, 40, 50};
+int *p = data;  // p menunjuk ke data[0]
+
+// Cara akses yang ekuivalen:
+cout << data[2];    // Output: 30
+cout << *(data+2);  // Output: 30 (pointer arithmetic)
+cout << p[2];       // Output: 30
+cout << *(p+2);     // Output: 30
+```
+
+**Pointer Arithmetic:**
+```cpp
+int arr[] = {10, 20, 30};
+int *p = arr;
+
+cout << *p;         // Output: 10
+cout << *(p+1);     // Output: 20
+cout << *(p+2);     // Output: 30
+p++;                // p bergeser ke elemen berikutnya
+cout << *p;         // Output: 20
+```
+
+### 4. String dan Pointer
+
+**String sebagai Array:**
+```cpp
+char nama[] = "Renisa";  // Array karakter (modifiable)
+nama[0] = 'B';           // Bisa diubah
+```
+
+**String sebagai Pointer:**
+```cpp
+const char *pesan = "Hello";  // String literal (immutable)
+pesan = "World";              // Pointer bisa diarahkan ke string lain
+// pesan[0] = 'h';            // ERROR: tidak bisa mengubah string literal
+```
+
+### 5. Mekanisme Passing Parameter
+
+**a. Call by Value**
+
+Fungsi menerima salinan nilai, perubahan tidak mempengaruhi variabel asli:
+```cpp
+void ubahNilai(int x) {
+    x = 100;  // Hanya mengubah salinan lokal
+}
+
+int main() {
+    int angka = 50;
+    ubahNilai(angka);
+    cout << angka;  // Output: 50 (tidak berubah)
+}
+```
+
+**b. Call by Pointer**
+
+Fungsi menerima alamat memori, bisa mengubah nilai asli:
+```cpp
+void ubahNilai(int *x) {
+    *x = 100;  // Mengubah nilai di alamat x
+}
+
+int main() {
+    int angka = 50;
+    ubahNilai(&angka);  // Kirim alamat dengan &
+    cout << angka;      // Output: 100 (berubah)
+}
+```
+
+**c. Call by Reference**
+
+Sintaks lebih sederhana, efek sama dengan call by pointer:
+```cpp
+void ubahNilai(int &x) {
+    x = 100;  // Mengubah nilai asli langsung
+}
+
+int main() {
+    int angka = 50;
+    ubahNilai(angka);  // Tidak perlu &
+    cout << angka;     // Output: 100 (berubah)
+}
+```
+
+**Perbandingan:**
+
+| Aspek | Call by Value | Call by Pointer | Call by Reference |
+|-------|---------------|-----------------|-------------------|
+| Sintaks pemanggilan | `func(x)` | `func(&x)` | `func(x)` |
+| Parameter fungsi | `void func(int x)` | `void func(int *x)` | `void func(int &x)` |
+| Akses nilai | `x` | `*x` | `x` |
+| Mengubah asli | ❌ Tidak | ✅ Ya | ✅ Ya |
+| Overhead | Salin nilai | Salin alamat | Alias langsung |
+
+### 6. Operasi Matriks
+
+**Transpose Matriks:**
+
+Mengubah baris menjadi kolom dan sebaliknya:
+```cpp
+int A[3][3] = {{1,2,3}, {4,5,6}, {7,8,9}};
+int T[3][3];
+
+for(int i = 0; i < 3; i++) {
+    for(int j = 0; j < 3; j++) {
+        T[j][i] = A[i][j];  // Tukar indeks
+    }
+}
+
+// Hasil:
+// A = [1 2 3]    T = [1 4 7]
+//     [4 5 6]        [2 5 8]
+//     [7 8 9]        [3 6 9]
+```
 
 ## Guided
 
@@ -133,8 +318,8 @@ Program ini mengilustrasikan hubungan antara array dan pointer. Elemen-elemen ar
 using namespace std;
 
 int main() {
-    char pesan_array[] = "Nasi Padang";
-    char *pesan_pointer = "Ayam Bakar 23";
+    char pesan_array[] = \"Nasi Padang\";
+    const char *pesan_pointer = \"Ayam Bakar 23\";
 
     cout << "String Array: " << pesan_array << endl;
     cout << "String Pointer: " << pesan_pointer << endl;
@@ -321,10 +506,35 @@ int main()
     return 0;
 }
 ```
-Program ini secara spesifik mendemonstrasikan konsep call by reference. Sebuah variabel nilai diinisialisasi di fungsi main. Prosedur kuadratkan didefinisikan untuk menerima parameter int &angka, yang artinya ia menerima referensi (alias) ke variabel asli, bukan salinannya. Ketika prosedur ini dipanggil, operasi angka = angka * angka langsung memodifikasi variabel nilai di main. Hasilnya, nilai variabel sebelum dan sesudah pemanggilan prosedur terbukti berbeda, menunjukkan bahwa perubahan terjadi pada variabel asli.
+Program ini secara spesifik mendemonstrasikan konsep call by reference. Sebuah variabel nilai diinisialisasi di fungsi main. Prosedur kuadrat didefinisikan untuk menerima parameter int &angka, yang artinya ia menerima referensi (alias) ke variabel asli, bukan salinannya. Ketika prosedur ini dipanggil, operasi angka = angka * angka langsung memodifikasi variabel nilai di main. Hasilnya, nilai variabel sebelum dan sesudah pemanggilan prosedur terbukti berbeda, menunjukkan bahwa perubahan terjadi pada variabel asli.
 
 > Output
 > ![Screenshot bagian x](output/Screnshot_Unguided_02.png)
+
+## Kesimpulan
+
+Praktikum Modul 2 tentang Pengenalan C++ Bagian Kedua telah memberikan pemahaman mendalam tentang konsep-konsep penting dalam manajemen memori dan struktur data. Beberapa hal penting yang dapat disimpulkan:
+
+1. **Array Satu Dimensi**: Array merupakan struktur data fundamental untuk menyimpan kumpulan data sejenis dengan akses yang efisien melalui indeks. Pemahaman tentang indeksasi (dimulai dari 0) sangat penting untuk menghindari error array out of bounds.
+
+2. **Array Dua Dimensi**: Array multidimensi sangat berguna untuk merepresentasikan struktur data seperti matriks, tabel, atau grid. Penggunaan nested loop menjadi kunci untuk mengakses dan memanipulasi data dalam array dua dimensi.
+
+3. **Pointer**: Konsep pointer adalah salah satu fitur paling powerful dalam C++. Pointer memungkinkan manipulasi memori secara langsung, yang membuka peluang untuk pemrograman yang lebih efisien dan fleksibel. Pemahaman tentang operator & (address-of) dan * (dereference) menjadi fondasi untuk menguasai pointer.
+
+4. **Hubungan Array dan Pointer**: Nama array pada dasarnya adalah pointer konstan yang menunjuk ke elemen pertama. Konsep ini menjelaskan mengapa array dan pointer dapat digunakan secara bergantian dalam banyak kasus, termasuk dalam pointer arithmetic.
+
+5. **String dan Pointer**: Perbedaan antara string sebagai array karakter (char[]) dan string literal (const char*) penting untuk dipahami. Array karakter bersifat mutable, sedangkan string literal adalah immutable.
+
+6. **Mekanisme Passing Parameter**: Tiga cara passing parameter (call by value, call by pointer, dan call by reference) masing-masing memiliki kegunaan spesifik:
+   - **Call by value**: Aman karena tidak mengubah nilai asli, cocok untuk fungsi yang hanya perlu membaca nilai
+   - **Call by pointer**: Memberikan kontrol penuh atas memori, berguna untuk manipulasi data dan efisiensi
+   - **Call by reference**: Sintaks lebih sederhana dibanding pointer, tetapi memiliki kemampuan yang sama untuk mengubah nilai asli
+
+7. **Operasi Matriks**: Implementasi operasi matriks seperti transpose menunjukkan penerapan praktis dari array dua dimensi dan nested loop. Teknik menukar indeks (i,j menjadi j,i) menjadi kunci dalam operasi transpose.
+
+8. **Efisiensi Memori**: Penggunaan pointer dan reference dalam fungsi menghindari overhead dari penyalinan data, terutama untuk struktur data yang besar. Ini menjadi pertimbangan penting dalam pengembangan aplikasi yang membutuhkan performa tinggi.
+
+Pemahaman konsep-konsep ini sangat krusial sebagai fondasi untuk mempelajari struktur data yang lebih kompleks seperti linked list, stack, queue, dan tree yang akan dipelajari di modul-modul selanjutnya. Kemampuan manipulasi memori melalui pointer menjadi dasar dari implementasi struktur data dinamis.
 
 ## Referensi
 
