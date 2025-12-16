@@ -16,7 +16,7 @@ Secara implementasi, Stack dapat dibangun menggunakan Array atau Linked List. Pe
 
 ## Guided
 
-### Soal 1 Stack
+### Guided 1
 
 ```cpp
 #include <iostream>
@@ -90,11 +90,15 @@ int main(){
 }
 ```
 
-> ![Screenshot guided 1](output/Screenshot_Guided.png)
+#### Output Guided 1
 
-Program di atas mendemonstrasikan pembuatan struktur data Stack dengan pendekatan Linked List menggunakan bahasa C++. Berbeda dengan array, di sini setiap elemen direpresentasikan sebagai sebuah struct Node yang menyimpan nilai (data) dan pointer (next) ke elemen di bawahnya.
+![Screenshot guided 1](output/Screenshot_Guided.png)
 
-Fungsi-fungsi utama meliputi push yang menyisipkan node baru di bagian kepala (head/top), pop yang memutus node teratas untuk mengambil datanya, serta isEmpty untuk validasi. Fungsi show bertugas melakukan iterasi (perulangan) dari node teratas sampai NULL untuk mencetak isi stack. Pada fungsi main, simulasi dilakukan dengan memasukkan angka 10, 20, dan 30, lalu melakukan satu kali operasi pop untuk membuktikan prinsip LIFO bekerja, di mana angka 30 (yang terakhir masuk) adalah yang pertama keluar.
+#### Penjelasan Guided 1
+
+Program di atas mendemonstrasikan pembuatan struktur data Stack dengan pendekatan Linked List menggunakan bahasa C++. Berbeda dengan array, di sini setiap elemen direpresentasikan sebagai sebuah `struct Node` yang menyimpan nilai (`data`) dan pointer (`next`) ke elemen di bawahnya.
+
+Fungsi-fungsi utama meliputi `push()` yang menyisipkan node baru di bagian kepala (head/top), `pop()` yang memutus node teratas untuk mengambil datanya, serta `isEmpty()` untuk validasi. Fungsi `show()` bertugas melakukan iterasi (perulangan) dari node teratas sampai `NULL` untuk mencetak isi stack. Pada fungsi `main()`, simulasi dilakukan dengan memasukkan angka 10, 20, dan 30, lalu melakukan satu kali operasi `pop()` untuk membuktikan prinsip LIFO bekerja, di mana angka 30 (yang terakhir masuk) adalah yang pertama keluar.
 
 ## Unguided
 
@@ -168,9 +172,9 @@ void balikStack(Stack &S);
 #endif
 ```
 
-stack.cpp
+#### 2. stack.cpp
 
-```
+```cpp
 #include <iostream>
 #include "stack.h"
 
@@ -227,13 +231,13 @@ void balikStack(Stack &S) {
     while (!isEmpty(S)) {
         push(temp, pop(S));
     }
-    S = temp;
+    S = temp;
 }
 ```
 
-main.cpp
+#### 3. main.cpp
 
-```
+```cpp
 #include <iostream>
 #include "stack.h"
 
@@ -290,22 +294,25 @@ void balikStack(Stack &S) {
     while (!isEmpty(S)) {
         push(temp, pop(S));
     }
-    S = temp;
+    S = temp;
 }
 ```
 
-> Output
-> ![Screenshot unguided 1](output/Screenshot_Soal1.png)
+#### Output Soal 1
 
-Pada latihan ini, implementasi Stack dilakukan menggunakan Array statis dengan kapasitas maksimal 20 elemen sebagaimana didefinisikan dalam header file (stack.h). Variabel top diinisialisasi dengan nilai -1 pada fungsi createStack sebagai penanda bahwa stack masih kosong.
+![Screenshot unguided 1](output/Screenshot_Soal1.png)
 
-Fungsi operasional meliputi push untuk menambah data (dengan menaikkan indeks top), pop untuk mengambil data (menurunkan indeks top), dan printInfo untuk menampilkan seluruh data dari indeks top ke 0. Selain itu, terdapat prosedur tambahan balikStack yang berfungsi membalik urutan elemen stack dengan cara memindahkan seluruh isi stack utama ke stack sementara (temporary stack). Hasil akhirnya, urutan data yang awalnya [9, 2, 4, 3] berubah urutannya menjadi terbalik setelah prosedur dijalankan.
+#### Penjelasan Soal 1
+
+Pada latihan ini, implementasi Stack dilakukan menggunakan Array statis dengan kapasitas maksimal 20 elemen sebagaimana didefinisikan dalam header file (`stack.h`). Variabel `top` diinisialisasi dengan nilai -1 pada fungsi `createStack()` sebagai penanda bahwa stack masih kosong.
+
+Fungsi operasional meliputi `push()` untuk menambah data (dengan menaikkan indeks `top`), `pop()` untuk mengambil data (menurunkan indeks `top`), dan `printInfo()` untuk menampilkan seluruh data dari indeks `top` ke 0. Selain itu, terdapat prosedur tambahan `balikStack()` yang berfungsi membalik urutan elemen stack dengan cara memindahkan seluruh isi stack utama ke stack sementara (temporary stack). Hasil akhirnya, urutan data yang awalnya [9, 2, 4, 3] berubah urutannya menjadi terbalik setelah prosedur dijalankan.
 
 ### Soal 2
 
-Tambahkan prosedur pushAscending( in/out S : Stack, in x : integer)
+> Tambahkan prosedur pushAscending( in/out S : Stack, in x : integer)
 
-```
+```cpp
 int main()
 {
 	cout << "Hello world!" << endl;
@@ -325,9 +332,9 @@ int main()
 }
 ```
 
-main.cpp
+#### 1. main.cpp
 
-```
+```cpp
 #include <iostream>
 #include "stack.h"
 
@@ -349,13 +356,13 @@ int main() {
     cout << "balik stack" << endl;
     balikStack(S);
     printInfo(S);
-    return 0;
+    return 0;
 }
 ```
 
-stack.cpp
+#### 2. stack.cpp
 
-```
+```cppcpp
 #include <iostream>
 #include "stack.h"
 
@@ -426,13 +433,13 @@ void balikStack(Stack &S) {
     while (!isEmpty(S)) {
         push(temp, pop(S));
     }
-    S = temp;
+    S = temp;
 }
 ```
 
-stack.h
+#### 3. stack.h
 
-```
+```cpp
 #ifndef STACK_H
 #define STACK_H
 
@@ -455,18 +462,21 @@ void pushAscending(Stack &S, infotype x);
 #endif
 ```
 
-> Output
-> ![Screenshot unguided 2](output/Screenshot_Soal2.png)
+#### Output Soal 2
 
-Pada soal kedua, program dimodifikasi dengan penambahan prosedur pushAscending. Prosedur ini bertujuan menjaga agar elemen di dalam stack selalu terurut secara menaik (ascending) setiap kali data baru dimasukkan, bukan sekadar menumpuk di atas (top).
+![Screenshot unguided 2](output/Screenshot_Soal2.png)
 
-Logikanya adalah dengan membandingkan data inputan dengan data di top. Jika data di top lebih besar dari input, data tersebut dikeluarkan dulu (pop) ke stack sementara. Setelah posisi yang tepat ditemukan (atau stack kosong), data inputan baru dimasukkan (push), lalu data-data dari stack sementara dikembalikan lagi ke stack utama. Hasil eksekusi menunjukkan bahwa meskipun input dimasukkan secara acak, isi stack tetap tersusun rapi dari nilai terkecil hingga terbesar.
+#### Penjelasan Soal 2
+
+Pada soal kedua, program dimodifikasi dengan penambahan prosedur `pushAscending()`. Prosedur ini bertujuan menjaga agar elemen di dalam stack selalu terurut secara menaik (ascending) setiap kali data baru dimasukkan, bukan sekadar menumpuk di atas (top).
+
+Logikanya adalah dengan membandingkan data inputan dengan data di `top`. Jika data di `top` lebih besar dari input, data tersebut dikeluarkan dulu (`pop`) ke stack sementara. Setelah posisi yang tepat ditemukan (atau stack kosong), data inputan baru dimasukkan (`push`), lalu data-data dari stack sementara dikembalikan lagi ke stack utama. Hasil eksekusi menunjukkan bahwa meskipun input dimasukkan secara acak, isi stack tetap tersusun rapi dari nilai terkecil hingga terbesar.
 
 ### Soal 3
 
-Tambahkan prosedur getInputStream( in/out S : Stack ). Prosedur akan terus membaca dan menerima input user dan memasukkan setiap input ke dalam stack hingga user menekan tombol enter. Contoh: gunakan cin.get() untuk mendapatkan inputan user.
+> Tambahkan prosedur getInputStream( in/out S : Stack ). Prosedur akan terus membaca dan menerima input user dan memasukkan setiap input ke dalam stack hingga user menekan tombol enter. Contoh: gunakan cin.get() untuk mendapatkan inputan user.
 
-```
+```cpp
 int main()
 {
 	cout << "Hello world!" << endl;
@@ -481,9 +491,9 @@ int main()
 }
 ```
 
-main.cpp
+#### 1. main.cpp
 
-```
+```cpp
 #include <iostream>
 #include "stack.h"
 
@@ -619,12 +629,15 @@ void getInputStream(Stack &S);
 #endif
 ```
 
-> Output
-> ![Screenshot unguided 3](output/Screenshot_Soal3.png)
+#### Output Soal 3
 
-Pengembangan terakhir pada soal ketiga adalah penambahan fitur interaktif melalui prosedur getInputStream. Fitur ini memungkinkan program menerima input angka secara kontinu dari pengguna dalam satu baris (seperti mengetik string angka), lalu memecahnya menjadi elemen integer terpisah untuk dimasukkan ke dalam stack.
+![Screenshot unguided 3](output/Screenshot_Soal3.png)
 
-Menggunakan fungsi cin.get(), program membaca input karakter per karakter hingga tombol Enter ditekan. Setiap karakter angka dikonversi menjadi tipe data integer sebelum di-push ke dalam stack. Demonstrasi pada main memperlihatkan bagaimana deretan angka yang diketik pengguna langsung tersusun dalam stack, ditampilkan, dan kemudian urutannya dibalik menggunakan fungsi balikStack yang telah dibuat sebelumnya.
+#### Penjelasan Soal 3
+
+Pengembangan terakhir pada soal ketiga adalah penambahan fitur interaktif melalui prosedur `getInputStream()`. Fitur ini memungkinkan program menerima input angka secara kontinu dari pengguna dalam satu baris (seperti mengetik string angka), lalu memecahnya menjadi elemen integer terpisah untuk dimasukkan ke dalam stack.
+
+Menggunakan fungsi `cin.get()`, program membaca input karakter per karakter hingga tombol Enter ditekan. Setiap karakter angka dikonversi menjadi tipe data integer sebelum di-`push` ke dalam stack. Demonstrasi pada `main()` memperlihatkan bagaimana deretan angka yang diketik pengguna langsung tersusun dalam stack, ditampilkan, dan kemudian urutannya dibalik menggunakan fungsi `balikStack()` yang telah dibuat sebelumnya.
 
 ## Referensi
 
@@ -633,4 +646,3 @@ Menggunakan fungsi cin.get(), program membaca input karakter per karakter hingga
 [2] JUTECH. "Penggunaan Struktur Data Stack dalam Pemrograman C++ dengan Pendekatan Array dan Linked List". Jurnal JUTECH. [Online PDF]. Tersedia: https://jurnal.stkippersada.ac.id/jurnal/index.php/jutech/article/download/4263/pd
 
 [3] Trivusi. (2022). Struktur Data Stack: Pengertian, Karakteristik, dan Kegunaannya. [Online]. Tersedia: https://trivusi.web.id/2022/07/struktur-data-stack.html
-
