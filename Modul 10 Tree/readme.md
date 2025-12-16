@@ -8,6 +8,7 @@ Rekursi merupakan sebuah teknik pemrograman di mana sebuah fungsi memanggil diri
 Dalam struktur data, Tree (pohon) didefinisikan sebagai struktur non-linear yang bersifat hirarkis, digambarkan sebagai graf terhubung yang tidak mengandung sirkuit. Elemen paling atas dalam tree disebut Root (akar) yang tidak memiliki pendahulu, sedangkan elemen lainnya memiliki tepat satu induk (parent). Istilah-istilah kunci dalam tree meliputi Leaf (daun) untuk node yang tidak memiliki anak, Internal Nodes untuk simpul cabang, serta Height (tinggi) atau Depth untuk mengukur kedalaman maksimum dari struktur tersebut. Salah satu varian populer adalah Binary Tree, di mana setiap node dibatasi maksimal memiliki dua percabangan (anak).
 
 Implementasi spesifik dari Binary Tree yang banyak digunakan adalah Binary Search Tree (BST). BST menerapkan aturan pengurutan data yang ketat: nilai pada simpul anak kiri (Left Child) harus selalu lebih kecil dari induknya, sedangkan nilai pada simpul anak kanan (Right Child) harus lebih besar. Struktur ini sangat menguntungkan untuk efisiensi operasi pencarian (searching), penyisipan (insertion), dan penghapusan (deletion). Untuk membaca data dalam tree, terdapat tiga metode traversal utama: Pre-order (mencetak Root dahulu, lalu Kiri, kemudian Kanan), In-order (Kiri, Root, Kanan), dan Post-order (Kiri, Kanan, baru Root).
+
 ## Guided
 
 ### Guided 1
@@ -201,16 +202,21 @@ int main()
 }
 ```
 
-> Output
-> 
-> ![Screenshot bagian x](OUTPUT/guided1.png)
+#### Output Guided 1
 
-Program di atas menyajikan implementasi Binary Search Tree (BST) secara utuh dalam satu file (single-file implementation). Fitur yang disediakan mencakup operasi CRUD (Create, Read, Update, Delete) secara lengkap. Keunggulan dari kode ini adalah penanganan logika yang detail, mulai dari pencarian nilai (searching), mekanisme pembaruan data yang menggabungkan proses hapus dan sisip ulang, hingga algoritma penghapusan node (delete) yang secara adaptif menangani berbagai skenario (node tanpa anak, satu anak, atau dua anak).
+![Screenshot bagian x](OUTPUT/guided1.png)
 
-## UNGUIDED
+#### Penjelasan Guided 1
 
-#### bstree.h
-```c++
+Program di atas menyajikan implementasi Binary Search Tree (BST) secara utuh dalam satu file (single-file implementation). Fitur yang disediakan mencakup operasi CRUD (Create, Read, Update, Delete) secara lengkap. Keunggulan dari kode ini adalah penanganan logika yang detail, mulai dari pencarian nilai (`search()`), mekanisme pembaruan data yang menggabungkan proses hapus dan sisip ulang (`update()`), hingga algoritma penghapusan node (`hapus()`) yang secara adaptif menangani berbagai skenario (node tanpa anak, satu anak, atau dua anak).
+
+## Unguided
+
+### Soal 1 - 3
+
+#### 1. bstree.h
+
+```cpp
 #ifndef POHON_H
 #define POHON_H
 #include <iostream>
@@ -238,8 +244,10 @@ void cetakPostOrder(alamat akar);
 
 #endif
 ```
-#### bstree.cpp
-```c++
+
+#### 2. bstree.cpp
+
+```cpp
 #include "bstree.h"
 
 alamat buatSimpul(tipeInfo x) {
@@ -318,8 +326,10 @@ int cariKedalaman(alamat akar) {
     }
 }
 ```
-#### main.cpp
-```c++
+
+#### 3. main.cpp
+
+```cpp
 #include <iostream>
 #include "bstree.h"
 
@@ -359,12 +369,16 @@ int main() {
     return 0;
 }
 ```
-> Output soal 1,2,3
-> 
-> ![Screenshot bagian x](OUTPUT/unguided1.png)
 
-Kode program ini mendemonstrasikan implementasi Binary Search Tree (BST) dengan pendekatan modular, di mana struktur kode dipecah menjadi tiga bagian: file header (.h), file implementasi fungsi (.cpp), dan program utama (main). Fokus utama program ini adalah operasi-operasi esensial pada BST, seperti penyisipan node (insert), serta tiga jenis metode penelusuran data (traversal). Selain itu, terdapat fungsi statistik yang berguna untuk menganalisis properti tree, seperti menghitung kedalaman maksimum (depth), total jumlah node, dan penjumlahan seluruh nilai data yang ada dalam tree.
+#### Output Soal 1 - 3
 
+![Screenshot bagian x](OUTPUT/unguided1.png)
+
+#### Penjelasan Soal 1 - 3
+
+Kode program ini mendemonstrasikan implementasi Binary Search Tree (BST) dengan pendekatan modular, di mana struktur kode dipecah menjadi tiga bagian: file header (`.h`), file implementasi fungsi (`.cpp`), dan program utama (`main.cpp`). Fokus utama program ini adalah operasi-operasi esensial pada BST, seperti penyisipan node (`tambahData()`), serta tiga jenis metode penelusuran data (traversal): `cetakInOrder()`, `cetakPreOrder()`, dan `cetakPostOrder()`.
+
+Selain itu, terdapat fungsi statistik yang berguna untuk menganalisis properti tree, seperti `cariKedalaman()` untuk menghitung kedalaman maksimum (depth/height), `hitungTotalSimpul()` untuk menghitung total jumlah node, dan `jumlahkanSemuaData()` untuk menjumlahkan seluruh nilai data yang ada dalam tree. Program ini menggunakan pendekatan rekursif untuk semua operasi traversal dan perhitungan statistik.
 
 ## Referensi
 
