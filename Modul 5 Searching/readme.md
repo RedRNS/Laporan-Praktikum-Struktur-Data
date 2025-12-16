@@ -4,11 +4,198 @@
 
 ## Dasar Teori - Searching
 
-Searching atau pencarian adalah salah satu operasi paling fundamental dalam struktur data. Tujuannya simpel: menemukan lokasi data tertentu di dalam sekumpulan data. Bayangin aja kamu lagi nyari satu buku spesifik di rak buku yang isinya puluhan buku. Nah, cara kamu nyarinya itu adalah algoritma searching.
+### 1. Pengertian Searching
 
-Ada dua metode pencarian yang paling umum:
-1. Sequential Search (Pencarian Berurutan): Ini metode paling dasar dan intuitif. Kamu bakal cek satu per satu data dari awal sampai akhir, sampai data yang kamu cari ketemu. Mirip kayak nyari buku di rak yang berantakan, kamu harus liat judulnya satu-satu dari ujung kiri ke ujung kanan. Metode ini gampang diimplementasikan tapi bisa jadi lambat banget kalau datanya banyak dan yang dicari ada di urutan terakhir. Semua kode di modul ini menggunakan pendekatan sequential search karena kita bekerja dengan linked list yang pada dasarnya harus ditelusuri satu per satu.
-2. Binary Search (Pencarian Biner): Metode ini jauh lebih cepat dan efisien, tapi punya satu syarat mutlak: datanya harus sudah terurut. Cara kerjanya kayak nyari kata di kamus. Kamu nggak akan baca dari halaman pertama, kan? Kamu pasti langsung buka bagian tengah, liat katanya, terus tentuin apakah kata yang kamu cari ada di bagian sebelum atau sesudah halaman itu. Proses ini diulang terus, membagi dua sisa data setiap kali, sampai katanya ketemu. Karena efisiensinya ini, binary search jadi andalan di banyak aplikasi profesional untuk mengolah data dalam jumlah besar.
+Searching (pencarian) merupakan salah satu operasi fundamental dalam ilmu komputer dan struktur data yang bertujuan untuk menemukan lokasi atau keberadaan suatu elemen tertentu dalam kumpulan data. Operasi pencarian sangat krusial dalam berbagai aplikasi, mulai dari database management system, search engine, hingga sistem informasi modern yang memproses miliaran data setiap detiknya.
+
+Secara formal, searching dapat didefinisikan sebagai proses menemukan posisi atau index dari elemen dengan nilai kunci (key) tertentu dalam struktur data. Jika elemen ditemukan, algoritma akan mengembalikan posisi elemen tersebut; jika tidak ditemukan, algoritma akan memberikan indikasi bahwa elemen tidak ada dalam struktur data.
+
+### 2. Kompleksitas Algoritma Searching
+
+Efisiensi algoritma searching diukur menggunakan notasi Big-O yang menganalisis time complexity dan space complexity:
+
+**Time Complexity:**
+- **Best Case**: Kasus terbaik ketika elemen ditemukan pada posisi pertama
+- **Average Case**: Rata-rata waktu yang dibutuhkan untuk berbagai kemungkinan posisi data
+- **Worst Case**: Kasus terburuk ketika elemen berada di posisi terakhir atau tidak ada dalam struktur data
+
+**Space Complexity:**
+Mengukur jumlah memori tambahan yang dibutuhkan algoritma untuk melakukan pencarian.
+
+### 3. Sequential Search (Linear Search)
+
+#### 3.1 Konsep Dasar Sequential Search
+
+Sequential Search atau Linear Search adalah algoritma pencarian paling sederhana dan intuitif. Algoritma ini bekerja dengan cara memeriksa setiap elemen dalam struktur data secara berurutan dari awal hingga akhir, atau sampai elemen yang dicari ditemukan.
+
+#### 3.2 Cara Kerja Sequential Search
+
+Proses pencarian sequential mengikuti langkah-langkah berikut:
+
+1. **Inisialisasi**: Mulai dari elemen pertama dalam struktur data
+2. **Komparasi**: Bandingkan nilai elemen saat ini dengan nilai yang dicari (key)
+3. **Kondisi Found**: Jika nilai cocok, pencarian berhasil dan posisi dikembalikan
+4. **Iterasi**: Jika tidak cocok, lanjutkan ke elemen berikutnya
+5. **Terminasi**: Proses berakhir ketika elemen ditemukan atau seluruh data sudah diperiksa
+
+#### 3.3 Karakteristik Sequential Search
+
+**Kelebihan:**
+- Implementasi sangat sederhana dan mudah dipahami
+- Dapat digunakan pada data yang tidak terurut (unsorted)
+- Efektif untuk struktur data linked list yang tidak mendukung random access
+- Tidak memerlukan preprocessing atau pengurutan data terlebih dahulu
+- Space complexity O(1) - sangat efisien dalam penggunaan memori
+
+**Kekurangan:**
+- Time complexity O(n) - tidak efisien untuk dataset besar
+- Pada worst case, harus memeriksa semua elemen
+- Performa menurun drastis seiring bertambahnya jumlah data
+
+#### 3.4 Analisis Kompleksitas Sequential Search
+
+```
+Time Complexity:
+- Best Case: O(1)    - Elemen ditemukan di posisi pertama
+- Average Case: O(n/2) ≈ O(n) - Elemen di tengah
+- Worst Case: O(n)   - Elemen di posisi terakhir atau tidak ada
+
+Space Complexity: O(1) - Hanya memerlukan variabel temporary
+```
+
+#### 3.5 Implementasi Sequential Search pada Linked List
+
+Pada linked list, sequential search adalah satu-satunya metode pencarian yang praktis karena:
+- Linked list tidak mendukung random access
+- Setiap node hanya dapat diakses melalui pointer next
+- Traversal harus dilakukan secara sekuensial dari head ke tail
+
+### 4. Binary Search (Pencarian Biner)
+
+#### 4.1 Konsep Dasar Binary Search
+
+Binary Search adalah algoritma pencarian yang sangat efisien dengan pendekatan divide and conquer. Algoritma ini membagi search space menjadi dua bagian secara berulang, sehingga jumlah elemen yang perlu diperiksa berkurang secara eksponensial.
+
+#### 4.2 Prasyarat Binary Search
+
+**Syarat Mutlak:**
+Data harus sudah terurut (sorted) secara ascending atau descending. Tanpa kondisi ini, binary search tidak akan memberikan hasil yang benar.
+
+#### 4.3 Cara Kerja Binary Search
+
+1. **Tentukan Batas**: Set indeks low = 0 dan high = n-1 (n = jumlah elemen)
+2. **Hitung Middle**: Kalkulasi middle = (low + high) / 2
+3. **Komparasi Middle**:
+   - Jika array[middle] == key → elemen ditemukan
+   - Jika array[middle] > key → cari di bagian kiri (high = middle - 1)
+   - Jika array[middle] < key → cari di bagian kanan (low = middle + 1)
+4. **Iterasi**: Ulangi langkah 2-3 hingga elemen ditemukan atau low > high
+
+#### 4.4 Karakteristik Binary Search
+
+**Kelebihan:**
+- Time complexity O(log n) - sangat efisien untuk dataset besar
+- Jumlah komparasi minimal dibanding sequential search
+- Performa stabil dan predictable
+
+**Kekurangan:**
+- Hanya dapat digunakan pada data terurut
+- Memerlukan preprocessing (sorting) jika data belum terurut
+- Tidak cocok untuk linked list karena butuh random access
+- Overhead sorting bisa memakan waktu untuk data dinamis
+
+#### 4.5 Analisis Kompleksitas Binary Search
+
+```
+Time Complexity:
+- Best Case: O(1)      - Elemen di posisi middle pertama
+- Average Case: O(log n) - Rata-rata operasi
+- Worst Case: O(log n)  - Pencarian hingga satu elemen tersisa
+
+Space Complexity:
+- Iterative: O(1)
+- Recursive: O(log n) karena call stack
+```
+
+#### 4.6 Perbandingan Efisiensi
+
+Untuk dataset dengan n = 1,000,000 elemen:
+- **Sequential Search**: Worst case = 1,000,000 komparasi
+- **Binary Search**: Worst case = log₂(1,000,000) ≈ 20 komparasi
+
+Perbedaan ini menjadi sangat signifikan pada big data processing.
+
+### 5. Variasi Algoritma Searching
+
+#### 5.1 Jump Search
+
+Algoritma yang melompati beberapa elemen dengan ukuran blok √n, kemudian melakukan linear search dalam blok tersebut.
+- Time Complexity: O(√n)
+- Cocok untuk data terurut dengan ukuran medium
+
+#### 5.2 Interpolation Search
+
+Menggunakan interpolasi matematis untuk memperkirakan posisi elemen yang dicari.
+- Time Complexity: O(log log n) untuk uniform distribution
+- Sangat efisien untuk data numerik yang terdistribusi merata
+
+#### 5.3 Exponential Search
+
+Mencari range dimana elemen mungkin berada dengan eksponensial, lalu gunakan binary search.
+- Time Complexity: O(log n)
+- Efektif untuk unbounded atau infinite arrays
+
+### 6. Penerapan Searching dalam Praktik
+
+#### 6.1 Database Systems
+- B-Tree dan B+ Tree search untuk indexing
+- Hash-based search untuk primary key lookup
+- Full-text search menggunakan inverted index
+
+#### 6.2 Search Engines
+- Web crawling dan indexing
+- Ranking algorithms (PageRank, TF-IDF)
+- Query optimization menggunakan berbagai search strategies
+
+#### 6.3 Artificial Intelligence
+- Breadth-First Search (BFS)
+- Depth-First Search (DFS)
+- A* Search Algorithm untuk pathfinding
+- Minimax search dalam game theory
+
+### 7. Trade-offs dalam Pemilihan Algoritma Searching
+
+Pemilihan algoritma searching yang tepat bergantung pada beberapa faktor:
+
+1. **Karakteristik Data**:
+   - Sorted vs Unsorted
+   - Static vs Dynamic
+   - Ukuran dataset
+
+2. **Struktur Data**:
+   - Array/Vector → Binary search optimal untuk sorted data
+   - Linked List → Sequential search sebagai pilihan utama
+   - Hash Table → O(1) average case dengan proper hash function
+   - Tree → Specialized tree search algorithms
+
+3. **Frekuensi Operasi**:
+   - Read-heavy: Investasi sorting untuk binary search worth it
+   - Write-heavy: Sequential search lebih praktis
+
+4. **Constraint Resources**:
+   - Memory-limited: Prefer O(1) space algorithms
+   - Time-critical: Prefer O(log n) atau better time complexity
+
+### 8. Implementasi Searching pada Modul Ini
+
+Semua program dalam modul ini mengimplementasikan **Sequential Search** karena bekerja dengan **Singly Linked List** sebagai struktur data utama. Linked list bersifat sequential access, sehingga:
+
+- Setiap node harus diakses melalui traversal dari head
+- Tidak ada mekanisme untuk langsung "melompat" ke middle element
+- Binary search secara teknis tidak applicable
+- Sequential search menjadi pilihan natural dan efisien
+
+Pendekatan ini mencerminkan realitas implementation dimana pemilihan algoritma sangat bergantung pada karakteristik struktur data yang digunakan.
 
 ## Guided Modul
 
@@ -899,6 +1086,168 @@ Program ini adalah upgrade dari latihan manajemen buku, di mana fitur pencariann
 
 - Pemisahan Fungsi Pencarian: Program ini cerdas dalam memisahkan dua jenis pencarian. cariBukuByISBN tetap ada untuk pencarian internal yang butuh pointer (untuk hapus & update). Sementara itu, fungsi baru cariDanTampilkanBuku dibuat khusus untuk interaksi dengan pengguna.
 - Fungsi cariDanTampilkanBuku(List L): Fungsi ini memberikan pilihan kepada pengguna untuk mencari berdasarkan Judul, Penulis, atau ISBN. Berdasarkan pilihan tersebut, fungsi ini melakukan Sequential Search ke seluruh list. Untuk pencarian Judul dan Penulis, ia menggunakan string::find untuk pencocokan parsial, sedangkan untuk ISBN ia menggunakan perbandingan == untuk pencocokan yang eksak. Pendekatan ini adalah cerminan dari implementasi fitur pencarian di dunia nyata, di mana pengguna diberikan berbagai filter untuk menemukan data yang mereka inginkan.
+
+## Kesimpulan
+
+Modul 5 tentang Searching memberikan pemahaman mendalam tentang algoritma pencarian dan implementasinya pada struktur data linked list. Berikut adalah kesimpulan komprehensif dari pembelajaran modul ini:
+
+### 1. Fundamental Searching sebagai Operasi Kritis
+
+Searching merupakan operasi fundamental yang menjadi backbone dari hampir semua sistem informasi modern. Kemampuan untuk menemukan data dengan cepat dan efisien menentukan performa keseluruhan aplikasi. Pemahaman mendalam tentang algoritma searching tidak hanya penting untuk implementasi teknis, tetapi juga untuk membuat keputusan arsitektural yang tepat dalam software design.
+
+### 2. Sequential Search: Simplicity dengan Trade-offs
+
+Sequential search membuktikan bahwa algoritma sederhana tetap memiliki tempat penting dalam computer science. Dengan time complexity O(n), algoritma ini mungkin tidak seefisien binary search, namun memiliki keunggulan praktis yang signifikan:
+
+- **Universal applicability**: Dapat digunakan pada data sorted maupun unsorted
+- **Minimal overhead**: Tidak memerlukan preprocessing atau struktur data khusus
+- **Natural fit untuk linked list**: Sesuai dengan karakteristik sequential access
+- **Implementation simplicity**: Mudah dipahami, di-debug, dan dimaintain
+
+Pembelajaran ini mengajarkan bahwa "optimal" tidak selalu berarti "fastest algorithm", tetapi algoritma yang paling sesuai dengan constraint dan requirement sistem.
+
+### 3. Struktur Data Menentukan Algoritma yang Applicable
+
+Salah satu insight paling penting dari modul ini adalah pemahaman bahwa pemilihan algoritma sangat bergantung pada struktur data yang digunakan. Linked list dengan karakteristik sequential access-nya membuat sequential search menjadi pilihan natural:
+
+- **No random access**: Linked list tidak mendukung direct indexing seperti array
+- **Pointer-based traversal**: Akses ke node hanya mungkin melalui pointer next
+- **Binary search impracticality**: Meskipun data terurut, binary search tidak efisien pada linked list karena mencari middle element memerlukan O(n/2) traversal
+
+Ini menunjukkan pentingnya memahami karakteristik intrinsik setiap struktur data sebelum memilih algoritma.
+
+### 4. Time Complexity sebagai Performance Metric
+
+Modul ini memperkuat pemahaman tentang analisis kompleksitas algoritma:
+
+**Sequential Search Analysis:**
+- Best case O(1): Data di posisi pertama
+- Average case O(n/2) \u2248 O(n): Data di tengah
+- Worst case O(n): Data di akhir atau tidak ada
+
+**Binary Search Comparison:**
+- O(log n) untuk sorted array dengan random access
+- Menunjukkan perbedaan dramatis untuk large datasets
+- n = 1,000,000: Sequential = 1M komparasi vs Binary = ~20 komparasi
+
+Pemahaman ini krusial untuk membuat informed decisions tentang kapan optimization diperlukan.
+
+### 5. Practical Implementation dalam Konteks Real-World
+
+Implementasi praktik dalam modul ini (sistem manajemen buku, linked list CRUD) mendemonstrasikan bagaimana searching terintegrasi dalam aplikasi nyata:
+
+- **Search as enabling operation**: Pencarian memungkinkan operasi update dan delete
+- **User experience consideration**: Fungsi cariDanTampilkanBuku menunjukkan pentingnya UX dalam search interface
+- **Multiple search criteria**: Implementasi pencarian berdasarkan ISBN, judul, dan penulis mencerminkan real-world requirements
+- **Partial matching**: Penggunaan string::find untuk flexible search menunjukkan adaptasi algoritma untuk kebutuhan praktis
+
+### 6. Error Handling dan Robustness
+
+Program-program dalam modul ini menunjukkan pentingnya defensive programming:
+
+- **Input validation**: Pengecekan cin.fail() untuk menangani invalid input
+- **Null checking**: Validasi list kosong sebelum operasi
+- **Clear user feedback**: Pesan informatif untuk kondisi found/not found
+- **Graceful degradation**: Program tidak crash ketika data tidak ditemukan
+
+Aspek ini sama pentingnya dengan correctness algoritma itu sendiri.
+
+### 7. Sequential Search pada Linked List: Natural Fit
+
+Modul ini membuktikan bahwa sequential search adalah algoritma yang perfectly suited untuk linked list:
+
+- **Single traversal**: Efisien karena setiap node hanya dikunjungi sekali
+- **Early termination**: Break statement ketika data ditemukan mengoptimalkan average case
+- **Memory efficient**: O(1) space complexity dengan hanya menggunakan pointer temporary
+- **Simplicity in implementation**: Logika straightforward mengurangi bug potential
+
+### 8. Trade-offs dalam Software Engineering
+
+Pembelajaran terpenting adalah pemahaman tentang engineering trade-offs:
+
+**Time vs Space:**
+- Sequential search: O(n) time, O(1) space
+- Some advanced search: Better time dengan additional space requirements
+
+**Simplicity vs Performance:**
+- Sequential: Mudah implement dan maintain
+- Complex algorithms: Better performance dengan increased complexity
+
+**Flexibility vs Efficiency:**
+- Unsorted data: Flexibility dengan sequential search
+- Sorted data: Efficiency dengan binary search tapi lost flexibility
+
+### 9. Foundation untuk Advanced Searching
+
+Konsep-konsep dalam modul ini menjadi foundation untuk mempelajari algoritma searching yang lebih advanced:
+
+- **Hash-based search**: O(1) average case dengan hash tables
+- **Tree-based search**: Binary Search Tree, AVL Tree, B-Tree
+- **Graph search algorithms**: BFS, DFS, Dijkstra, A*
+- **String searching**: KMP, Rabin-Karp, Boyer-Moore
+- **Approximate search**: Fuzzy matching, similarity search
+
+### 10. Integration dengan Operasi CRUD
+
+Modul ini menunjukkan bagaimana searching terintegrasi dengan operasi CRUD (Create, Read, Update, Delete):
+
+- **Update operation**: Memerlukan search untuk menemukan node yang akan diupdate
+- **Delete operation**: Search menentukan node yang akan dihapus dan predecessor-nya
+- **Read operation**: Search itu sendiri adalah bentuk read
+- **Create validation**: Search dapat digunakan untuk mencegah duplikasi
+
+Ini mendemonstrasikan bahwa searching bukan operasi isolated, tetapi enabling operation untuk operasi data lainnya.
+
+### 11. Code Quality dan Best Practices
+
+Implementasi dalam modul ini mendemonstrasikan software engineering best practices:
+
+- **Modular functions**: Setiap fungsi memiliki single responsibility
+- **Descriptive naming**: Nama variabel dan fungsi yang self-documenting
+- **Comments dan documentation**: Inline comments menjelaskan logika kompleks
+- **Consistent style**: Indentation dan formatting yang konsisten
+- **User-friendly interface**: Menu-driven program dengan clear instructions
+
+### 12. Aplikabilitas Universal Searching
+
+Sequential search yang dipelajari di modul ini applicable pada berbagai scenarios:
+
+- **Small datasets**: Overhead sorting tidak worth it untuk data kecil
+- **Dynamic data**: Data yang sering berubah tidak practical untuk maintain sorted order
+- **One-time search**: Jika hanya search sekali, sorting overhead > sequential search
+- **Linked list structures**: Natural choice untuk pointer-based structures
+- **Stream processing**: Dapat digunakan untuk data stream yang belum complete
+
+### 13. Performance Optimization Awareness
+
+Meskipun sequential search O(n), modul ini mengajarkan beberapa optimization strategies:
+
+- **Early termination**: Break segera setelah data ditemukan
+- **Sentinel nodes**: Dapat mengurangi conditional checking (advanced technique)
+- **Move-to-front heuristic**: Menempatkan frequently accessed data di depan
+- **Caching results**: Untuk repeated searches pada static data
+
+### 14. Pentingnya Empirical Testing
+
+Modul ini menekankan pentingnya testing dan verification:
+
+- **Compilation success**: Memastikan code syntactically correct
+- **Functional testing**: Verifikasi semua operasi berjalan dengan benar
+- **Edge case handling**: Test dengan list kosong, single element, dll
+- **Performance measurement**: Awareness tentang execution time untuk different inputs
+
+### 15. Bridging Theory dan Practice
+
+Kesimpulan terpenting adalah bagaimana modul ini successfully bridges gap antara teori algoritma dan implementasi praktis. Mahasiswa tidak hanya mempelajari "apa itu sequential search", tetapi juga:
+
+- **Kapan menggunakannya**: Context dan appropriate scenarios
+- **Bagaimana mengimplementasikannya**: Practical coding skills
+- **Mengapa memilihnya**: Understanding trade-offs dan decision-making
+- **Apa limitasinya**: Awareness tentang constraints dan alternatives
+
+Pemahaman holistik ini adalah fondasi untuk menjadi software engineer yang competent, capable of making informed architectural decisions berdasarkan deep understanding of algorithms, data structures, dan their interactions dalam real-world applications.
+
+Modul Searching ini bukan hanya tentang menemukan data dalam linked list, tetapi tentang developing computational thinking, understanding complexity analysis, dan appreciating the elegant simplicity of well-designed algorithms. Skills ini akan invaluable untuk mempelajari advanced data structures dan algorithms di modul-modul selanjutnya seperti sorting, tree structures, dan graph algorithms.
 
 ## Referensi
 
