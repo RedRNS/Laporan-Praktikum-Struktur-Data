@@ -6,7 +6,7 @@
 
 ### 1. Pengenalan C++
 
-C++ adalah bahasa pemrograman tingkat menengah yang dikembangkan oleh Bjarne Stroustrup sebagai pengembangan dari bahasa C. C++ menggabungkan pemrograman prosedural dengan pemrograman berorientasi objek (OOP), menjadikannya bahasa yang powerful dan fleksibel.
+C++ adalah bahasa pemrograman tingkat menengah yang dikembangkan oleh Bjarne Stroustrup sebagai pengembangan dari bahasa C. C++ menggabungkan pemrograman prosedural dengan pemrograman berorientasi objek (OOP) sehingga menjadikannya bahasa yang powerful dan fleksibel.
 
 ### 2. Struktur Dasar Program C++
 
@@ -54,7 +54,7 @@ Operator yang digunakan untuk operasi matematika:
 
 **a. IF-ELSE**
 
-Digunakan untuk membuat keputusan berdasarkan kondisi:
+Digunakan untuk membuat keputusan berdasarkan kondisi tertentu:
 ```cpp
 if (kondisi) {
     // Kode jika kondisi true
@@ -83,7 +83,7 @@ switch (variabel) {
 
 **a. FOR Loop**
 
-Digunakan ketika jumlah iterasi sudah diketahui:
+Digunakan saat jumlah iterasi sudah diketahui:
 ```cpp
 for (int i = 0; i < n; i++) {
     // Kode yang diulang
@@ -92,7 +92,7 @@ for (int i = 0; i < n; i++) {
 
 **b. WHILE Loop**
 
-Digunakan ketika perulangan bergantung pada kondisi:
+Digunakan saat perulangan bergantung pada kondisi:
 ```cpp
 while (kondisi) {
     // Kode yang diulang
@@ -101,7 +101,7 @@ while (kondisi) {
 
 **c. DO-WHILE Loop**
 
-Mirip while, tetapi selalu dieksekusi minimal 1 kali:
+Mirip while tetapi selalu dieksekusi minimal 1 kali:
 ```cpp
 do {
     // Kode yang diulang
@@ -126,7 +126,7 @@ void tampilkanPesan() {
 
 ### 8. Struct
 
-Struct memungkinkan pengelompokan data dengan tipe berbeda:
+Struct memungkinkan pengelompokan data dengan tipe yang berbeda:
 ```cpp
 struct Mahasiswa {
     string nama;
@@ -177,7 +177,7 @@ int main()
 > Output
 > ![Screenshot bagian x](output/Screenshot_aritmatika_Renisa_Assyifa_Putri_103112400123.png)
 
-Program di atas bertujuan untuk melakukan perhitungan matematis sederhana. Nilai Z didapatkan dari hasil pembagian antara (X + Y) dengan (Y + W). Nilai variabel X, Y, dan W telah ditentukan secara hardcode di dalam program. Hasil akhir dari operasi tersebut, yang disimpan dalam variabel Z bertipe float, kemudian dicetak ke layar.
+Program ini melakukan perhitungan matematis sederhana. Nilai Z didapatkan dari hasil pembagian antara (X + Y) dengan (Y + W). Nilai variabel X, Y, dan W telah ditentukan secara hardcode di dalam program. Hasil akhir dari operasi tersebut yang disimpan dalam variabel Z bertipe float kemudian dicetak ke layar.
 
 ### Soal 2 Fungsi
 
@@ -235,7 +235,7 @@ int main()
 > Output
 > ![Screenshot bagian x](output/Screenshot_fungsi_Renisa_Assyifa_Putri_103112400123.png)
 
-Program ini mendemonstrasikan cara menghitung luas serta keliling dari sebuah persegi panjang. Input berupa nilai panjang dan lebar diterima dari pengguna. Program ini mengimplementasikan dua buah fungsi (hitungLuas dan hitungKeliling) yang masing-masing mengembalikan nilai hasil perhitungan, dan satu prosedur (tampilkanHasil) yang bertugas untuk menampilkan keseluruhan hasil secara langsung tanpa mengembalikan nilai.
+Program ini mendemonstrasikan cara menghitung luas dan keliling dari persegi panjang. Input berupa nilai panjang dan lebar diterima dari pengguna. Program mengimplementasikan dua fungsi (hitungLuas dan hitungKeliling) yang masing-masing mengembalikan nilai hasil perhitungan, serta satu prosedur (tampilkanHasil) yang bertugas menampilkan keseluruhan hasil secara langsung tanpa mengembalikan nilai.
 
 ### Soal 3 Perkondisian
 
@@ -327,7 +327,7 @@ int main()
 > Output
 > ![Screenshot bagian x](output/Screenshot_kondisi_Renisa_Assyifa_Putri_103112400123.png)
 
-Program ini mendemonstrasikan tiga jenis struktur kontrol percabangan dalam C++. Program didesain secara modular dengan tiga fungsi terpisah: `contohIF()` untuk percabangan IF sederhana yang menghitung diskon berdasarkan total pembelian, `contohIFELSE()` untuk percabangan IF-ELSE dengan kondisi alternatif, dan `contohSWITCH()` untuk percabangan SWITCH-CASE yang menentukan apakah suatu hari merupakan hari kerja atau libur. Fungsi main() berfungsi sebagai menu utama yang memungkinkan pengguna memilih contoh mana yang ingin dijalankan. Program ini lebih terstruktur dan memberikan pemahaman yang lebih baik tentang perbedaan setiap jenis percabangan.
+Program ini mendemonstrasikan tiga jenis struktur kontrol percabangan dalam C++. Program didesain secara modular dengan tiga fungsi terpisah: `contohIF()` untuk percabangan IF sederhana yang menghitung diskon berdasarkan total pembelian, `contohIFELSE()` untuk percabangan IF-ELSE dengan kondisi alternatif, dan `contohSWITCH()` untuk percabangan SWITCH-CASE yang menentukan apakah suatu hari merupakan hari kerja atau libur. Fungsi main() berfungsi sebagai menu utama yang memungkinkan pengguna memilih contoh yang ingin dijalankan. Program ini terstruktur dan memberikan pemahaman yang baik tentang perbedaan setiap jenis percabangan.
 
 ### Soal 4 Perulangan
 
@@ -401,7 +401,7 @@ int main()
 > Output
 > ![Screenshot bagian x](output/Screenshot_perulangan_Renisa_Assyifa_Putri_103112400123.png)
 
-Program ini mendemonstrasikan tiga jenis struktur perulangan dalam C++ secara lengkap dan terstruktur. Program ini dibagi menjadi tiga fungsi: `contohFOR()` untuk perulangan FOR yang cocok digunakan ketika jumlah iterasi sudah diketahui, `contohWHILE()` untuk perulangan WHILE yang kondisinya dicek di awal sebelum eksekusi, dan `contohDOWHILE()` untuk perulangan DO-WHILE yang memastikan kode dieksekusi minimal satu kali karena kondisi dicek di akhir. Fungsi main() menyediakan menu interaktif yang memungkinkan pengguna memilih jenis perulangan mana yang ingin dipelajari. Setiap contoh menerima input jumlah perulangan dari pengguna dan menampilkan nomor iterasi secara berurutan, memberikan visualisasi yang jelas tentang cara kerja masing-masing jenis perulangan.
+Program ini mendemonstrasikan tiga jenis struktur perulangan dalam C++ secara lengkap dan terstruktur. Program dibagi menjadi tiga fungsi: `contohFOR()` untuk perulangan FOR yang cocok digunakan saat jumlah iterasi sudah diketahui, `contohWHILE()` untuk perulangan WHILE yang kondisinya dicek di awal sebelum eksekusi, dan `contohDOWHILE()` untuk perulangan DO-WHILE yang memastikan kode dieksekusi minimal satu kali karena kondisi dicek di akhir. Fungsi main() menyediakan menu interaktif yang memungkinkan pengguna memilih jenis perulangan yang ingin dipelajari. Setiap contoh menerima input jumlah perulangan dari pengguna dan menampilkan nomor iterasi secara berurutan untuk memberikan visualisasi yang jelas tentang cara kerja masing-masing jenis perulangan.
 
 ### Soal 5 Struct
 
@@ -442,7 +442,7 @@ int main() {
 > Output
 > ![Screenshot bagian x](output/Screenshot_struct_Renisa_Assyifa_Putri_103112400123.png)
 
-Program ini mengilustrasikan penggunaan struct untuk mengelompokkan data yang saling terkait. Sebuah struct dengan nama Mahasiswa didefinisikan untuk menampung tiga data: nama, nim, dan ipk. Program kemudian meminta pengguna untuk memasukkan ketiga data tersebut. Setelah data berhasil diinput, program akan menampilkannya kembali dalam format yang terstruktur.
+Program ini mengilustrasikan penggunaan struct untuk mengelompokkan data yang saling terkait. Struct dengan nama Mahasiswa didefinisikan untuk menampung tiga data: nama, nim, dan ipk. Program meminta pengguna memasukkan ketiga data tersebut kemudian menampilkannya kembali dalam format yang terstruktur.
 
 ### Soal 6 Test
 
@@ -461,7 +461,7 @@ int main()
 
 ```
 
-Program ini didesain untuk membaca sebuah karakter tunggal dari input pengguna. Fungsi getchar() digunakan secara spesifik untuk menangkap karakter pertama yang dimasukkan. Selanjutnya, karakter tersebut dicetak kembali ke layar sebagai output.
+Program ini didesain untuk membaca karakter tunggal dari input pengguna. Fungsi getchar() digunakan untuk menangkap karakter pertama yang dimasukkan kemudian karakter tersebut dicetak kembali ke layar sebagai output.
 
 ## Unguided
 
@@ -501,7 +501,7 @@ int main(){
 > Output
 > ![Screenshot bagian x](output/Screenshot_Soal_1_Renisa_Assyifa_Putri_103112400123.png)
 
-Program C++ di atas berfungsi sebagai kalkulator sederhana yang melakukan empat operasi aritmatika dasar. Program ini meminta pengguna untuk memasukkan dua bilangan desimal (n1 dan n2). Kemudian, program secara berurutan menampilkan hasil dari penjumlahan, pengurangan, perkalian, dan pembagian kedua bilangan tersebut. Terdapat sebuah kondisi khusus untuk operasi pembagian untuk mencegah terjadinya error akibat pembagian dengan nol.
+Program C++ ini berfungsi sebagai kalkulator sederhana yang melakukan empat operasi aritmatika dasar. Program meminta pengguna memasukkan dua bilangan desimal (n1 dan n2) kemudian menampilkan hasil dari penjumlahan, pengurangan, perkalian, dan pembagian kedua bilangan tersebut. Terdapat kondisi khusus untuk operasi pembagian untuk mencegah terjadinya error akibat pembagian dengan nol.
 
 ### Soal 2
 
@@ -548,7 +548,7 @@ int main() {
 > Output
 > ![Screenshot bagian x](output/Screenshot_Soal_2_Renisa_Assyifa_Putri_103112400123.png)
 
-Program ini berfungsi sebagai konverter angka menjadi teks dalam Bahasa Indonesia untuk rentang 1 hingga 100. Program ini menggunakan logika percabangan untuk menangani beberapa kasus. Untuk angka 1-10, program mengambil string dari array yang telah didefinisikan. Untuk angka belasan (11-19), program menggabungkan nama satuan dengan akhiran "belas". Untuk angka puluhan (20-99), angka dipecah menjadi puluhan dan satuan untuk dirangkai. Terdapat kasus khusus untuk angka 100, dan sebuah pesan error akan muncul jika angka yang diinput berada di luar jangkauan yang ditentukan.
+Program ini berfungsi sebagai konverter angka menjadi teks dalam Bahasa Indonesia untuk rentang 1 hingga 100. Program menggunakan logika percabangan untuk menangani beberapa kasus. Untuk angka 1-10, program mengambil string dari array yang telah didefinisikan. Untuk angka belasan (11-19), program menggabungkan nama satuan dengan akhiran "belas". Untuk angka puluhan (20-99), angka dipecah menjadi puluhan dan satuan untuk dirangkai. Terdapat kasus khusus untuk angka 100 dan pesan error akan muncul jika angka yang diinput berada di luar jangkauan yang ditentukan.
 
 ### Soal 3
 
@@ -594,7 +594,7 @@ int main() {
 > Output
 > ![Screenshot bagian x](output/Screenshot_Soal_3_Renisa_Assyifa_Putri_103112400123.png)
 
-Program ini dirancang untuk menghasilkan sebuah pola piramida angka terbalik yang simetris berdasarkan input n dari pengguna. Program menggunakan perulangan bersarang (nested loop). Loop terluar mengontrol baris, sedangkan loop di dalamnya mengatur pencetakan spasi untuk indentasi, urutan angka menurun di sisi kiri, karakter * di tengah, dan urutan angka menaik di sisi kanan. Setelah pola utama selesai, sebuah baris tambahan yang hanya berisi karakter * di tengah dicetak sebagai penutup.
+Program ini dirancang untuk menghasilkan pola piramida angka terbalik yang simetris berdasarkan input n dari pengguna. Program menggunakan perulangan bersarang (nested loop) dimana loop terluar mengontrol baris sedangkan loop di dalamnya mengatur pencetakan spasi untuk indentasi, urutan angka menurun di sisi kiri, karakter * di tengah, dan urutan angka menaik di sisi kanan. Setelah pola utama selesai, baris tambahan yang hanya berisi karakter * di tengah dicetak sebagai penutup.
 
 ## Kesimpulan
 
@@ -606,17 +606,17 @@ Praktikum Modul 1 tentang Pengenalan C++ ini telah memberikan pemahaman fundamen
 
 3. **Operator Aritmatika**: Operator aritmatika dasar (+, -, *, /, %) merupakan fondasi untuk melakukan perhitungan matematis dalam program.
 
-4. **Struktur Kontrol Percabangan**: Penggunaan if-else dan switch-case memungkinkan program untuk membuat keputusan berdasarkan kondisi tertentu, membuat program lebih dinamis dan interaktif.
+4. **Struktur Kontrol Percabangan**: Penggunaan if-else dan switch-case memungkinkan program membuat keputusan berdasarkan kondisi tertentu sehingga program menjadi lebih dinamis dan interaktif.
 
-5. **Struktur Perulangan**: For, while, dan do-while loop memberikan kemampuan untuk mengeksekusi blok kode secara berulang, yang sangat berguna untuk pemrosesan data berulang dan pembuatan pola.
+5. **Struktur Perulangan**: For, while, dan do-while loop memberikan kemampuan untuk mengeksekusi blok kode secara berulang yang sangat berguna untuk pemrosesan data berulang dan pembuatan pola.
 
 6. **Fungsi dan Prosedur**: Modularitas kode melalui fungsi dan prosedur membuat program lebih terstruktur, mudah dipahami, dan dapat digunakan kembali (reusable).
 
-7. **Struct**: Penggunaan struct memungkinkan pengelompokan data yang saling berkaitan menjadi satu kesatuan, memudahkan pengelolaan data yang kompleks.
+7. **Struct**: Penggunaan struct memungkinkan pengelompokan data yang saling berkaitan menjadi satu kesatuan sehingga memudahkan pengelolaan data yang kompleks.
 
 8. **Input/Output**: Penguasaan cin dan cout sebagai mekanisme dasar untuk interaksi dengan pengguna merupakan keterampilan esensial dalam pemrograman.
 
-Melalui praktikum ini, kemampuan berpikir logis dan komputasional dalam memecahkan masalah pemrograman telah diasah melalui berbagai latihan, mulai dari kalkulator sederhana, konverter angka ke teks, hingga pembuatan pola angka. Konsep-konsep ini akan menjadi fondasi yang kuat untuk mempelajari materi struktur data yang lebih kompleks di modul-modul selanjutnya.
+Melalui praktikum ini, kemampuan berpikir logis dan komputasional dalam memecahkan masalah pemrograman telah diasah melalui berbagai latihan mulai dari kalkulator sederhana, konverter angka ke teks, hingga pembuatan pola angka. Konsep-konsep ini akan menjadi fondasi yang kuat untuk mempelajari materi struktur data yang lebih kompleks di modul-modul selanjutnya.
 
 ## Referensi
 

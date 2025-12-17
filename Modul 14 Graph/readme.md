@@ -1,10 +1,10 @@
-# <h1 align="center">Laporan Praktikum Modul 14 <br>GRAPH</h1>
-<p align="center">NUFAIL ALAUDDIN TSAQIF - 103112400084</p>
+# <h1 align="center">Laporan Praktikum Modul 15 <br>Graph</h1>
+<p align="center">Renisa Assyifa Putri - 103112400123</p>
 
 ## Dasar Teori
-Graph didefinisikan sebagai himpunan tidak kosong yang terdiri dari node (disebut juga vertex) dan garis penghubung (disebut edge). Struktur data ini digunakan untuk merepresentasikan hubungan antar objek. Sebagai contoh sederhana dalam kehidupan sehari-hari, lokasi seperti "Tempat Kost" dan "Common Lab" dapat dianggap sebagai node (vertex), sedangkan jalan yang menghubungkan keduanya merepresentasikan edge.
+Graph merupakan struktur data non-linear yang terdiri dari sekumpulan vertex (titik/node) dan edge (garis penghubung). Struktur ini sangat berguna untuk merepresentasikan relasi atau koneksi antar entitas dalam berbagai sistem. Sebagai ilustrasi, dalam peta perjalanan harian, titik-titik lokasi seperti "Tempat Kost" dan "Common Lab" berperan sebagai vertex, sementara jalur atau rute yang menghubungkan kedua lokasi tersebut berperan sebagai edge.
 
-Secara umum, graph dibedakan menjadi dua jenis utama berdasarkan arah hubungannya. Pertama adalah Directed Graph (Graph Berarah), di mana setiap edge memiliki arah spesifik dari satu node ke node lainnya. Dalam representasi ini, jika Node A terhubung ke Node B, belum tentu Node B terhubung kembali ke Node A. Kedua adalah Undirected Graph (Graph Tidak Berarah), di mana edge menghubungkan node tanpa arah tertentu, sehingga hubungan bersifat dua arah (bidirectional). Selain itu, dua node dikatakan "bertetangga" jika keduanya dihubungkan langsung oleh sebuah edge.
+Berdasarkan karakteristik koneksinya, graph dapat dikategorikan menjadi dua tipe utama. Tipe pertama yaitu Directed Graph (Graph Berarah) dimana setiap edge memiliki orientasi tertentu dari vertex sumber menuju vertex tujuan. Pada tipe ini, koneksi dari vertex A ke vertex B tidak secara otomatis menciptakan koneksi sebaliknya dari B ke A. Tipe kedua adalah Undirected Graph (Graph Tidak Berarah) yang edge-nya tidak memiliki arah sehingga koneksi antara dua vertex bersifat bidirectional atau dua arah. Dalam terminologi graph, dua vertex disebut adjacent (bertetangga) apabila terdapat edge yang menghubungkan keduanya secara langsung.
 
 ## Guided
 
@@ -256,9 +256,9 @@ int main()
 > 
 > ![Screenshot bagian x](OUTPUT/guided1.png)
 
-program yang menggunakan representasi adjacency list. Program bekerja dengan mengalokasikan memori untuk setiap node baru dan menyimpannya dalam linked list utama. Fungsi penghubung node dirancang untuk graph tidak berarah (undirected), di mana koneksi antara dua node (misalnya A dan B) dibuat secara otomatis dua arah dengan menambahkan edge pada daftar tetangga A ke B dan sebaliknya. Kode ini juga menyediakan fitur penelusuran graph: DFS (Depth First Search) yang menjelajahi jalur sedalam mungkin menggunakan rekursi, dan BFS (Breadth First Search) yang menelusuri node tetangga secara melebar (per level) dengan memanfaatkan struktur data Queue untuk mengelola antrian kunjungan.
+Implementasi graph ini menggunakan teknik adjacency list sebagai metode representasinya. Sistem bekerja dengan melakukan alokasi memori dinamis untuk setiap vertex yang ditambahkan kemudian menyimpannya dalam struktur linked list sebagai container utama. Untuk graph undirected (tidak berarah), fungsi ConnectNode dirancang untuk membuat koneksi bilateral secara otomatis, artinya ketika vertex A dihubungkan dengan vertex B maka sistem secara simultan membuat edge dari A ke B dan dari B ke A. Program dilengkapi dengan dua algoritma traversal: DFS (Depth First Search) yang menggunakan pendekatan rekursif untuk menelusuri graph secara vertikal (mendalami satu cabang hingga mentok sebelum backtrack), dan BFS (Breadth First Search) yang memanfaatkan struktur Queue untuk melakukan penelusuran secara horizontal (mengunjungi semua tetangga langsung terlebih dahulu sebelum pindah ke level berikutnya).
 
-## UNGUIDED 1,2,3
+## Unguided 1, 2, dan 3
 #### code
 #### graph.h
 ```c++
@@ -520,7 +520,7 @@ int main() {
 > 
 > ![Screenshot bagian x](OUTPUT/unguided1.png)
 
-Program yang merupakan representasi Adjacency List berbasis pointer dalam bahasa C++. Program terbagi menjadi tiga file: graph.h sebagai header yang mendefinisikan struktur data verteks dan edge, graph.cpp yang berisi logika manipulasi graph, dan main.cpp sebagai driver untuk pengujian. Fitur utama program ini meliputi pembuatan graph, penambahan verteks, serta penghubungan antar verteks (edge) yang bersifat dua arah. Selain itu, program ini mengimplementasikan dua algoritma penelusuran graph, yaitu DFS (Depth First Search) yang bekerja secara rekursif, dan BFS (Breadth First Search) yang menggunakan struktur data Queue manual (dibuat sendiri tanpa library STL <queue>) untuk menelusuri node secara melebar.
+Implementasi ini menggunakan representasi Adjacency List dengan pendekatan pointer-based untuk membangun struktur graph dalam C++. Arsitektur program dibagi ke dalam tiga komponen modular: file header graph.h yang berfungsi mendefinisikan tipe data dan deklarasi fungsi untuk vertex serta edge, file implementasi graph.cpp yang mengandung semua logika operasional untuk manipulasi struktur graph, dan file main.cpp yang berperan sebagai program driver untuk testing dan demonstrasi. Fungsionalitas yang tersedia mencakup inisialisasi graph kosong, operasi penambahan vertex baru, pembuatan koneksi undirected antar vertex, serta visualisasi struktur graph. Dua metode traversal telah diimplementasikan: algoritma DFS menggunakan teknik rekursi untuk eksplorasi mendalam, sedangkan algoritma BFS memanfaatkan implementasi Queue custom (tanpa library STL <queue>) untuk melakukan penelusuran berlevel secara sistematis.
 
 
 ## Referensi

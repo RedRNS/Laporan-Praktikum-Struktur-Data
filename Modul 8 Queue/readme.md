@@ -4,11 +4,11 @@
 
 ## Dasar Teori - Queue
 
-Pada modul ke-8 ini, materi difokuskan pada struktur data Queue atau antrean. Queue adalah struktur data linear yang bekerja berdasarkan prinsip FIFO (First In, First Out). Artinya, elemen data yang pertama kali masuk ke dalam antrean akan menjadi elemen yang pertama kali dikeluarkan. Konsep ini sangat mirip dengan antrean di dunia nyata, seperti antrean nasabah di bank atau pembeli di kasir, di mana orang yang datang lebih awal akan dilayani terlebih dahulu.
+Modul ke-8 ini membahas struktur data Queue atau antrean. Queue adalah struktur data linear yang menerapkan prinsip FIFO (First In, First Out), artinya data yang masuk pertama kali akan keluar pertama kali juga. Prinsip ini sama seperti antrean di kehidupan sehari-hari, misalnya antrean di bank atau kasir, dimana orang yang datang lebih dulu akan dilayani lebih dulu.
 
-Dalam operasionalnya, Queue memiliki dua gerbang utama, yaitu front (depan) sebagai tempat data keluar, dan rear (belakang) sebagai pintu masuk data baru. Terdapat beberapa operasi fundamental dalam Queue, antara lain enqueue untuk memasukkan data ke posisi belakang, dequeue untuk menghapus data dari posisi depan, serta peek untuk melihat data terdepan tanpa menghapusnya. Selain itu, terdapat fungsi validasi seperti isEmpty untuk mengecek apakah antrean kosong dan isFull untuk memastikan apakah kapasitas penyimpanan sudah penuh.
+Queue memiliki dua ujung penting yaitu front (depan) sebagai tempat data keluar dan rear (belakang) sebagai tempat data masuk. Operasi dasar yang ada dalam Queue meliputi enqueue untuk menambahkan data di posisi belakang, dequeue untuk mengeluarkan data dari posisi depan, dan peek untuk melihat data terdepan tanpa menghapusnya. Selain itu ada fungsi validasi seperti isEmpty untuk mengecek apakah queue kosong dan isFull untuk mengecek apakah kapasitas sudah penuh.
 
-Implementasi Queue dapat dilakukan menggunakan dua cara utama, yaitu dengan Array atau Linked List. Penggunaan Array biasa memiliki kelemahan di mana ruang memori di bagian depan bisa terbuang sia-sia seiring pergerakan indeks antrean. Oleh karena itu, sering digunakan variasi Circular Queue, di mana indeks terakhir akan kembali tersambung ke indeks awal untuk memaksimalkan penggunaan memori. Di sisi lain, implementasi menggunakan Linked List menawarkan fleksibilitas kapasitas yang lebih dinamis karena ukurannya dapat bertambah sesuai jumlah data tanpa batasan indeks array yang statis. Struktur data ini sangat krusial dalam dunia komputasi, contohnya dalam manajemen penjadwalan proses CPU (CPU scheduling), antrean cetak printer, hingga algoritma pencarian jalur seperti Breadth First Search (BFS).
+Queue dapat diimplementasikan dengan dua cara yaitu menggunakan Array atau Linked List. Implementasi dengan Array biasa memiliki kelemahan karena ruang di bagian depan menjadi tidak terpakai saat indeks bergerak. Untuk mengatasinya digunakan Circular Queue yang membuat indeks terakhir terhubung kembali ke indeks awal sehingga memori lebih efisien. Sedangkan implementasi dengan Linked List lebih fleksibel karena kapasitasnya dinamis dan dapat bertambah sesuai kebutuhan tanpa terbatas oleh ukuran array. Queue sangat penting dalam komputasi, misalnya untuk CPU scheduling, antrean printer, dan algoritma Breadth First Search (BFS).
 
 ## Guided
 
@@ -109,9 +109,9 @@ int main() {
 
 #### Penjelasan Guided 1
 
-Program di atas mendemonstrasikan pembuatan struktur data Queue menggunakan array statis dengan kapasitas maksimum 5 elemen. Variabel `head` dan `tail` digunakan sebagai penunjuk indeks awal dan akhir antrean, yang diinisialisasi dengan nilai -1 untuk menandakan kondisi kosong.
+Program ini membuat struktur data Queue menggunakan array statis dengan kapasitas maksimal 5 elemen. Variabel `head` dan `tail` berfungsi sebagai penunjuk indeks depan dan belakang queue, keduanya diinisialisasi dengan nilai -1 yang menandakan queue masih kosong.
 
-Logika program ini menggunakan pendekatan pergeseran elemen (shifting). Pada saat operasi `enqueue()`, data baru ditambahkan di posisi `tail`. Sedangkan pada saat operasi `dequeue()`, data pada posisi `head` (indeks 0) diambil, lalu data-data yang berada di belakangnya akan digeser maju satu langkah ke depan untuk mengisi kekosongan. Hal ini menjaga agar elemen terdepan selalu berada pada indeks ke-0. Jika antrean menjadi kosong setelah operasi penghapusan, indeks `head` dan `tail` akan diatur ulang kembali ke posisi -1. Program utama (`main()`) menguji fungsi-fungsi ini dengan memasukkan beberapa angka, menampilkannya, lalu menghapus sebagian data untuk memvalidasi logika FIFO yang berjalan.
+Logika yang digunakan adalah pergeseran elemen (shifting). Saat operasi `enqueue()` dilakukan, data baru ditambahkan di posisi `tail`. Saat operasi `dequeue()`, data di posisi `head` (indeks 0) diambil kemudian semua data di belakangnya digeser maju satu posisi untuk mengisi tempat yang kosong. Cara ini memastikan elemen terdepan selalu berada di indeks 0. Jika setelah penghapusan queue menjadi kosong, maka `head` dan `tail` akan direset ke -1. Pada fungsi `main()`, program menguji fungsi-fungsi tersebut dengan memasukkan beberapa data, menampilkannya, kemudian menghapus beberapa data untuk memvalidasi prinsip FIFO.
 ## Unguided
 
 ### Soal 1
@@ -546,15 +546,15 @@ int main() {
 
 #### Penjelasan Soal 1 - 3
 
-Ketiga soal latihan di atas menyajikan tiga pendekatan berbeda dalam mengimplementasikan ADT Queue menggunakan bahasa C++. Meskipun ketiganya sama-sama menjalankan fungsi dasar antrean seperti `enqueue()` dan `dequeue()`, mekanisme internal pengelolaan indeks dan memorinya memiliki perbedaan yang signifikan.
+Ketiga soal ini menunjukkan tiga cara berbeda dalam mengimplementasikan ADT Queue dengan C++. Walaupun semuanya menggunakan fungsi dasar yang sama yaitu `enqueue()` dan `dequeue()`, cara pengelolaan indeks dan memorinya memiliki perbedaan mendasar.
 
-**Pada Alternatif 1 (Soal 1)**, implementasi menggunakan metode pergeseran elemen. Karakteristik utamanya adalah posisi `head` yang selalu tetap di indeks 0. Setiap kali terjadi pengambilan data (`dequeue`), seluruh elemen yang tersisa di dalam array akan digeser ke kiri (maju) untuk mengisi tempat yang kosong. Kelebihannya adalah urutan data terlihat rapi dari awal array, namun kelemahannya terletak pada beban komputasi tambahan karena sistem harus melakukan looping untuk menggeser data setiap kali ada elemen yang keluar.
+**Alternatif 1 (Soal 1)** menggunakan metode pergeseran elemen dimana posisi `head` selalu tetap di indeks 0. Setiap kali `dequeue` dipanggil, semua elemen yang tersisa akan digeser ke depan untuk mengisi posisi yang kosong. Kelebihannya data terlihat rapi dari awal array, namun kelemahannya membutuhkan waktu lebih lama karena harus melakukan looping untuk menggeser elemen setiap kali ada data yang keluar.
 
-**Pada Alternatif 2 (Soal 2)**, digunakan metode floating head dan tail. Berbeda dengan cara pertama, di sini tidak ada pergeseran data sama sekali. Saat data diambil, indeks `head` cukup dinaikkan satu langkah (increment). Hal ini membuat proses eksekusi lebih cepat secara waktu (time complexity). Namun, kelemahannya adalah pemborosan memori, karena ruang indeks di bagian depan yang sudah ditinggalkan oleh `head` tidak bisa digunakan kembali hingga antrean di-reset total.
+**Alternatif 2 (Soal 2)** menggunakan metode floating head dan tail tanpa pergeseran data. Saat `dequeue` dipanggil, indeks `head` hanya dinaikkan saja. Metode ini lebih cepat karena tidak perlu menggeser data, namun kelemahannya terjadi pemborosan memori karena ruang di depan yang sudah ditinggalkan `head` tidak dapat digunakan lagi sampai queue direset.
 
-**Pada Alternatif 3 (Soal 3)**, diterapkan konsep Circular Queue atau antrean melingkar. Ini adalah solusi paling optimal untuk implementasi menggunakan array. Mekanismenya memungkinkan indeks `tail` yang sudah mencapai ujung array untuk berputar kembali ke indeks 0 jika ruang tersebut kosong. Dengan menggunakan operasi modulus, penggunaan memori menjadi sangat efisien karena tidak ada ruang array yang terbuang percuma (seperti pada alternatif 2) dan tidak memerlukan proses geser data yang berat (seperti pada alternatif 1).
+**Alternatif 3 (Soal 3)** menerapkan konsep Circular Queue yang merupakan solusi paling optimal. Metode ini membuat indeks `tail` yang sudah mencapai akhir array dapat kembali ke indeks 0 jika posisi tersebut kosong. Dengan operasi modulus, memori menjadi sangat efisien karena tidak ada ruang yang terbuang dan tidak perlu proses pergeseran data.
 
-Secara garis besar, ketiga kode tersebut berhasil membuktikan prinsip FIFO, di mana perbedaan output yang muncul murni disebabkan oleh strategi manajemen indeks array yang dipilih dalam masing-masing skenario.
+Secara keseluruhan, ketiga implementasi berhasil menerapkan prinsip FIFO dengan baik. Perbedaan output yang terlihat disebabkan oleh perbedaan strategi pengelolaan indeks array yang digunakan.
 
 ## Referensi
 

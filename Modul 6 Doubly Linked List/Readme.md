@@ -5,13 +5,13 @@
 
 ## Dasar Teori - Doubly Linked List
 
-Modul ini ngejelasin soal Doubly Linked List (DLL), yang intinya adalah versi upgrade dari Single Linked List (SLL). Perbedaan utamanya, setiap elemen (disebut node) dalam DLL punya dua pointer: satu pointer next yang nunjuk ke node setelahnya, dan satu pointer prev yang nunjuk ke node sebelumnya.
+Modul ini membahas Doubly Linked List (DLL) yang merupakan pengembangan dari Single Linked List (SLL). Perbedaan utamanya terletak pada struktur node, dimana setiap node dalam DLL memiliki dua pointer yaitu pointer next yang menunjuk ke node selanjutnya dan pointer prev yang menunjuk ke node sebelumnya.
 
-Struktur dua arah ini bikin DLL jadi powerful. Menurut Goodrich dkk. (2011) dalam buku klasiknya, keunggulan utama DLL adalah kemampuannya melakukan penelusuran (traversal) data secara bidirectional (maju dan mundur) dengan sama gampangnya. Ini juga bikin operasi kayak nyisipin (insertion) atau hapus (deletion) data di tengah-tengah list jadi jauh lebih efisien. Kenapa? Karena kita nggak perlu looping dari awal cuma buat nemuin node sebelumnya, kita tinggal akses node->prev.
+Struktur dua arah ini memberikan beberapa keunggulan. Menurut Goodrich dkk. (2011), kelebihan utama DLL adalah kemampuannya melakukan penelusuran (traversal) data secara bidirectional (maju dan mundur) dengan mudah. Hal ini membuat operasi seperti insertion atau deletion data di tengah list menjadi lebih efisien karena tidak perlu melakukan looping dari awal untuk menemukan node sebelumnya, cukup mengakses node->prev.
 
-Karena fleksibilitas itu, DLL banyak banget dipakai di aplikasi nyata. Contoh gampangnya, Wahyuni dkk. (2022) dalam penelitiannya ngebahas gimana DLL dipake buat bikin fitur di music player. Pointer next dipake buat fungsi "Next Song", sementara pointer prev dipake buat "Previous Song". Aplikasi lain yang umum banget pake konsep ini adalah fitur undo/redo di text editor atau history "Forward/Backward" di web browser.
+DLL banyak digunakan dalam berbagai aplikasi. Sebagai contoh, Wahyuni dkk. (2022) dalam penelitiannya menjelaskan penggunaan DLL untuk membuat fitur music player dimana pointer next digunakan untuk fungsi "Next Song" dan pointer prev untuk "Previous Song". Aplikasi lain yang menggunakan konsep ini adalah fitur undo/redo di text editor dan history "Forward/Backward" di web browser.
 
-Meskipun begitu, DLL punya trade-off. Karena tiap node harus nyimpen satu pointer ekstra (prev), kebutuhan memorinya jadi lebih besar dibanding SLL. Selain itu, implementasi operasinya (terutama insert dan delete) sedikit lebih kompleks karena ada lebih banyak pointer yang harus diurus dan di--update biar list-nya nggak "putus" (Goodrich dkk., 2011).
+Meskipun memiliki banyak keunggulan, DLL juga memiliki kekurangan. Karena setiap node harus menyimpan satu pointer tambahan (prev), kebutuhan memorinya lebih besar dibandingkan SLL. Selain itu, implementasi operasinya terutama insert dan delete lebih kompleks karena harus mengelola dan mengupdate lebih banyak pointer agar list tidak terputus (Goodrich dkk., 2011).
 
 ## Guided
 
@@ -271,19 +271,19 @@ int main() {
 
 ### Penjelasan Guided 1
 
-Program di atas adalah implementasi dasar dari Doubly Linked List yang dibuat interaktif menggunakan menu. Program ini menunjukkan cara mengelola data menggunakan struktur DLL, yang memungkinkan kita menambah, hapus, ubah, dan menampilkan data.
+Program ini merupakan implementasi Doubly Linked List dengan interface menu interaktif yang memungkinkan pengguna untuk mengelola data melalui operasi tambah, hapus, ubah, dan tampilkan data.
 
-Setiap data disimpan di dalam `Node` yang memiliki koneksi dua arah (`prev` dan `next`). Alur programnya dikontrol menggunakan loop `do-while` yang menampilkan menu pilihan ke user.
+Setiap data disimpan dalam `Node` yang memiliki koneksi dua arah (`prev` dan `next`). Alur program dikontrol menggunakan loop `do-while` yang menampilkan menu pilihan kepada pengguna.
 
-1. **Insert (Depan, Belakang, Setelah)**: Ketika user memilih menambah data, program akan membuat `Node` baru. Pointer-pointer dari `Node` baru ini (dan node tetangganya) akan diatur sedemikian rupa untuk menyambungkan `Node` baru tersebut ke list, baik di posisi `head` (depan), `tail` (belakang), atau di antara dua node lain.
+1. **Insert (Depan, Belakang, Setelah)**: Saat pengguna memilih menambah data, program membuat `Node` baru dan mengatur pointer dari node baru tersebut beserta node tetangganya untuk menyambungkan node baru ke list, baik di posisi `head` (depan), `tail` (belakang), atau di antara dua node.
 
-2. **Hapus (Depan, Belakang, Tertentu)**: Ketika user memilih hapus, program akan mencari node-nya terlebih dahulu. Setelah ketemu, program akan "menyambungkan ulang" pointer `next` dari node sebelumnya dan pointer `prev` dari node sesudahnya, intinya untuk "melewati" node yang akan dihapus. Setelah itu, node tersebut akan di-delete dari memori.
+2. **Hapus (Depan, Belakang, Tertentu)**: Saat pengguna memilih hapus, program mencari node yang dimaksud terlebih dahulu. Setelah ditemukan, program menyambungkan ulang pointer `next` dari node sebelumnya dengan pointer `prev` dari node sesudahnya untuk melewati node yang akan dihapus, kemudian node tersebut dihapus dari memori.
 
-3. **Tampil (Depan, Belakang)**: Ini menunjukkan keunggulan DLL. `tampilDepan()` akan melakukan looping dari `head` menggunakan `current->next`, sementara `tampilBelakang()` akan melakukan looping dari `tail` menggunakan `current->prev`.
+3. **Tampil (Depan, Belakang)**: Fungsi ini menunjukkan keunggulan DLL dimana `tampilDepan()` melakukan iterasi dari `head` menggunakan `current->next`, sedangkan `tampilBelakang()` melakukan iterasi dari `tail` menggunakan `current->prev`.
 
-4. **Update**: Fungsi ini akan mencari data lama, kemudian jika ditemukan, nilainya langsung diganti dengan data baru.
+4. **Update**: Fungsi ini mencari data lama dalam list, kemudian jika ditemukan akan mengganti nilainya dengan data baru.
 
-Program ini akan berjalan terus-menerus sampai user memilih opsi '0' untuk keluar.
+Program berjalan secara kontinyu sampai pengguna memilih opsi '0' untuk keluar.
 
 
 ## Unguided
@@ -630,19 +630,19 @@ Tahun        : 2023
 
 ### Penjelasan Soal 1 - 3
 
-Program unguided ini adalah implementasi Abstract Data Type (ADT) dari Doubly Linked List untuk studi kasus pendataan kendaraan. Program ini membagi kodenya menjadi tiga file terpisah: `Doublylist.h` (deklarasi header), `Doublylist.cpp` (implementasi fungsi), dan `main.cpp` (driver program).
+Program ini merupakan implementasi Abstract Data Type (ADT) Doubly Linked List untuk sistem pendataan kendaraan. Struktur program dibagi menjadi tiga file yaitu `Doublylist.h` (deklarasi header), `Doublylist.cpp` (implementasi fungsi), dan `main.cpp` (program utama).
 
-Tujuannya adalah untuk menyimpan data kendaraan (nomor polisi, warna, tahun) secara dinamis. Di `main.cpp`, program pertama-tama meminta user untuk memasukkan jumlah data yang akan diinput.
+Program bertujuan untuk menyimpan data kendaraan (nomor polisi, warna, tahun) secara dinamis. Pada `main.cpp`, program meminta pengguna memasukkan jumlah data yang akan diinput.
 
-Untuk setiap data, program melakukan langkah-langkah berikut:
+Untuk setiap data, program melakukan tahapan berikut:
 
-1. **Input & Validasi**: User memasukkan data kendaraan. Ada fungsi `cekDuplikat()` yang penting untuk memastikan tidak ada nomor polisi yang sama di dalam list. Jika nomor polisi sudah terdaftar, program akan menolak input tersebut dan meminta user mengulangi.
+1. **Input & Validasi**: Pengguna memasukkan data kendaraan. Fungsi `cekDuplikat()` digunakan untuk memastikan tidak ada nomor polisi yang sama dalam list. Jika nomor polisi sudah terdaftar, program menolak input dan meminta pengguna mengulangi.
 
-2. **Alokasi & Insersi**: Jika data valid, fungsi `buatNodeBaru()` (alokasi) dipanggil untuk menyiapkan `Node` baru di memori. Setelah itu, `tambahKendaraanDiAkhir()` (insertLast) digunakan untuk menambahkan `Node` baru tersebut di ujung list (menjadi `tail` yang baru).
+2. **Alokasi & Insersi**: Jika data valid, fungsi `buatNodeBaru()` (alokasi) dipanggil untuk menyiapkan `Node` baru di memori. Kemudian `tambahKendaraanDiAkhir()` (insertLast) digunakan untuk menambahkan node baru tersebut di akhir list sebagai `tail` baru.
 
-3. **Display & Search**: Setelah semua data masuk, `tampilkanKendaraan()` (printInfo) dipanggil untuk menampilkan semua isi list dari awal sampai akhir. Program ini juga mendemonstrasikan fungsi `cariKendaraan()` (findElm), di mana user dapat mencari data spesifik berdasarkan nomor polisi.
+3. **Display & Search**: Setelah semua data tersimpan, fungsi `tampilkanKendaraan()` (printInfo) dipanggil untuk menampilkan seluruh isi list dari awal hingga akhir. Program juga mendemonstrasikan fungsi `cariKendaraan()` (findElm) dimana pengguna dapat mencari data berdasarkan nomor polisi.
 
-4. **Deletion**: Terakhir, program mensimulasikan proses penghapusan. User memasukkan nomor polisi yang akan dihapus. Program mencari node-nya. Jika ditemukan, program mengecek posisinya: jika di depan, menggunakan `hapusKendaraanPertama()`; jika di belakang, menggunakan `hapusKendaraanTerakhir()`; jika di tengah, menggunakan `hapusKendaraanSetelah()`. Setelah pointer-nya diatur ulang, `hapusNode()` (dealokasi) dipanggil untuk membebaskan memori.
+4. **Deletion**: Pada bagian akhir, program melakukan simulasi penghapusan data. Pengguna memasukkan nomor polisi yang akan dihapus, kemudian program mencari node tersebut. Jika ditemukan, program mengecek posisinya dan menggunakan fungsi yang sesuai: `hapusKendaraanPertama()` jika di depan, `hapusKendaraanTerakhir()` jika di belakang, atau `hapusKendaraanSetelah()` jika di tengah. Setelah pointer diatur ulang, `hapusNode()` (dealokasi) dipanggil untuk membebaskan memori.
 
 ### Referensi
 

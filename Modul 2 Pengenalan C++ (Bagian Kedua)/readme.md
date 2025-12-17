@@ -4,7 +4,7 @@
 
 ## Dasar Teori
 
-### 1. Array (Larik)
+### 1. Array 
 
 **Array** adalah struktur data yang digunakan untuk menyimpan kumpulan elemen dengan tipe data yang sama dalam satu nama variabel. Setiap elemen dapat diakses melalui indeks yang dimulai dari 0.
 
@@ -121,7 +121,7 @@ pesan = "World";              // Pointer bisa diarahkan ke string lain
 
 **a. Call by Value**
 
-Fungsi menerima salinan nilai, perubahan tidak mempengaruhi variabel asli:
+Fungsi menerima salinan nilai sehingga perubahan tidak mempengaruhi variabel asli:
 ```cpp
 void ubahNilai(int x) {
     x = 100;  // Hanya mengubah salinan lokal
@@ -136,7 +136,7 @@ int main() {
 
 **b. Call by Pointer**
 
-Fungsi menerima alamat memori, bisa mengubah nilai asli:
+Fungsi menerima alamat memori sehingga bisa mengubah nilai asli:
 ```cpp
 void ubahNilai(int *x) {
     *x = 100;  // Mengubah nilai di alamat x
@@ -151,7 +151,7 @@ int main() {
 
 **c. Call by Reference**
 
-Sintaks lebih sederhana, efek sama dengan call by pointer:
+Sintaks lebih sederhana dengan efek sama seperti call by pointer:
 ```cpp
 void ubahNilai(int &x) {
     x = 100;  // Mengubah nilai asli langsung
@@ -218,7 +218,7 @@ int main() {
 > Output
 > ![Screenshot bagian x](output/Screnshot_Guided_01.png)
 
-Program ini mendemonstrasikan deklarasi dan inisialisasi sebuah array satu dimensi bernama nilai yang memiliki 5 elemen bertipe integer. Program kemudian menggunakan perulangan for untuk mengakses dan mencetak setiap elemen array ke layar, dimulai dari indeks ke-0 hingga ke-4.
+Program ini mendemonstrasikan deklarasi dan inisialisasi array satu dimensi bernama nilai dengan 5 elemen bertipe integer. Program menggunakan perulangan for untuk mengakses dan mencetak setiap elemen array ke layar dari indeks ke-0 hingga ke-4.
 
 ### Soal 2 Array Dua Dimensi
 
@@ -249,7 +249,7 @@ int main() {
 > Output
 > ![Screenshot bagian x](output/Screnshot_Guided_02.png)
 
-Program ini menunjukkan penggunaan array dua dimensi untuk merepresentasikan sebuah matriks berukuran 3x3. Program menggunakan perulangan bersarang (nested loop) untuk mengakses setiap elemen berdasarkan indeks baris (i) dan kolom (j), lalu menampilkannya dalam format matriks yang sesuai.
+Program ini menunjukkan penggunaan array dua dimensi untuk merepresentasikan matriks berukuran 3x3. Program menggunakan perulangan bersarang (nested loop) untuk mengakses setiap elemen berdasarkan indeks baris (i) dan kolom (j), kemudian menampilkannya dalam format matriks yang sesuai.
 
 ### Soal 3 Pengenalan Pointer
 
@@ -276,7 +276,7 @@ int main() {
 > Output
 > ![Screenshot bagian x](output/Screnshot_Guided_03.png)
 
-Kode ini menjelaskan konsep dasar pointer. Sebuah variabel pointer p_umur dideklarasikan dan diinisialisasi dengan alamat memori dari variabel umur menggunakan operator &. Program kemudian menampilkan nilai asli, alamat memori variabel, nilai yang disimpan oleh pointer (yang merupakan alamat), nilai yang diakses melalui pointer menggunakan operator *, serta alamat memori dari variabel pointer itu sendiri.
+Kode ini menjelaskan konsep dasar pointer. Variabel pointer p_umur dideklarasikan dan diinisialisasi dengan alamat memori dari variabel umur menggunakan operator &. Program menampilkan nilai asli, alamat memori variabel, nilai yang disimpan oleh pointer (berupa alamat), nilai yang diakses melalui pointer menggunakan operator *, serta alamat memori dari variabel pointer itu sendiri.
 
 ### Soal 4 Hubungan Array dan Pointer
 
@@ -309,7 +309,7 @@ int main() {
 > Output
 > ![Screenshot bagian x](output/Screnshot_Guided_04.png)
 
-Program ini mengilustrasikan hubungan antara array dan pointer. Elemen-elemen array data diakses dengan dua cara berbeda: pertama, menggunakan notasi indeks data[i] yang umum; kedua, menggunakan notasi pointer *(p_data + i), yang memanfaatkan aritmatika pointer untuk berpindah ke alamat elemen berikutnya dalam array.
+Program ini mengilustrasikan hubungan antara array dan pointer. Elemen-elemen array data diakses dengan dua cara berbeda: pertama menggunakan notasi indeks data[i] yang umum, kedua menggunakan notasi pointer *(p_data + i) yang memanfaatkan aritmatika pointer untuk berpindah ke alamat elemen berikutnya dalam array.
 
 ### Soal 5 Pointer dan String
 
@@ -339,7 +339,7 @@ int main() {
 > Output
 > ![Screenshot bagian x](output/Screnshot_Guided_05.png)
 
-Program ini menunjukkan perbedaan mendasar antara string yang dideklarasikan sebagai array karakter (char[]) dan sebagai pointer karakter (char *). String sebagai array memungkinkan modifikasi pada tiap karakternya, sementara string sebagai pointer bersifat read-only (literal string), namun pointernya sendiri dapat diarahkan untuk menunjuk ke alamat string literal yang lain.
+Program ini menunjukkan perbedaan mendasar antara string yang dideklarasikan sebagai array karakter (char[]) dan sebagai pointer karakter (char *). String sebagai array memungkinkan modifikasi pada tiap karakternya, sementara string sebagai pointer bersifat read-only (literal string), namun pointer dapat diarahkan untuk menunjuk ke alamat string literal yang lain.
 
 ### Soal 6 Fungsi dan Prosedur
 
@@ -373,7 +373,7 @@ int main()
 > Output
 > ![Screenshot bagian x](output/Screnshot_Guided_06.png)
 
-Kode ini membedakan antara fungsi dan prosedur. Fungsi tambah dirancang untuk mengembalikan sebuah nilai hasil penjumlahan (return value). Sebaliknya, tampilkanHasil adalah sebuah prosedur (void) yang hanya menjalankan tugas tertentu, yaitu menampilkan hasil ke layar, tanpa mengembalikan nilai apa pun.
+Kode ini membedakan antara fungsi dan prosedur. Fungsi tambah dirancang untuk mengembalikan nilai hasil penjumlahan (return value), sedangkan tampilkanHasil adalah prosedur (void) yang hanya menjalankan tugas tertentu yaitu menampilkan hasil ke layar tanpa mengembalikan nilai apa pun.
 
 ### Soal 7 Call by Pointer
 
@@ -401,7 +401,7 @@ int main()
 > Output
 > ![Screenshot bagian x](output/Screnshot_Guided_07.png)
 
-Program ini mendemonstrasikan mekanisme call by pointer. Fungsi tukar menerima parameter berupa pointer integer (int*). Di dalam main, alamat dari variabel a dan b dilewatkan ke fungsi menggunakan operator &. Hal ini memungkinkan fungsi tukar untuk memanipulasi dan mengubah nilai asli dari variabel a dan b secara langsung.
+Program ini mendemonstrasikan mekanisme call by pointer. Fungsi tukar menerima parameter berupa pointer integer (int*). Di dalam main, alamat dari variabel a dan b dilewatkan ke fungsi menggunakan operator & sehingga fungsi tukar dapat memanipulasi dan mengubah nilai asli dari variabel a dan b secara langsung.
 
 ### Soal 8 Call by Reference
 
@@ -429,7 +429,7 @@ int main()
 > Output
 > ![Screenshot bagian x](output/Screnshot_Guided_08.png)
 
-Program ini mengimplementasikan call by reference, sebuah alternatif yang lebih sederhana secara sintaksis dibandingkan call by pointer. Dengan mendeklarasikan parameter sebagai referensi (int &), fungsi tukar dapat secara langsung mengubah nilai variabel a dan b dari main tanpa perlu menggunakan operator & saat pemanggilan atau operator * di dalam fungsi.
+Program ini mengimplementasikan call by reference yang merupakan alternatif lebih sederhana secara sintaksis dibandingkan call by pointer. Dengan mendeklarasikan parameter sebagai referensi (int &), fungsi tukar dapat langsung mengubah nilai variabel a dan b dari main tanpa perlu menggunakan operator & saat pemanggilan atau operator * di dalam fungsi.
 
 ## Unguided
 
@@ -477,7 +477,7 @@ int main() {
     return 0;
 }
 ```
-Program di atas dirancang untuk melakukan operasi transpose pada matriks 3x3. Awalnya, matriks sumber diinisialisasi dan ditampilkan. Inti dari program ini terletak pada perulangan bersarang di mana elemen dari matriks sumber pada posisi [i][j] disalin ke matriks tujuan pada posisi [j][i]. Proses ini secara efektif menukar posisi baris dan kolom. Akhirnya, matriks hasil transpose dicetak ke layar untuk menunjukkan hasilnya.
+Program ini melakukan operasi transpose pada matriks 3x3. Matriks sumber diinisialisasi dan ditampilkan terlebih dahulu. Inti dari program ini adalah perulangan bersarang dimana elemen dari matriks sumber pada posisi [i][j] disalin ke matriks tujuan pada posisi [j][i] sehingga menukar posisi baris dan kolom. Matriks hasil transpose kemudian dicetak ke layar.
 
 > Output
 > ![Screenshot bagian x](output/Screnshot_Unguided_01.png)
@@ -506,7 +506,7 @@ int main()
     return 0;
 }
 ```
-Program ini secara spesifik mendemonstrasikan konsep call by reference. Sebuah variabel nilai diinisialisasi di fungsi main. Prosedur kuadrat didefinisikan untuk menerima parameter int &angka, yang artinya ia menerima referensi (alias) ke variabel asli, bukan salinannya. Ketika prosedur ini dipanggil, operasi angka = angka * angka langsung memodifikasi variabel nilai di main. Hasilnya, nilai variabel sebelum dan sesudah pemanggilan prosedur terbukti berbeda, menunjukkan bahwa perubahan terjadi pada variabel asli.
+Program ini mendemonstrasikan konsep call by reference. Variabel nilai diinisialisasi di fungsi main. Prosedur kuadrat didefinisikan untuk menerima parameter int &angka yang berarti menerima referensi (alias) ke variabel asli bukan salinannya. Ketika prosedur ini dipanggil, operasi angka = angka * angka langsung memodifikasi variabel nilai di main. Hasilnya, nilai variabel sebelum dan sesudah pemanggilan prosedur berbeda yang menunjukkan bahwa perubahan terjadi pada variabel asli.
 
 > Output
 > ![Screenshot bagian x](output/Screnshot_Unguided_02.png)
@@ -515,24 +515,24 @@ Program ini secara spesifik mendemonstrasikan konsep call by reference. Sebuah v
 
 Praktikum Modul 2 tentang Pengenalan C++ Bagian Kedua telah memberikan pemahaman mendalam tentang konsep-konsep penting dalam manajemen memori dan struktur data. Beberapa hal penting yang dapat disimpulkan:
 
-1. **Array Satu Dimensi**: Array merupakan struktur data fundamental untuk menyimpan kumpulan data sejenis dengan akses yang efisien melalui indeks. Pemahaman tentang indeksasi (dimulai dari 0) sangat penting untuk menghindari error array out of bounds.
+1. **Array Satu Dimensi**: Array merupakan struktur data fundamental untuk menyimpan kumpulan data sejenis dengan akses yang efisien melalui indeks. Pemahaman tentang indeksasi yang dimulai dari 0 sangat penting untuk menghindari error array out of bounds.
 
 2. **Array Dua Dimensi**: Array multidimensi sangat berguna untuk merepresentasikan struktur data seperti matriks, tabel, atau grid. Penggunaan nested loop menjadi kunci untuk mengakses dan memanipulasi data dalam array dua dimensi.
 
-3. **Pointer**: Konsep pointer adalah salah satu fitur paling powerful dalam C++. Pointer memungkinkan manipulasi memori secara langsung, yang membuka peluang untuk pemrograman yang lebih efisien dan fleksibel. Pemahaman tentang operator & (address-of) dan * (dereference) menjadi fondasi untuk menguasai pointer.
+3. **Pointer**: Konsep pointer adalah salah satu fitur paling powerful dalam C++. Pointer memungkinkan manipulasi memori secara langsung yang membuka peluang untuk pemrograman yang lebih efisien dan fleksibel. Pemahaman tentang operator & (address-of) dan * (dereference) menjadi fondasi untuk menguasai pointer.
 
-4. **Hubungan Array dan Pointer**: Nama array pada dasarnya adalah pointer konstan yang menunjuk ke elemen pertama. Konsep ini menjelaskan mengapa array dan pointer dapat digunakan secara bergantian dalam banyak kasus, termasuk dalam pointer arithmetic.
+4. **Hubungan Array dan Pointer**: Nama array pada dasarnya adalah pointer konstan yang menunjuk ke elemen pertama. Konsep ini menjelaskan mengapa array dan pointer dapat digunakan secara bergantian dalam banyak kasus termasuk dalam pointer arithmetic.
 
-5. **String dan Pointer**: Perbedaan antara string sebagai array karakter (char[]) dan string literal (const char*) penting untuk dipahami. Array karakter bersifat mutable, sedangkan string literal adalah immutable.
+5. **String dan Pointer**: Perbedaan antara string sebagai array karakter (char[]) dan string literal (const char*) penting untuk dipahami. Array karakter bersifat mutable sedangkan string literal bersifat immutable.
 
 6. **Mekanisme Passing Parameter**: Tiga cara passing parameter (call by value, call by pointer, dan call by reference) masing-masing memiliki kegunaan spesifik:
    - **Call by value**: Aman karena tidak mengubah nilai asli, cocok untuk fungsi yang hanya perlu membaca nilai
    - **Call by pointer**: Memberikan kontrol penuh atas memori, berguna untuk manipulasi data dan efisiensi
-   - **Call by reference**: Sintaks lebih sederhana dibanding pointer, tetapi memiliki kemampuan yang sama untuk mengubah nilai asli
+   - **Call by reference**: Sintaks lebih sederhana dibanding pointer tetapi memiliki kemampuan yang sama untuk mengubah nilai asli
 
 7. **Operasi Matriks**: Implementasi operasi matriks seperti transpose menunjukkan penerapan praktis dari array dua dimensi dan nested loop. Teknik menukar indeks (i,j menjadi j,i) menjadi kunci dalam operasi transpose.
 
-8. **Efisiensi Memori**: Penggunaan pointer dan reference dalam fungsi menghindari overhead dari penyalinan data, terutama untuk struktur data yang besar. Ini menjadi pertimbangan penting dalam pengembangan aplikasi yang membutuhkan performa tinggi.
+8. **Efisiensi Memori**: Penggunaan pointer dan reference dalam fungsi menghindari overhead dari penyalinan data terutama untuk struktur data yang besar. Ini menjadi pertimbangan penting dalam pengembangan aplikasi yang membutuhkan performa tinggi.
 
 Pemahaman konsep-konsep ini sangat krusial sebagai fondasi untuk mempelajari struktur data yang lebih kompleks seperti linked list, stack, queue, dan tree yang akan dipelajari di modul-modul selanjutnya. Kemampuan manipulasi memori melalui pointer menjadi dasar dari implementasi struktur data dinamis.
 

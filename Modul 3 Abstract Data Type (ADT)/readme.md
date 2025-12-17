@@ -22,7 +22,7 @@ ADT Stack:
 
 ### 2. Prinsip Encapsulation (Pengkapsulan)
 
-Encapsulation adalah prinsip dimana detail internal representasi data disembunyikan dari pengguna. Pengguna hanya berinteraksi melalui interface (operasi) yang disediakan, tidak dapat mengakses representasi data secara langsung.
+Encapsulation adalah prinsip dimana detail internal representasi data disembunyikan dari pengguna. Pengguna hanya berinteraksi melalui interface (operasi) yang disediakan tanpa dapat mengakses representasi data secara langsung.
 
 **Keuntungan Encapsulation:**
 - **Abstraksi**: Pengguna fokus pada "apa" bukan "bagaimana"
@@ -47,7 +47,7 @@ s.push(10);  // Interface yang bersih
 
 ### 3. Implementasi ADT dengan Struct
 
-Dalam C++, ADT dapat diimplementasikan menggunakan **struct** (atau **class**). Struct mengelompokkan data dan fungsi-fungsi terkait menjadi satu unit.
+Dalam C++, ADT dapat diimplementasikan menggunakan **struct** (atau **class**) yang mengelompokkan data dan fungsi-fungsi terkait menjadi satu unit.
 
 **Contoh ADT Mahasiswa:**
 ```cpp
@@ -159,7 +159,7 @@ float hitungRata(Mahasiswa m) {  // Menerima salinan
 ```
 - Digunakan untuk operasi yang hanya membaca data
 - Tidak mengubah data asli
-- Overhead: membuat salinan data
+- Membuat salinan data
 
 **Pass by Reference:**
 ```cpp
@@ -169,7 +169,7 @@ void inputMahasiswa(Mahasiswa &m) {  // Menerima referensi
 ```
 - Digunakan untuk operasi yang memodifikasi data
 - Mengubah data asli secara langsung
-- Efisien: tidak ada overhead penyalinan
+- Lebih efisien tanpa overhead penyalinan
 
 ### 6. Keuntungan Menggunakan ADT
 
@@ -231,7 +231,7 @@ float rata2(mahasiswa m);
 #endif
 ```
 
-File mahasiswa.h ini ibarat cetak biru atau blueprint. Isinya adalah definisi dari struct mahasiswa yang punya tiga anggota: nim, nilai1, dan nilai2. Selain itu, file ini juga berisi deklarasi dua fungsi, yaitu inputMhs() dan rata2(), yang nantinya akan diimplementasikan di file lain. Penggunaan #ifndef, #define, dan #endif (dikenal sebagai header guard) berfungsi untuk mencegah compiler membaca file ini berkali-kali, yang bisa menyebabkan error.
+File mahasiswa.h adalah header file yang berisi definisi struct mahasiswa dengan tiga anggota yaitu nim, nilai1, dan nilai2. File ini juga berisi deklarasi dua fungsi inputMhs() dan rata2() yang akan diimplementasikan di file terpisah. Penggunaan #ifndef, #define, dan #endif (header guard) berfungsi untuk mencegah compiler membaca file ini berkali-kali yang dapat menyebabkan error.
 ### mahasiswa.cpp
 
 ```cpp
@@ -255,11 +255,11 @@ float rata2(mahasiswa m)
 }
 ```
 
-File ini adalah implementasi atau "dapur" dari fungsi yang sudah dideklarasikan di mahasiswa.h. Perintah #include "mahasiswa.h" nyambungin file ini ke blueprint-nya.
+File ini adalah implementasi dari fungsi yang sudah dideklarasikan di mahasiswa.h. Perintah #include "mahasiswa.h" menghubungkan file ini dengan header file.
 
-- Fungsi inputMhs bertugas untuk mengisi data ke dalam struct mahasiswa. Parameter mahasiswa &m menggunakan pass-by-reference (ditandai dengan &), artinya setiap perubahan pada m di dalam fungsi ini akan langsung mengubah variabel asli yang dikirim dari program utama.
+- Fungsi inputMhs bertugas mengisi data ke dalam struct mahasiswa. Parameter mahasiswa &m menggunakan pass-by-reference (ditandai dengan &), artinya setiap perubahan pada m di dalam fungsi ini akan langsung mengubah variabel asli dari program utama.
 
-- Fungsi rata2 bertugas menghitung rata-rata dari nilai1 dan nilai2. Hasilnya dikembalikan sebagai float supaya perhitungannya bisa menghasilkan angka desimal.
+- Fungsi rata2 bertugas menghitung rata-rata dari nilai1 dan nilai2. Hasilnya dikembalikan sebagai float agar perhitungan dapat menghasilkan angka desimal.
 ### main.cpp
 
 ```cpp
@@ -277,7 +277,7 @@ int main()
 }
 ```
 
-File main.cpp ini adalah program utama yang bertindak sebagai "pengguna" dari ADT mahasiswa. Di sini, kita membuat sebuah variabel bernama mhs dengan tipe mahasiswa. Selanjutnya, fungsi inputMhs(mhs) dipanggil untuk mengisi data ke variabel mhs. Terakhir, cout menampilkan hasil perhitungan dari fungsi rata2(mhs) ke layar.
+File main.cpp adalah program utama yang menggunakan ADT mahasiswa. Program membuat variabel bernama mhs dengan tipe mahasiswa, kemudian memanggil fungsi inputMhs(mhs) untuk mengisi data. Terakhir, program menampilkan hasil perhitungan dari fungsi rata2(mhs) ke layar.
 ### Output Code
 ![Output](output/Output_Guided_Modul3.png)
 
@@ -341,7 +341,7 @@ int main() {
 ```
 ### Output Code
 ![Output](output/Output_Unguided1_Modul3.png)
-Program ini dirancang untuk mengelola data nilai mahasiswa. Pertama, sebuah struct bernama Mahasiswa didefinisikan untuk membungkus semua data terkait (nama, NIM, dan nilai-nilai) agar lebih terstruktur. Terdapat juga fungsi hitungNilaiAkhir() yang terpisah, khusus untuk menghitung nilai akhir berdasarkan bobot yang ditentukan. Di dalam fungsi main(), program akan menanyakan berapa jumlah mahasiswa yang akan diinput. Kemudian, program melakukan perulangan untuk meminta data setiap mahasiswa. Setelah semua data terisi, nilai akhir untuk setiap mahasiswa dihitung menggunakan fungsi yang telah dibuat. Terakhir, program akan menampilkan kembali seluruh data mahasiswa beserta nilai akhir yang sudah dihitung.
+Program ini mengelola data nilai mahasiswa dengan menggunakan struct Mahasiswa untuk menyimpan data nama, NIM, dan nilai-nilai secara terstruktur. Fungsi hitungNilaiAkhir() digunakan untuk menghitung nilai akhir berdasarkan bobot yang ditentukan. Di dalam fungsi main(), program meminta input jumlah mahasiswa, kemudian melakukan perulangan untuk mengisi data setiap mahasiswa. Setelah semua data terisi, nilai akhir dihitung menggunakan fungsi tersebut. Terakhir, program menampilkan seluruh data mahasiswa beserta nilai akhir yang sudah dihitung.
 
 2. Buatlah ADT pelajaran sebagai berikut di dalam file “pelajaran.h”:
 
@@ -430,9 +430,9 @@ int main() {
 ### Output Code
 ![Output](output/Output_Unguided2_Modul3.png)
 Program ini mendemonstrasikan penerapan Abstract Data Type (ADT) dengan memisahkan kode ke dalam tiga file:
-1. pelajaran.h (Header File): Berisi definisi struct pelajaran (yang menyimpan nama dan kode mapel) serta deklarasi fungsi create_pelajaran() dan prosedur tampil_pelajaran(). File ini berfungsi sebagai "kontrak" atau interface dari ADT.
-2. pelajaran.cpp (Implementation File): Berisi kode implementasi dari fungsi dan prosedur yang dideklarasikan di file header. Fungsi create_pelajaran() digunakan untuk membuat objek pelajaran baru, sementara tampil_pelajaran() digunakan untuk mencetak datanya ke layar.
-3. main.cpp (Driver File): Program utama yang menggunakan ADT pelajaran. Di sini, kita mendefinisikan nama dan kode pelajaran, lalu memanggil create_pelajaran() untuk membuat objeknya, dan terakhir memanggil tampil_pelajaran() untuk menampilkannya.
+1. pelajaran.h (Header File): Berisi definisi struct pelajaran yang menyimpan nama dan kode mapel, serta deklarasi fungsi create_pelajaran() dan prosedur tampil_pelajaran(). File ini berfungsi sebagai "kontrak" atau interface dari ADT.
+2. pelajaran.cpp (Implementation File): Berisi implementasi dari fungsi dan prosedur yang dideklarasikan di file header. Fungsi create_pelajaran() digunakan untuk membuat objek pelajaran baru, sementara tampil_pelajaran() mencetak datanya ke layar.
+3. main.cpp (Driver File): Program utama yang menggunakan ADT pelajaran. Program mendefinisikan nama dan kode pelajaran, memanggil create_pelajaran() untuk membuat objeknya, kemudian memanggil tampil_pelajaran() untuk menampilkannya.
 
 
 3. Buatlah program dengan ketentuan :
@@ -501,19 +501,19 @@ int main() {
 ### Output Code
 ![Output](output/Output_Unguided3_Modul3.png)
 Program ini mendemonstrasikan operasi pada matriks 3x3 dan variabel pointer.
-- Struktur Matriks digunakan untuk membungkus array 2D, membuatnya lebih mudah dikelola sebagai satu unit data.
-- Fungsi tampilMatriks() dibuat untuk mencetak seluruh elemen matriks ke layar.
-- Fungsi tukarElemen() berfungsi untuk menukar nilai satu elemen spesifik (ditentukan oleh baris dan kolom) antara dua matriks.
-- Fungsi tukarNilaiPointer() berfungsi untuk menukar nilai dari dua variabel integer dengan mengaksesnya melalui alamat memori (pointer).
-Di dalam main(), program menginisialisasi dua matriks (M1 dan M2) dan dua variabel integer (nilaiA dan nilaiB) beserta pointernya. Kemudian, program menampilkan kondisi awal, melakukan penukaran elemen pada posisi [1][1] antar matriks, dan juga menukar nilai variabel melalui pointer, lalu menampilkan hasilnya untuk menunjukkan bahwa semua fungsi berjalan sesuai harapan.
+- Struktur Matriks digunakan untuk membungkus array 2D agar lebih mudah dikelola sebagai satu unit data.
+- Fungsi tampilMatriks() digunakan untuk mencetak seluruh elemen matriks ke layar.
+- Fungsi tukarElemen() berfungsi menukar nilai satu elemen spesifik (ditentukan oleh baris dan kolom) antara dua matriks.
+- Fungsi tukarNilaiPointer() berfungsi menukar nilai dari dua variabel integer melalui alamat memori (pointer).
+Di dalam main(), program menginisialisasi dua matriks (M1 dan M2) dan dua variabel integer (nilaiA dan nilaiB) beserta pointernya. Program menampilkan kondisi awal, melakukan penukaran elemen pada posisi [1][1] antar matriks, menukar nilai variabel melalui pointer, kemudian menampilkan hasilnya.
 
 ## Kesimpulan
 
 Praktikum Modul 3 tentang Abstract Data Type (ADT) telah memberikan pemahaman mendalam tentang konsep fundamental dalam pemrograman terstruktur dan berorientasi objek. Beberapa kesimpulan penting yang dapat diambil:
 
-1. **Konsep ADT**: Abstract Data Type adalah paradigma pemrograman yang memisahkan spesifikasi dari implementasi. ADT mendefinisikan "apa yang dapat dilakukan" (operasi) tanpa mengekspos "bagaimana cara melakukannya" (implementasi detail). Pemisahan ini menciptakan abstraksi yang kuat dan membuat kode lebih mudah dipahami dan dikelola.
+1. **Konsep ADT**: Abstract Data Type adalah paradigma pemrograman yang memisahkan spesifikasi dari implementasi. ADT mendefinisikan "apa yang dapat dilakukan" (operasi) tanpa mengekspos "bagaimana cara melakukannya" (implementasi detail), sehingga menciptakan abstraksi yang kuat dan membuat kode lebih mudah dipahami serta dikelola.
 
-2. **Prinsip Encapsulation**: Enkapsulasi adalah inti dari ADT. Dengan menyembunyikan detail internal dan hanya mengekspos interface publik, ADT memberikan perlindungan terhadap akses langsung ke data internal. Ini mencegah penggunaan yang tidak sesuai dan memudahkan maintenance kode.
+2. **Prinsip Encapsulation**: Enkapsulasi adalah inti dari ADT yang menyembunyikan detail internal dan hanya mengekspos interface publik. ADT memberikan perlindungan terhadap akses langsung ke data internal sehingga mencegah penggunaan yang tidak sesuai dan memudahkan maintenance kode.
 
 3. **Struktur Organisasi File**: Praktikum ini mendemonstrasikan best practice dalam mengorganisir kode ADT menjadi tiga file terpisah:
    - **Header file (.h)**: Deklarasi interface (kontrak)
@@ -522,17 +522,17 @@ Praktikum Modul 3 tentang Abstract Data Type (ADT) telah memberikan pemahaman me
    
    Pemisahan ini meningkatkan modularitas dan memudahkan kolaborasi tim dalam pengembangan software.
 
-4. **Penggunaan Struct**: Struct dalam C++ adalah cara efektif untuk mengimplementasikan ADT sederhana. Struct mengelompokkan data yang saling terkait menjadi satu unit logis, membuat kode lebih terstruktur dan mudah dipahami. Contoh ADT Mahasiswa dan Pelajaran menunjukkan bagaimana data dan operasi dapat dikapsulasi dengan baik.
+4. **Penggunaan Struct**: Struct dalam C++ adalah cara efektif untuk mengimplementasikan ADT sederhana dengan mengelompokkan data yang saling terkait menjadi satu unit logis. Hal ini membuat kode lebih terstruktur dan mudah dipahami, seperti yang ditunjukkan pada contoh ADT Mahasiswa dan Pelajaran.
 
-5. **Pass by Reference**: Pemahaman tentang pass by reference (&) sangat penting dalam ADT. Parameter by reference memungkinkan fungsi untuk memodifikasi data asli tanpa overhead penyalinan data. Ini sangat berguna untuk operasi input dan modifikasi data dalam ADT.
+5. **Pass by Reference**: Pemahaman tentang pass by reference (&) sangat penting dalam ADT karena memungkinkan fungsi memodifikasi data asli tanpa overhead penyalinan data. Ini sangat berguna untuk operasi input dan modifikasi data dalam ADT.
 
 6. **Header Guards**: Penggunaan `#ifndef`, `#define`, dan `#endif` (header guards) adalah praktik penting untuk mencegah multiple inclusion yang dapat menyebabkan error kompilasi. Setiap header file harus memiliki header guard yang unik.
 
-7. **Modularitas dan Reusability**: ADT yang well-designed dapat digunakan kembali di berbagai program tanpa modifikasi. Contohnya, ADT Pelajaran dapat digunakan dalam sistem akademik, perpustakaan, atau aplikasi pendidikan lainnya dengan minimal atau tanpa perubahan.
+7. **Modularitas dan Reusability**: ADT yang dirancang dengan baik dapat digunakan kembali di berbagai program tanpa modifikasi. Contohnya, ADT Pelajaran dapat digunakan dalam sistem akademik, perpustakaan, atau aplikasi pendidikan lainnya dengan minimal atau tanpa perubahan.
 
-8. **Operasi pada Data Kompleks**: Unguided soal 3 mendemonstrasikan bagaimana ADT dapat digunakan untuk operasi pada data kompleks seperti matriks 2D. Dengan membungkus array 2D dalam struct Matriks, operasi seperti tampil dan tukar menjadi lebih terorganisir dan mudah dipanggil.
+8. **Operasi pada Data Kompleks**: Unguided soal 3 mendemonstrasikan bagaimana ADT dapat digunakan untuk operasi pada data kompleks seperti matriks 2D. Dengan membungkus array 2D dalam struct Matriks, operasi seperti tampil dan tukar menjadi lebih terorganisir dan mudah digunakan.
 
-9. **Separation of Concerns**: ADT menerapkan prinsip separation of concerns, dimana setiap komponen memiliki tanggung jawab yang jelas:
+9. **Separation of Concerns**: ADT menerapkan prinsip separation of concerns dimana setiap komponen memiliki tanggung jawab yang jelas:
    - Struct untuk mendefinisikan struktur data
    - Fungsi untuk operasi-operasi spesifik
    - Main untuk logika aplikasi
@@ -545,11 +545,11 @@ Praktikum Modul 3 tentang Abstract Data Type (ADT) telah memberikan pemahaman me
     - **Linked List** (daftar berantai) dengan operasi insert/delete
     - **Tree** (pohon) dengan operasi traversal
     
-    Semua struktur data ini dibangun dengan prinsip ADT yang sama.
+    Semua struktur data tersebut dibangun dengan prinsip ADT yang sama.
 
-11. **Information Hiding**: Salah satu keuntungan terbesar ADT adalah information hiding. Pengguna ADT tidak perlu (dan tidak boleh) mengetahui bagaimana data disimpan di memori atau bagaimana algoritma diimplementasikan. Mereka hanya perlu tahu operasi apa yang tersedia dan bagaimana menggunakannya.
+11. **Information Hiding**: Salah satu keuntungan terbesar ADT adalah information hiding dimana pengguna tidak perlu (dan tidak boleh) mengetahui bagaimana data disimpan di memori atau bagaimana algoritma diimplementasikan. Pengguna hanya perlu tahu operasi apa yang tersedia dan bagaimana menggunakannya.
 
-12. **Flexibility dalam Implementasi**: Dengan ADT, implementasi internal dapat diubah (misalnya dari array ke linked list) tanpa mempengaruhi kode yang menggunakan ADT tersebut, selama interface tetap konsisten. Ini memberikan fleksibilitas besar dalam optimasi dan perbaikan kode.
+12. **Flexibility dalam Implementasi**: Dengan ADT, implementasi internal dapat diubah (misalnya dari array ke linked list) tanpa mempengaruhi kode yang menggunakan ADT tersebut selama interface tetap konsisten. Ini memberikan fleksibilitas besar dalam optimasi dan perbaikan kode.
 
 Penerapan konsep ADT secara konsisten akan menghasilkan kode yang lebih profesional, mudah dipelihara, dan scalable. Pemahaman ADT sangat penting tidak hanya untuk mata kuliah struktur data, tetapi juga untuk pengembangan software secara umum, terutama dalam paradigma Object-Oriented Programming (OOP).
 
