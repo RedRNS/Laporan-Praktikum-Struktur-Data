@@ -3,11 +3,11 @@
 <p align="center">Renisa Assyifa Putri - 103112400123</p>
 
 ## Dasar Teori
-Rekursi merupakan sebuah teknik pemrograman di mana sebuah fungsi memanggil dirinya sendiri untuk menyelesaikan suatu masalah secara berulang. Pendekatan ini menawarkan keuntungan berupa kode yang lebih mudah dibaca (readability), terstruktur dalam modul-modul kecil (modularity), dan efisien karena dapat digunakan kembali (reusability). Agar fungsi rekursif dapat berjalan dengan benar dan tidak terjebak dalam perulangan tak terbatas (infinite loop), diperlukan dua komponen kunci: base case sebagai kondisi penghenti, dan recursive step yang melakukan pemanggilan diri sendiri hingga kondisi berhenti tercapai. Walaupun teknik ini sering menghasilkan kode yang lebih ringkas, rekursi memiliki kelemahan berupa penggunaan memori yang lebih besar untuk stack activation record dan waktu pemrosesan yang cenderung lebih lambat dibandingkan metode iteratif (looping biasa).
+Rekursi adalah teknik pemrograman yang memungkinkan suatu fungsi untuk memanggil dirinya sendiri dalam menyelesaikan permasalahan secara berulang. Teknik ini memiliki beberapa keunggulan, antara lain menghasilkan kode yang lebih mudah dibaca (readability), memiliki struktur modular, dan dapat digunakan kembali (reusability). Supaya fungsi rekursif berjalan dengan baik tanpa mengalami infinite loop, dibutuhkan dua komponen penting yaitu base case yang berfungsi sebagai kondisi pemberhentian, dan recursive step yang melakukan pemanggilan fungsi itu sendiri sampai base case terpenuhi. Meski menghasilkan kode yang lebih ringkas, rekursi membutuhkan memori stack yang lebih besar dan waktu eksekusi yang lebih lama jika dibandingkan dengan pendekatan iteratif.
 
-Dalam struktur data, Tree (pohon) didefinisikan sebagai struktur non-linear yang bersifat hirarkis, digambarkan sebagai graf terhubung yang tidak mengandung sirkuit. Elemen paling atas dalam tree disebut Root (akar) yang tidak memiliki pendahulu, sedangkan elemen lainnya memiliki tepat satu induk (parent). Istilah-istilah kunci dalam tree meliputi Leaf (daun) untuk node yang tidak memiliki anak, Internal Nodes untuk simpul cabang, serta Height (tinggi) atau Depth untuk mengukur kedalaman maksimum dari struktur tersebut. Salah satu varian populer adalah Binary Tree, di mana setiap node dibatasi maksimal memiliki dua percabangan (anak).
+Tree atau pohon dalam struktur data merupakan struktur non-linear yang memiliki karakteristik hirarkis, dapat direpresentasikan sebagai graf terhubung tanpa sirkuit. Node paling atas disebut Root (akar) yang tidak memiliki parent, sementara node lainnya memiliki satu parent. Beberapa istilah penting dalam tree antara lain Leaf (daun) yaitu node tanpa child, Internal Nodes untuk node yang memiliki child, serta Height (tinggi) atau Depth untuk mengukur level maksimum dari tree tersebut. Salah satu jenis tree yang sering digunakan adalah Binary Tree, yaitu tree yang setiap node-nya maksimal memiliki dua child.
 
-Implementasi spesifik dari Binary Tree yang banyak digunakan adalah Binary Search Tree (BST). BST menerapkan aturan pengurutan data yang ketat: nilai pada simpul anak kiri (Left Child) harus selalu lebih kecil dari induknya, sedangkan nilai pada simpul anak kanan (Right Child) harus lebih besar. Struktur ini sangat menguntungkan untuk efisiensi operasi pencarian (searching), penyisipan (insertion), dan penghapusan (deletion). Untuk membaca data dalam tree, terdapat tiga metode traversal utama: Pre-order (mencetak Root dahulu, lalu Kiri, kemudian Kanan), In-order (Kiri, Root, Kanan), dan Post-order (Kiri, Kanan, baru Root).
+Binary Search Tree (BST) adalah implementasi khusus dari Binary Tree yang menerapkan aturan pengurutan tertentu. Pada BST, nilai di Left Child harus lebih kecil dari nilai parent-nya, sedangkan nilai di Right Child harus lebih besar. Dengan aturan ini, operasi pencarian (searching), penyisipan (insertion), dan penghapusan (deletion) dapat dilakukan dengan efisien. Untuk membaca seluruh data dalam tree, ada tiga metode traversal yang umum digunakan: Pre-order (Root, Kiri, Kanan), In-order (Kiri, Root, Kanan), dan Post-order (Kiri, Kanan, Root).
 
 ## Guided
 
@@ -208,7 +208,7 @@ int main()
 
 #### Penjelasan Guided 1
 
-Program di atas menyajikan implementasi Binary Search Tree (BST) secara utuh dalam satu file (single-file implementation). Fitur yang disediakan mencakup operasi CRUD (Create, Read, Update, Delete) secara lengkap. Keunggulan dari kode ini adalah penanganan logika yang detail, mulai dari pencarian nilai (`search()`), mekanisme pembaruan data yang menggabungkan proses hapus dan sisip ulang (`update()`), hingga algoritma penghapusan node (`hapus()`) yang secara adaptif menangani berbagai skenario (node tanpa anak, satu anak, atau dua anak).
+Program ini mengimplementasikan Binary Search Tree (BST) secara lengkap dalam satu file. Program menyediakan operasi CRUD (Create, Read, Update, Delete) yang dapat digunakan untuk mengelola data dalam struktur tree. Beberapa fitur utama yang tersedia meliputi fungsi `search()` untuk mencari nilai tertentu, fungsi `update()` yang menggabungkan proses penghapusan dan penyisipan kembali data baru, serta fungsi `hapus()` yang dapat menangani berbagai kondisi penghapusan node baik itu node tanpa child, node dengan satu child, maupun node dengan dua child.
 
 ## Unguided
 
@@ -376,9 +376,9 @@ int main() {
 
 #### Penjelasan Soal 1 - 3
 
-Kode program ini mendemonstrasikan implementasi Binary Search Tree (BST) dengan pendekatan modular, di mana struktur kode dipecah menjadi tiga bagian: file header (`.h`), file implementasi fungsi (`.cpp`), dan program utama (`main.cpp`). Fokus utama program ini adalah operasi-operasi esensial pada BST, seperti penyisipan node (`tambahData()`), serta tiga jenis metode penelusuran data (traversal): `cetakInOrder()`, `cetakPreOrder()`, dan `cetakPostOrder()`.
+Program ini merupakan implementasi Binary Search Tree (BST) dengan struktur modular yang dibagi menjadi tiga file terpisah, yaitu file header (`bstree.h`), file implementasi (`bstree.cpp`), dan file program utama (`main.cpp`). Program berfokus pada operasi-operasi dasar BST seperti penambahan node melalui fungsi `tambahData()`, dan tiga metode traversal yaitu `cetakInOrder()`, `cetakPreOrder()`, dan `cetakPostOrder()`.
 
-Selain itu, terdapat fungsi statistik yang berguna untuk menganalisis properti tree, seperti `cariKedalaman()` untuk menghitung kedalaman maksimum (depth/height), `hitungTotalSimpul()` untuk menghitung total jumlah node, dan `jumlahkanSemuaData()` untuk menjumlahkan seluruh nilai data yang ada dalam tree. Program ini menggunakan pendekatan rekursif untuk semua operasi traversal dan perhitungan statistik.
+Selain operasi dasar tersebut, program juga menyediakan fungsi-fungsi untuk menganalisis properti tree. Fungsi `cariKedalaman()` digunakan untuk menghitung tinggi maksimum tree, fungsi `hitungTotalSimpul()` menghitung jumlah seluruh node yang ada, dan fungsi `jumlahkanSemuaData()` menjumlahkan semua nilai yang tersimpan dalam tree. Semua fungsi traversal dan perhitungan menggunakan teknik rekursif dalam implementasinya.
 
 ## Referensi
 
